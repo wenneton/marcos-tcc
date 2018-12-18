@@ -1,35 +1,75 @@
 \documentclass[12pt]{article}
 
 \usepackage{sbc-template}
-\usepackage{graphicx,url}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,}}
+
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
-\usepackage{titlesec}
-\usepackage{etoolbox}
 
-\makeatletter
-\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
-\patchcmd{\ttlh@hang}{\noindent}{}{}{}
-\makeatother
+\usepackage[alf]{abntex2cite}
+
+%% DEFINIÇÃO DE QUADRO
+\usepackage{mdframed}
+\usepackage{trivfloat}
+\usepackage{blindtext}
+\trivfloat{quadro}
+\floatstyle{plaintop} %Força posição da legenda para o topo
+\restylefloat{quadro} %Força posição da legenda para o topo
+\renewcommand{\quadroname}{Quadro}
+\renewcommand{\listquadroname}{Lista de quadros} %Forçar texto na lista de quadros
+
+%%%%%%%%%%%%%% Python %%%%%%%%%%%%
+\usepackage{textcomp}
+\usepackage{listings}
+\include{./config-python}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Comentários
+\usepackage{xcolor}
+\definecolor{lightblue}{RGB}{0,191,255}
+\setlength{\marginparwidth}{2cm}
+\usepackage[textsize=tiny,backgroundcolor=lightblue,linecolor=lightblue]{todonotes}
+
+
+%%%%%% Subfiguras -- elloa
+\usepackage[bf,sf,footnotesize,indent,justification=centering]{caption}
+\usepackage[caption=true,font=footnotesize]{subfig}
+\captionsetup[subfigure]{justification=centering,labelfont={bf,sf},textfont={bf,sf,footnotesize},singlelinecheck=off,justification=centering}
+\captionsetup[figure]{justification=centering,labelfont={bf,sf},textfont={bf,sf,footnotesize},singlelinecheck=off}
+\captionsetup[table]{justification=centering,labelfont={bf,sf},textfont={bf,sf,footnotesize},singlelinecheck=off,justification=centering}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \sloppy
 
 \title{Trabalho de Conclusão de Curso 1}
 
-\author{Marcos Wenneton Araújo\\ 
+\author{Marcos Wenneton Araújo\\
 Orientadora: Elloá B. Guedes}
 
-
-\address{Núcleo de Computação \\
+\address{Laboratório de Sistemas Inteligentes\\Grupo de Pesquisas em Sistemas Inteligentes\\
 Escola Superior de Tecnologia\\
-Universidade do Estado do Amazonas (UEA) \\ 
-Av. Darcy Vargas, 1200 -- Manaus -- AM -- Brasil
-\email{\{mwvda.eng, ebgcosta\}@uea.edu.br}}
+Universidade do Estado do Amazonas\\
+Av. Darcy Vargas, 1200, Manaus, AM
+  \email{\{mwvda.eng, ebgcosta\}@uea.edu.br}
+}
 
-\begin{document} 
+
+
+\begin{document}
 
 \maketitle
-
+\pagestyle{plain} %% Não remover, introduz numeração de páginas -- elloa
 
 \section{Introdução} \label{sec:introducao}
 
@@ -64,7 +104,7 @@ Testando referências \cite{knuth:84},
 \cite{boulic:91}, and \cite{smith:99}.
 
 
-\bibliographystyle{sbc}
+
 \bibliography{sbc-template}
 
 \end{document}
