@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+\sloppy
+
+\title{Trabalho de Conclusão de Curso 1\\ Papers and Abstracts}
+
+\author{Marcos Wenneton Araújo\\ 
+Orientadora: Elloá B. Guedes}
+
+
+\address{Núcleo de Computação \\
+Escola Superior de Tecnologia\\
+Universidade do Estado do Amazonas (UEA) \\ 
+Av. Darcy Vargas, 1200 -- Manaus -- AM -- Brasil
+\email{\{mwvda.eng, ebgcosta\}@uea.edu.br}}
+
+\begin{document} 
+
+\maketitle
+
+
+\section{Introdução} \label{sec:introducao}
+
+\subsection{Objetivos}
+
+\subsection{Justificativa}
+
+\subsection{Metodologia}
+
+\subsection{Cronograma}
+
+\section{Fundamentação Teórica} \label{sec:fund-teor}
+
+
+
+\section{Trabalhos Relacionados} \label{sec:trab-rel}
+
+
+
+\section{Solução Proposta} \label{sec:sol-prop}
+
+\subsection{Visão Geral da solução proposta}
+
+\subsection{-haverá mais-}
+
+\section{Resultados Parciais} \label{sec:res-parc}
+
+
+\section{Considerações Parciais} \label{sec:cons-parc}
+
+Testando referências \cite{knuth:84},
+\cite{boulic:91}, and \cite{smith:99}.
+
+
+\bibliographystyle{sbc}
+\bibliography{sbc-template}
+
+\end{document}
