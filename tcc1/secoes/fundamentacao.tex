@@ -1,19 +1,50 @@
+A fundamentação teórica para a elaboração deste trabalho consiste em conceitos ligados ao \emph{Machine Learning}. Primeiramente, os conceitos gerais desta área serão apresentados na Seção \ref{subsec:ml}, seguidos pelas características das Redes Neurais Artificais na Seção \ref{subsec:rna}. As definições elementares da técnica de \emph{Machine Learning} conhecida como \emph{Deep Learning} são apresentadas na Seção \ref{subsec:dl}. A Seção \ref{subsubsec:cnns} discorre sobre as características das Redes Neurais Convolucionais, prosseguindo até a Seção \ref{subsubsec:arq-cnns} onde são apresentadas algumas de suas arquiteturas canônicas. Por fim, a Seção \ref{subsubsec:transfer} contém informações sobre a técnica conhecida como \emph{Transfer Learning}, um conceito emergente utilizado em aplicações de \emph{Deep Learning}.
+
 %%%%%
 
 \subsection{\emph{Machine Learning}}
+\label{subsec:ml}
+
+\emph{Machine Learning} (ML), também conhecido como Aprendizado de Máquina, é o estudo sistemático de algoritmos e sistemas que melhoram seu conhecimento ou desempenho com o uso da experiência \cite{flach}. Em 1959, o pioneiro em jogos de computador Arthur Samuels definiu \emph{Machine Learning} como um ``campo de estudos que dá aos computadores a habilidade de aprender sem serem explicitamente programados'' \cite{simon}. De acordo com Murphy \cite{murphy} , \emph{Machine Learning} pode ser definido como um conjunto de métodos que podem detectar padrões em dados automaticamente e, em seguida, utilizar os padrões detectados para predizer dados futuros, ou para realizar outros tipos de decisão sob algum tipo de incerteza.
+
+O \emph{Machine Learning} é comumente dividido em três tipos principais de aprendizado, chamados de supervisionado, não-supervisionado e semi-supervisionado. No caso dos algoritmos de aprendizado supervisionado, o objetivo é aprender um mapeamento de entradas para saídas, dado um conjunto rotulado de pares de entradas e saídas. No aprendizado não supervisionado, o algoritmo é apresentado somente aos dados de entrada, e o seu propósito é encontrar padrões significativos nos mesmos. Este problema não é bem definido, porque geralmente não é especificado o tipo de padrão que deve ser encontrado nos dados. Além disso, diferentemente do aprendizado supervisionado, não existe nenhuma métrica de erro óbvia para utilizar. O aprendizado semi-supervisionado, por sua vez, normalmente combina uma pequena quantidade de dados rotulados com uma grande quantidade de dados não rotulados para criar um classificador próprio. Em alguns casos, a abordagem de aprendizagem semi-supervisionada pode ser de grande valor prático. \cite{khan}
+
+Como mostrado na Figura \ref{fig:tasks}, utilizar os atributos corretos para construir os modelos certos que conquistam determinadas tarefas é a essência de ML. Atributos podem ser definidos como uma ``linguagem'' que descreve os objetos relevantes no domínio do problema. Tendo a representação característica adequada dos objetos do domínio, normalmente, não é necessário retornar ao objeto em si, e é por isso que os atributos têm um papel importante em ML. A tarefa é uma representação abstrata de um problema que deseja-se resolver levando em consideração os objetos do domínio. Dentre as tarefas de aprendizado supervisionado mais utilizadas estão a tarefa de classificação binária ou multiclasse e a tarefa de regressão. Um modelo, por sua vez, é a saída produzida por dados de treinamento aplicados em determinado algoritmo de ML \cite{flach}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=5cm]{imgs/tasks}
+\caption{Uma visão geral de como ML é utilizado para adereçar uma tarefa \cite{flach}.}
+\label{fig:tasks}
+\end{figure}
+
+
+Em uma tarefa de classificação, um algoritmo é selecionado para especificar quais das $k$ categorias possíveis uma entrada pertence. Para resolver essa tarefa, o algoritmo de aprendizado normalmente produz uma função $f : I\!R^n \rightarrow {1,...,k}$. Quando $y = f(x)$, o modelo denomina uma entrada descrita com o vetor $x$ para uma categoria identificado por um valor numérico $y$ \cite{goodfellow}. Alguns exemplos de tarefa de classificação são a detecção de faces em imagens, a determinação do gênero do indíviduo nessas imagens, a verificação da espécie de uma planta, entre outros.
+
+Quanto à tarefa de regressão, é solicitado a um programa a predição de um valor numérico a partir de uma entrada. Desta forma, o algoritmo de aprendizado é proposto a retornar uma função $f : I\!R^n \rightarrow I\!R$ \cite{goodfellow}. Algumas tarefas de regressão podem ser, por exemplo, a determinação do valor de uma corrida de táxi, a identificação da idade de um indivíduo em uma imagem, prever o preço de uma casa baseado nos dados de casas vendidas anteriormente, etc.
+
+Dentre os tipos de modelos existentes, podemos citar os geométricos, probabilísticos e lógicos. Um modelo geométrico é construído diretamente em função do espaço, utilizando-se de conceitos geométricos como linhas, planos e distâncias. Como exemplos de modelos geométricos temos a regressão linear, o \emph{perceptron} e, em consequência, as redes neurais artificiais. Nos modelos probabilísticos, como o classificador Bayesiano, a questão principal é modelar a relação entre os dados de entrada e saída assumindo que existe algum processo aleatório implícito que produz os valores para essas variáveis, de acordo com uma distribuição de probabilidade bem definida, porém desconhecida. Um modelo lógico, em contrapartida, é o mais naturalmente algorítmico, considerando a capacidade de ser facilmente transformado em regras que podem ser entendidas por seres humanos. Dentre os modelos lógicos estão as árvores de decisão, onde as suas folhas são rotuladas para caracterizar o tipo de tarefa associado ao modelo \cite{flach}.
+
+Dentre os modelos geométricos, as redes neurais artificiais têm demonstrado grande desempenho em diversas áreas. Aplicações de \emph{Deep Learning} para detecção de padrões em imagens e reconhecimento de voz, por exemplo, utilizam-se desses modelos para a obtenção de resultados relevantes. Tomando isto e levando em consideração o contexto deste trabalho, as próximas seções apresentadas abordam significativamente estes conceitos.
 
 %%%%%
 
 \subsection{Redes Neurais Artificiais}
+\label{subsec:rna}
 
 \subsubsection{\emph{Multilayer Perceptron}}
+\label{subsubsec:mlp}
 
 %%%%%
 
 \subsection{\emph{Deep Learning}}
+\label{subsec:dl}
 
 \subsubsection{Redes Neurais Convolucionais}
+\label{subsubsec:cnns}
 
 \subsubsection{Arquiteturas canônicas de Redes Neurais Convolucionais}
+\label{subsubsec:arq-cnns}
 
 \subsubsection{\emph{Transfer Learning}}
+\label{subsubsec:transfer}
