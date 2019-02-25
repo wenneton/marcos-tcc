@@ -43,10 +43,15 @@ A idealização dos neurônios artificiais foi inspirada nos neurônios biológi
 \label{fig:sinapse}
 \end{figure}
 
-% Escrever um páragrafo descrevendo o neurônio artificial.
+
 Um neurônio biológico dispara quando a soma dos impulsos que ele recebe ultrapassa o seu limiar de excitação, denominado \emph{threshold}. O corpo do neurônio é controlado por um mecanismo simples que faz a soma dos valores $x_i w_i$ recebidos pelos seus dendritos e decide se o neurônio deve ou não disparar, comparando a soma obtida com o \emph{threshold} do neurônio. No modelo de neurônio artificial proposto por McCulloch e Pitts (MCP) em \cite{mcculloch}, a ativação do neurônio é obtida através da aplicação de uma \emph{função de ativação}, que ativa ou não a saída, dependendo do valor da soma ponderada das suas entradas, como é mostrado na Figura \ref{fig:mcculloch} \cite{braga}.
 
-% Inserir a figura do neurônio artificial aqui.
+\begin{figure}[H]
+\centering
+\includegraphics[height=6cm]{imgs/neuronio-artificial}
+\caption{Estrutura de um neurônio artificial. Fonte: \cite{haykin}}
+\label{fig:neuronio-artificial}
+\end{figure}
 
 Uma função de ativação $f$ é responsável por determinar a saída $y$ do neurônio, a partir das entradas $x = x_1, ..., x_n$ e pesos $w = w_1, ..., w_n$. No caso do neurônio MCP, a funçao de ativação é do tipo degrau deslocada e é comparada ao seu \emph{threshold} $\theta$, como mostrado nas Equações \ref{eq:soma-ponderada} e \ref{eq:degrau}.
 
@@ -65,11 +70,11 @@ f(\phi) = \left\{
 \right.
 \end{equation}
 
-Para a correta funcionalidade de certos algoritmos em RNAS, como o de \emph{backpropagation} em redes \emph{multilayer perceptron}, sabe-se que a escolha da função de ativação deve considerar funções contínuas e diferenciáveis \cite{haykin}. As funções identidade, sigmóide, tangente hiperbólica, retificada linear (ReLU) ou a softmax, são as mais utilizadas no processo de construção de RNAs. Algumas características dessas funcões estão apresentadas na Figura \ref{fig:activation}.
+Para a correta funcionalidade de certos algoritmos em RNAS, como o de \emph{backpropagation} em redes \emph{multilayer perceptron}, sabe-se que a escolha da função de ativação deve considerar funções contínuas e diferenciáveis \cite{haykin}. As funções identidade, sigmóide, tangente hiperbólica, retificada linear (ReLU) e \emph{softmax}, são as mais utilizadas no processo de construção de RNAs. Algumas propriedades dessas funcões estão apresentadas na Figura \ref{fig:activation}.
 
 % Inserir as funções de ativação aqui.
 
-Visando a melhoria do neurônio MCP, Frank Rosenblatt desenvolveu o modelo \emph{Perceptron} em 1957 \cite{Rosenblatt}. Neste modelo, criou-se o primeiro conceito de aprendizagem através de RNAS, onde foi projetada uma regra de correção de erros para modificar os pesos associados a um neurônio quando suas respostas aos estímulos apresentados à rede forem erradas \cite{arbib}. Durante esse processo de adaptação, deseja-se identificar um valor $\Delta w$ a ser aplicado ao vetor de pesos $w$, para que seu valor atualizado $w(t+1)$ esteja mais próximo da solução desejada do que o valor atual $w(t)$. Para isso, definiu-se a Equação \ref{eq:aprendizado}, onde $\eta$ indica uma \emph{taxa de aprendizado}, ou a velocidade em que o vetor de pesos será atualizado, e $\hat{y}$ significa o valor previsto pela rede naquela interação. Desta forma, o modelo Perceptron adquiriu a capacidade de resolver problemas linearmente separáveis \cite{braga}.
+Em 1958, visando a melhoria do neurônio MCP, Frank Rosenblatt desenvolveu o modelo \emph{Perceptron} \cite{Rosenblatt}. Neste modelo, criou-se o primeiro conceito de aprendizagem através de neurônios artificiais, onde foi projetada uma regra de correção de erros para modificar os pesos associados a um neurônio quando suas respostas aos estímulos apresentados à rede forem erradas \cite{arbib}. Durante o processo de adaptação à resposta real, deseja-se identificar um valor $\Delta w$ a ser aplicado ao vetor de pesos $w$, para que seu valor atualizado $w(t+1)$ esteja mais próximo da solução desejada do que o valor atual $w(t)$. Para isso, definiu-se a Equação \ref{eq:aprendizado}, onde $\eta$ indica uma \emph{taxa de aprendizado}, ou a velocidade em que o vetor de pesos será atualizado, e $\hat{y}$ significa o valor previsto pela rede naquela interação. Desta forma, o modelo Perceptron adquiriu a capacidade de resolver problemas linearmente separáveis \cite{braga}.
 
 \begin{equation}
   \label{eq:aprendizado}
@@ -77,22 +82,26 @@ Visando a melhoria do neurônio MCP, Frank Rosenblatt desenvolveu o modelo \emph
 \end{equation}
 
 % Arquitetura das redes neurais.
-Como mencionado anteriormente, as RNAs possuem um grande poder de generalização, e parte disto se deve à grande diversidade de arquiteturas existentes.
+Neurônios artificiais possuem uma capacidade de generalização limitada, independentemente da função de ativação escolhida, devido a sua habilidade de resolver apenas problemas linearmente separáveis. Entretanto, a combinação desses neurônios para a formação de uma rede é capaz de resolver problemas de elevada complexidade \cite{braga}. Geralmente, identificam-se três classes fundamentais de RNAs, as \emph{feedforward} com uma única camada, as \emph{feedforward} com múltiplas camadas e as recorrentes. Numa rede do tipo \emph{feedforward}, mostrada nas Figuras \textbf{??} e \textbf{??}, existe uma camada de entrada que é projetada diretamente para uma camada de saída constituída de neurônios, e nunca ao contrário. Uma rede recorrente, por sua vez, possui conexões ponderadas dentro de uma camada e diferencia-se pela presença de pelo menos um loop de retorno a camadas anteriores \cite{haykin}.
 
-% \begin{itemize}
-% \item Comparação do neuronio artificial com o real;
-% \item História e funcionamento do neuronio artificial;
-% \item Perceptron (citar o livro do Frank Rosenblatt);
-% \item Funcionamento do Perceptron (livro do Marvin Minsky).
-% \item Pegar mais escopo do intro to deep learning no Udacity.
-% \item Funções de ativação;
-% \item Arquiteturas das redes neurais.
-% Feedforward e recurrent neural networks
-% \end{itemize}
+% Inserir imagem da topologia das redes com subfig. Haykin ou Faceli.
+
+Redes com múltiplas camadas, como na Figura \textbf{??}, caracterizam-se pela presença de pelo menos uma camada oculta. Segundo Cybenko, uma rede com uma camada oculta pode mapear qualquer função contínua, enquanto uma rede com duas camadas ocultas é suficiente para mapear qualquer função \cite{cybenko}.
 
 \subsubsection{\emph{Multilayer Perceptron}}
 \label{subsubsec:mlp}
 
+As RNAs do tipo \emph{Multilayer Perceptron} (MLP), são redes constituídas do neurônio Perceptron, \emph{feedforward} e com múltiplas camadas, sendo estas uma camada de entrada, uma ou mais camadas ocultas e uma camada de saída. A arquitetura mais comum para uma rede MLP é a completamente conectada, de forma que os neurônios de uma camada estão conectados com todos os neurônios da próxima camada \cite{faceli}.
+
+Em uma rede MLP, a função implementada por um neurônio de certa camada é uma combinação das funções realizadas pelos neurônios da camada anterior que estão conectados a ele. Na primeira camada, cada neurônio aprende uma função que define um hiperplano. Na camada seguinte, os neurônios combinam um grupo de hiperplanos, formando regiões convexas. Os neurônios da camada seguinte combinam então um subconjunto das regiões convexas em regiões de formato arbitrário \cite{faceli}. Na Figura \ref{fig:aprendizado-mlp}, tem-se uma visualização do processo ocorrido.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=6cm]{imgs/aprendizado-mlp}
+\caption{Papel exercido pelos neurônios em cada camada de uma rede MLP. Fonte: \cite{faceli}.}
+\label{fig:aprendizado-mlp}
+\end{figure}
 
 % Backpropagation
 
