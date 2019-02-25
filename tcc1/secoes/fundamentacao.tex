@@ -32,28 +32,69 @@ Dentre os modelos geométricos, as redes neurais artificiais têm demonstrado gr
 \subsection{Redes Neurais Artificiais}
 \label{subsec:rna}
 
-As \emph{Redes Neurais Artificiais} (RNAs) são uma tentativa computacional de modelar a capacidade de processamento de informação do cérebro humano \cite{rojas}. Para alcançarem um bom desempenho, as RNAs empregam uma interligação de estruturas bases chamadas de neurônios artificiais que, por sua vez, possuem pesos com valores numéricos positivos ou negativos associados a si. Uma vantagem das RNAS, é a grande capacidade de generalização, ou seja, a habilidade de produzir saídas adequadas para entradas que não estavam presente anteriormente durante sua aprendizagem \cite{haykin}.
+As \emph{Redes Neurais Artificiais} (RNAs) são uma tentativa computacional de modelar a capacidade de processamento de informação do sistema nervoso humano \cite{rojas}. Para alcançarem um bom desempenho, as RNAs empregam uma interligação de estruturas bases chamadas de neurônios artificiais que, por sua vez, possuem pesos com valores numéricos positivos ou negativos associados a si. Uma vantagem das RNAS, é a grande capacidade de generalização, ou seja, a habilidade de produzir saídas adequadas para entradas que não estavam presente anteriormente durante sua aprendizagem \cite{haykin}. As RNAs têm sido frequentemente utilizadas nas áreas de processamento de sinais, reconhecimento de padrões, medicina, reconhecimento de voz, negócios, entre outras \cite{fausett}.
 
-A idealização dos neurônios artificiais foi inspirada nos neurônios biológicos encontrados no cérebro humano. Cada neurônio biológico é composto pelo corpo celular, os dendritos e o axônio. Os dendritos têm como papel a recepção de informações, ou impulsos nervosos, de outros neurônios e submetê-las ao corpo celular, onde as informações são processadas e novos impulsos são gerados. Estes impulsos são enviados aos dendritos de outros neurônios através do axônio. O ponto de contato entre os neurônios através do axônio e os dentritos, denominado sinapse, é onde ocorre toda a troca de informação necessária para conceber uma rede neural \cite{braga}.
+A idealização dos neurônios artificiais foi inspirada nos neurônios biológicos encontrados no cérebro humano. Como mostrado na Figura \ref{fig:sinapse}, cada neurônio biológico é composto pelo corpo celular, os dendritos e o axônio. Os dendritos têm como papel a recepção das informações, ou impulsos nervosos, de outros neurônios e submetê-las ao corpo celular, onde as informações são processadas e novos impulsos são gerados. Estes impulsos são enviados aos dendritos de outros neurônios através do axônio. O ponto de contato entre os neurônios através do axônio e os dentritos, denominado sinapse, é onde ocorre toda a troca de informação necessária para conceber uma rede neural \cite{braga}.
 
-% Colocar imagem de um neurônio e da sinapse.
+\begin{figure}[H]
+\centering
+\includegraphics[height=5cm]{imgs/sinapse}
+\caption{Estrutura de um neurônio e zona de conexão funcional entre as célular (sinapse) \cite{sinapse}.}
+\label{fig:sinapse}
+\end{figure}
 
 % Escrever um páragrafo descrevendo o neurônio artificial.
+Um neurônio biológico dispara quando a soma dos impulsos que ele recebe ultrapassa o seu limiar de excitação, denominado \emph{threshold}. O corpo do neurônio é controlado por um mecanismo simples que faz a soma dos valores $x_i w_i$ recebidos pelos seus dendritos e decide se o neurônio deve ou não disparar, comparando a soma obtida com o \emph{threshold} do neurônio. No modelo de neurônio artificial proposto por McCulloch e Pitts (MCP) em \cite{mcculloch}, a ativação do neurônio é obtida através da aplicação de uma \emph{função de ativação}, que ativa ou não a saída, dependendo do valor da soma ponderada das suas entradas, como é mostrado na Figura \ref{fig:mcculloch} \cite{braga}.
 
-% O \emph{Perceptron} foi desenvolvido em 1957 por Frank Rosenblatt, que mudam com a "experiência", usando uma regra de correção de erros projetada para modificar os pesos de cada unidade de resposta quando faz respostas erradas a estímulos que são apresentados à rede. \cite{arbib}
+% Inserir a figura do neurônio artificial aqui.
+
+Uma função de ativação $f$ é responsável por determinar a saída $y$ do neurônio, a partir das entradas $x = x_1, ..., x_n$ e pesos $w = w_1, ..., w_n$. No caso do neurônio MCP, a funçao de ativação é do tipo degrau deslocada e é comparada ao seu \emph{threshold} $\theta$, como mostrado nas Equações \ref{eq:soma-ponderada} e \ref{eq:degrau}.
+
+\begin{equation}
+  \label{eq:soma-ponderada}
+  \phi(x,w) = \sum\limits_{i=1}^n x_i w_i
+\end{equation}
+
+\begin{equation}
+\label{eq:degrau}
+f(\phi) = \left\{
+\begin{array}{lr}
+  1, & \text{se } \phi > \theta\\
+  0, & \text{caso contrário}
+\end{array}
+\right.
+\end{equation}
+
+Para a correta funcionalidade de certos algoritmos em RNAS, como o de \emph{backpropagation} em redes \emph{multilayer perceptron}, sabe-se que a escolha da função de ativação deve considerar funções contínuas e diferenciáveis \cite{haykin}. As funções identidade, sigmóide, tangente hiperbólica, retificada linear (ReLU) ou a softmax, são as mais utilizadas no processo de construção de RNAs. Algumas características dessas funcões estão apresentadas na Figura \ref{fig:activation}.
+
+% Inserir as funções de ativação aqui.
+
+Visando a melhoria do neurônio MCP, Frank Rosenblatt desenvolveu o modelo \emph{Perceptron} em 1957 \cite{Rosenblatt}. Neste modelo, criou-se o primeiro conceito de aprendizagem através de RNAS, onde foi projetada uma regra de correção de erros para modificar os pesos associados a um neurônio quando suas respostas aos estímulos apresentados à rede forem erradas \cite{arbib}. Durante esse processo de adaptação, deseja-se identificar um valor $\Delta w$ a ser aplicado ao vetor de pesos $w$, para que seu valor atualizado $w(t+1)$ esteja mais próximo da solução desejada do que o valor atual $w(t)$. Para isso, definiu-se a Equação \ref{eq:aprendizado}, onde $\eta$ indica uma \emph{taxa de aprendizado}, ou a velocidade em que o vetor de pesos será atualizado, e $\hat{y}$ significa o valor previsto pela rede naquela interação. Desta forma, o modelo Perceptron adquiriu a capacidade de resolver problemas linearmente separáveis \cite{braga}.
+
+\begin{equation}
+  \label{eq:aprendizado}
+  w(t+1) = w(t) + \eta (y - \hat{y}) x(t)
+\end{equation}
+
+% Arquitetura das redes neurais.
+Como mencionado anteriormente, as RNAs possuem um grande poder de generalização, e parte disto se deve à grande diversidade de arquiteturas existentes.
 
 % \begin{itemize}
 % \item Comparação do neuronio artificial com o real;
 % \item História e funcionamento do neuronio artificial;
-% \item Funções de ativação (talvez depois);
 % \item Perceptron (citar o livro do Frank Rosenblatt);
 % \item Funcionamento do Perceptron (livro do Marvin Minsky).
-% \item Arquiteturas das redes neurais.
 % \item Pegar mais escopo do intro to deep learning no Udacity.
+% \item Funções de ativação;
+% \item Arquiteturas das redes neurais.
+% Feedforward e recurrent neural networks
 % \end{itemize}
 
 \subsubsection{\emph{Multilayer Perceptron}}
 \label{subsubsec:mlp}
+
+
+% Backpropagation
 
 %%%%%
 
@@ -62,6 +103,12 @@ A idealização dos neurônios artificiais foi inspirada nos neurônios biológi
 
 \subsubsection{Redes Neurais Convolucionais}
 \label{subsubsec:cnns}
+
+% Convolução
+% Pooling
+% Dropout
+% Arquitetura canônica
+
 
 \subsubsection{Arquiteturas canônicas de Redes Neurais Convolucionais}
 \label{subsubsec:arq-cnns}
