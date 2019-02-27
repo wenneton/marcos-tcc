@@ -103,6 +103,12 @@ Em uma rede MLP, a função implementada por um neurônio de certa camada é uma
 \label{fig:aprendizado-mlp}
 \end{figure}
 
+O algoritmo de aprendizado supervisionado mais conhecido e utilizado para treinamento das MLPs é o \emph{backpropagation}. Neste algoritmo utiliza-se as entradas e as saídas desejadas para o ajuste dos erros da rede. O treinamento ocorre em duas fases, a fase \emph{forward} e a fase \emph{backward}, em que cada fase percorre a rede em um sentido. Na fase \emph{forward}, a saída da rede é definida considerando certo padrão de entrada. A fase \emph{backward} utiliza a saída desejada e a saída fornecida pela rede para atualizar os pesos nas suas conexões \cite{braga}. O \emph{backpropagation} é simplesmente um método que utiliza o gradiente descendente para minimizar o erro quadrático total da saída calculada pela rede, na qual a derivada parcial define o ajuste dos pesos. Essa derivada mede a contribuição de cada peso no erro da rede para a classificação de dado objeto \cite{fausett, faceli}.
+
+No âmbito do cálculo, o gradiente indica o sentido e a direção para os quais devem-se mover os valores dos pesos e dos bias nas camadas de forma a se obter o maior incremento possível de perda. Porém, nas técnica de \emph{backpropagation}, queremos mudanças de peso que trarão a inclinação mais íngreme ao longo da função de erro \cite{goodfellow, kubat}.
+
+
+
 % Backpropagation
 
 %%%%%
