@@ -106,7 +106,7 @@ Neurônios artificiais possuem uma capacidade de generalização limitada, indep
 % Inserir imagem da topologia das redes com subfig. Haykin ou Faceli.
 
 \begin{figure}[h!]
-     \subfloat[\emph{Feedforwar} com uma única camada\label{subfig:singlelayer}]{%
+     \subfloat[\emph{Feedforward} com uma única camada\label{subfig:singlelayer}]{%
        \includegraphics[width=0.25\textwidth]{imgs/feedforward-single}
      }
      \hfill
@@ -142,7 +142,7 @@ O algoritmo de aprendizado supervisionado mais conhecido e utilizado para treina
 
 No âmbito do cálculo, o gradiente indica o sentido e a direção para os quais devem-se mover os valores dos pesos e dos bias nas camadas de forma a se obter o maior incremento possível de perda. Porém, nas técnica de \emph{backpropagation}, queremos mudanças de peso que trarão a inclinação mais íngreme ao longo da função de erro \cite{goodfellow, kubat}.
 
-
+Um grande crescimento do poder computacional em termos de velocidade e memória tem acontecido nos últimos tempos. Dado isto, houve a viabilidade de treinamento das chamadas \emph{redes neurais profundas}, MLPs que possuem mais camadas escondidas do que o usual. Devido a ampla popularidade dessas redes e a capacidade computacional para a utilização de grande quantidade de dados de treinamento, foram desenvolvidas técnicas de \emph{deep learning} em pleno estado da arte para detecção, segmentação, classificação e reconhecimento de objetos em imagens \cite{khan}. Utilizando-se redes neurais convolucionais, podemos ainda elencar aplicações como o reconhecimento de padrões em imagens para uso na medicina \cite{cha}, a modelagem de frases por computadores \cite{kalchbrenner} e o reconhecimento de caracteres e dígitos \cite{lecun}. Essas e outras técnicas serão apresentadas mais profundamente nas seções a seguir.
 
 % Backpropagation
 
