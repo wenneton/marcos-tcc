@@ -6,8 +6,8 @@ A idealização dos neurônios artificiais foi inspirada nos neurônios biológi
 % Procurar nova imagem
 \begin{figure}[h!]
 \centering
-\includegraphics[height=5cm]{imgs/sinapse}
-\caption{Estrutura de um neurônio e zona de conexão funcional entre as células (sinapse). [Imagem provisória]}
+\caption{Estrutura de um neurônio biológico.}
+\includegraphics[width=0.25\textwidth]{imgs/sinapse}
 \label{fig:sinapse}
 \end{figure}
 \todo{Refazer imagem livro Teresa}
@@ -15,12 +15,11 @@ A idealização dos neurônios artificiais foi inspirada nos neurônios biológi
 Considerando uma analogia com os neurônios biológicos, modelou-se então a primeira noção de neurônios artificiais. Nestes neurônios, as entradas são valores $x = x_1, ..., x_n$ aos quais estão sujeitos um conjunto de pesos $w = w_1, ..., w_n$. Este modelo de neurônio utiliza ainda um \emph{bias} externo, denotado por $b$. Este bias é utilizado para o aumentar ou diminuir os valores de entrada da função de ativação, dependendo se o seu valor é positivo ou negativo, respectivamente \cite{haykin}. Um neurônio artificial dispara quando a soma ponderada da entrada e do \emph{bias} sujeita aos pesos ultrapassa um certo limiar de excitação, denominado \emph{threshold}. No modelo de neurônio artificial apresentado, proposto por McCulloch e Pitts (MCP) \cite{mcculloch}, a ativação (disparo) do neurônio é obtida através da aplicação de uma \emph{função de ativação}, como mostrado na Figura \ref{fig:neuronio-artificial} \cite{braga}.
 
 \todo{Ajustar captions}
-\todo{Ajustar figura -- Pesos $w_1, \ldots, w_n$, denotar bias como $b$ e a saída como $y$. Lembrar de colocar width na figura.}
 \begin{figure}[H]
 \centering
 \caption{Representação de um neurônio artificial. Adaptado de: \cite{haykin}.}
 \label{fig:neuronio-artificial}
-\includegraphics[height=6cm]{imgs/neuronio-artificial}
+\includegraphics[width=0.8\textwidth]{imgs/neuronio-artificial}
 \end{figure}
 
 No caso do neurônio MCP, a função de ativação é do tipo degrau deslocada, conforme Equação \ref{eq:degrau}, e o seu valor de saída é obtido como resultado da comparação entre o \emph{threshold} $\theta$ previamente definido e o valor da soma ponderada da entrada, como mostrado na Equação \ref{eq:soma-ponderada}.
@@ -29,7 +28,7 @@ No caso do neurônio MCP, a função de ativação é do tipo degrau deslocada, 
 \label{eq:degrau}
 \varphi(v) = \left\{
 \begin{array}{lr}
-  1, & \text{se } v(x,w) > \theta.\\
+  1, & \text{se } v > \theta.\\
   0, & \text{caso contrário}.
 \end{array}
 \right.
@@ -37,7 +36,7 @@ No caso do neurônio MCP, a função de ativação é do tipo degrau deslocada, 
 
 \begin{equation}
   \label{eq:soma-ponderada}
-  v(x,w) = \sum\limits_{i=1}^n x_i w_i + b
+  v = \sum\limits_{i=1}^n x_i w_i + b
 \end{equation}
 
 
@@ -66,7 +65,7 @@ Embora o modelo MCP tenha considerado apenas funções de ativação do tipo deg
 \end{figure}
 
 
-Em 1958, visando a melhoria do neurônio MCP, Frank Rosenblatt desenvolveu o modelo \emph{Perceptron} \cite{Rosenblatt}. Neste modelo, criou-se o primeiro conceito de aprendizado através de neurônios artificiais, em que foi projetada uma regra de correção de erros para modificar os pesos associados a um neurônio quando suas respostas aos estímulos apresentados ao modelo forem erradas \cite{arbib}. Durante o processo de adaptação à resposta real, deseja-se identificar um valor $\Delta w$ a ser aplicado ao vetor de pesos atual $w(t)$, para que seu valor atualizado $w(t+1)$ esteja mais próximo da solução desejada do que o valor atual $w(t)$. Para isso, definiu-se a Equação \ref{eq:aprendizado1}, denominada Regra Delta, cuja obtenção, descrita na Equação \label{eq:aprendizado2} estabelece o modo detalhado como esse ajuste de pesos é efetuado. Nesta segunda equação $\eta$ indica uma \emph{taxa de aprendizado}, isto é, a velocidade em que o vetor de pesos será atualizado, e $\hat{y}(t)$ significa o valor previsto pelo modelo naquela iteração para a entrada $x(t)$, enquanto $y(t)$ refere-se à saída real para esta entrada. Desta forma, o neurônio Perceptron adquiriu a capacidade de resolver problemas linearmente separáveis \cite{braga}.
+Em 1958, visando a melhoria do neurônio MCP, Frank Rosenblatt desenvolveu o modelo \emph{Perceptron} \cite{Rosenblatt}. Neste modelo, criou-se o primeiro conceito de aprendizado através de neurônios artificiais, em que foi projetada uma regra de correção de erros para modificar os pesos associados a um neurônio quando suas respostas aos estímulos apresentados ao modelo forem erradas \cite{arbib}. Durante o processo de adaptação à resposta real, deseja-se identificar um valor $\Delta w$ a ser aplicado ao vetor de pesos atual $w(t)$, para que seu valor atualizado $w(t+1)$ esteja mais próximo da solução desejada do que o valor atual $w(t)$. Para isso, definiu-se a Equação \ref{eq:aprendizado1}, denominada Regra Delta, cuja obtenção, descrita na Equação \label{eq:aprendizado2} estabelece o modo detalhado como esse ajuste de pesos é efetuado. Nesta segunda equação, $\eta$ indica uma \emph{taxa de aprendizado}, isto é, a velocidade em que o vetor de pesos será atualizado, e $\hat{y}(t)$ significa o valor previsto pelo modelo naquela iteração para a entrada $x(t)$, enquanto $y(t)$ refere-se à saída real para esta entrada. Desta forma, o neurônio Perceptron adquiriu a capacidade de resolver problemas linearmente separáveis \cite{braga}.
 
 \begin{eqnarray}
   w(t+1) &=& w(t) + \Delta w   \label{eq:aprendizado1}\\
@@ -74,7 +73,7 @@ Em 1958, visando a melhoria do neurônio MCP, Frank Rosenblatt desenvolveu o mod
 \end{eqnarray}
 
 % Arquitetura das redes neurais.
-Neurônios artificiais possuem uma capacidade de generalização limitada, independentemente da função de ativação escolhida, devido a sua habilidade de resolver apenas problemas linearmente separáveis. Entretanto, a combinação desses neurônios para a formação de uma rede é capaz de resolver problemas de elevada complexidade \cite{braga}. Geralmente, identificam-se três classes fundamentais de RNAs, as \emph{feedforward} com uma única camada, as \emph{feedforward} com múltiplas camadas e as recorrentes. Numa rede do tipo \emph{feedforward}, mostrada nas Figuras \ref{subfig:singlelayer} e \ref{subfig:multilayer}, existe uma camada de entrada que é projetada diretamente para uma camada de saída constituída de neurônios, e nunca ao contrário. Uma rede recorrente como a na Figura \ref{subfig:recurrent}, por sua vez, possui conexões ponderadas dentro de uma camada e diferencia-se pela presença de pelo menos um loop de retorno a camadas anteriores \cite{haykin}.
+Neurônios artificiais possuem uma capacidade de generalização limitada, independente da função de ativação escolhida, devido a sua habilidade de resolver apenas problemas linearmente separáveis. Entretanto, a combinação desses neurônios para a formação de uma rede é capaz de resolver problemas de elevada complexidade \cite{braga}. Geralmente, identificam-se três classes fundamentais de RNAs, as \emph{feedforward} com uma única camada, as \emph{feedforward} com múltiplas camadas e as recorrentes. Numa rede do tipo \emph{feedforward}, como mostrado nas Figuras \ref{subfig:singlelayer} e \ref{subfig:multilayer}, existe uma camada de entrada que é projetada diretamente para uma camada de saída constituída de neurônios, e nunca ao contrário. Uma rede recorrente, como a na Figura \ref{subfig:recurrent}, por sua vez, possui conexões ponderadas dentro de uma camada e diferencia-se pela presença de pelo menos um loop de retorno a camadas anteriores \cite{haykin}.
 
 % Inserir imagem da topologia das redes com subfig. Haykin ou Faceli.
 
@@ -94,7 +93,7 @@ Neurônios artificiais possuem uma capacidade de generalização limitada, indep
      \label{fig:architectures}
 \end{figure}
 
-Redes com múltiplas camadas, como na Figura \ref{subfig:multilayer}, caracterizam-se pela presença de pelo menos uma camada oculta. Segundo Cybenko, uma rede com uma camada oculta pode mapear qualquer função contínua, enquanto uma rede com duas camadas ocultas é suficiente para mapear qualquer função \cite{cybenko}.
+Redes com múltiplas camadas, como na Figura \ref{subfig:multilayer}, caracterizam-se pela presença de pelo menos uma camada oculta. Isso acarreta um grande poder às redes deste tipo pois, conforme Cybenko, uma rede com uma camada oculta é capaz de mapear qualquer função contínua, enquanto uma rede com duas camadas ocultas é suficiente para mapear qualquer função \cite{cybenko}.
 
 \subsubsection{\emph{Multilayer Perceptron}}
 \label{subsubsec:mlp}
