@@ -1,20 +1,18 @@
 
-As \emph{Redes Neurais Artificiais} (RNAs) são uma tentativa computacional de modelar a capacidade de processamento de informação do sistema nervoso humano \cite{rojas}. Para alcançarem um bom desempenho, as RNAs empregam uma interligação de estruturas bases chamadas de neurônios artificiais que, por sua vez, possuem pesos com valores numéricos positivos ou negativos associados entre si. Uma vantagem das RNAs é a grande capacidade de generalização, ou seja, a habilidade de produzir saídas adequadas para entradas que não estavam presente anteriormente durante seu aprendizado \cite{haykin}. [As RNAs têm sido frequentemente utilizadas nas áreas de processamento de sinais, reconhecimento de padrões em dados, incluindo imagem e voz, medicina, reconhecimento de voz, negócios, entre outras \cite{fausett}. \todo{Olhar Facelli}]
+As \emph{Redes Neurais Artificiais} (RNAs) são uma tentativa computacional de modelar a capacidade de processamento de informação do sistema nervoso humano \cite{rojas}. Para alcançarem um bom desempenho, as RNAs empregam uma interligação de estruturas bases chamadas de neurônios artificiais que, por sua vez, possuem pesos com valores numéricos positivos ou negativos associados entre si. Uma vantagem das RNAs é a grande capacidade de generalização, ou seja, a habilidade de produzir saídas adequadas para entradas que não estavam presente anteriormente durante seu aprendizado \cite{haykin}. [As RNAs têm sido frequentemente aplicadas nas áreas de medicina e negócios, além de um frequente desenvolvimento nos campos de processamento de sinais, reconhecimento de padrões em imagens e reconhecimento e produção de fala \cite{fausett}. \todo{Olhar Facelli}]
 
-A idealização dos neurônios artificiais foi inspirada nos neurônios biológicos encontrados no cérebro humano. Como mostrado na Figura \ref{fig:sinapse}, cada neurônio biológico é composto pelo corpo celular, os dendritos e o axônio. Os dendritos têm como papel a recepção das informações, ou impulsos nervosos, de outros neurônios e a submissão destas informações ao corpo celular, onde são processadas e novos impulsos são gerados. Estes impulsos são enviados aos dendritos de outros neurônios através do axônio. O ponto de contato entre os neurônios através do axônio e os dentritos, denominado sinapse, é onde ocorre toda a troca de informação necessária para conceber uma rede neural \cite{braga}.
+A idealização dos neurônios artificiais foi inspirada nos neurônios biológicos encontrados no cérebro humano. Como mostrado na Figura \ref{fig:neuronio}, cada neurônio biológico é composto pelo corpo celular, os dendritos e o axônio. Os dendritos têm como papel a recepção das informações, ou impulsos nervosos, de outros neurônios e a submissão destas informações ao corpo celular, onde são processadas e novos impulsos são gerados. Estes impulsos são enviados aos dendritos de outros neurônios através do axônio. O ponto de contato entre os neurônios através do axônio e os dentritos, denominado sinapse, é onde ocorre toda a troca de informação necessária para conceber uma rede neural \cite{braga}.
 
 % Procurar nova imagem
 \begin{figure}[h!]
 \centering
-\caption{Estrutura de um neurônio biológico.}
-\includegraphics[width=0.25\textwidth]{imgs/sinapse}
-\label{fig:sinapse}
+\caption{Estrutura de um neurônio biológico. Adaptado de: \cite{braga}}
+\includegraphics[width=0.6\textwidth]{imgs/neuronio}
+\label{fig:neuronio}
 \end{figure}
-\todo{Refazer imagem livro Teresa}
 
 Considerando uma analogia com os neurônios biológicos, modelou-se então a primeira noção de neurônios artificiais. Nestes neurônios, as entradas são valores $x = x_1, ..., x_n$ aos quais estão sujeitos um conjunto de pesos $w = w_1, ..., w_n$. Este modelo de neurônio utiliza ainda um \emph{bias} externo, denotado por $b$. Este bias é utilizado para o aumentar ou diminuir os valores de entrada da função de ativação, dependendo se o seu valor é positivo ou negativo, respectivamente \cite{haykin}. Um neurônio artificial dispara quando a soma ponderada da entrada e do \emph{bias} sujeita aos pesos ultrapassa um certo limiar de excitação, denominado \emph{threshold}. No modelo de neurônio artificial apresentado, proposto por McCulloch e Pitts (MCP) \cite{mcculloch}, a ativação (disparo) do neurônio é obtida através da aplicação de uma \emph{função de ativação}, como mostrado na Figura \ref{fig:neuronio-artificial} \cite{braga}.
 
-\todo{Ajustar captions}
 \begin{figure}[H]
 \centering
 \caption{Representação de um neurônio artificial. Adaptado de: \cite{haykin}.}
@@ -78,6 +76,7 @@ Neurônios artificiais possuem uma capacidade de generalização limitada, indep
 % Inserir imagem da topologia das redes com subfig. Haykin ou Faceli.
 
 \begin{figure}[h!]
+  \caption{Arquiteturas populares de RNAs. Fonte: \cite{haykin}}
      \subfloat[\emph{Feedforward} com uma única camada\label{subfig:singlelayer}]{%
        \includegraphics[width=0.25\textwidth]{imgs/feedforward-single}
      }
@@ -89,7 +88,6 @@ Neurônios artificiais possuem uma capacidade de generalização limitada, indep
      \subfloat[Recorrente\label{subfig:recurrent}]{%
        \includegraphics[width=0.3\textwidth]{imgs/recurrent}
      }
-     \caption{Arquiteturas populares de RNAs. Fonte: \cite{haykin}}
      \label{fig:architectures}
 \end{figure}
 
@@ -105,15 +103,15 @@ Em uma rede MLP, a função implementada por um neurônio de certa camada é uma
 
 \begin{figure}[h!]
 \centering
-\includegraphics[height=6cm]{imgs/aprendizado-mlp}
 \caption{Papel exercido pelos neurônios em cada camada de uma rede MLP. Fonte: \cite{faceli}.}
+\includegraphics[height=6cm]{imgs/aprendizado-mlp}
 \label{fig:aprendizado-mlp}
 \end{figure}
 
-O algoritmo de aprendizado supervisionado mais conhecido e utilizado para treinamento das MLPs é o \emph{backpropagation}. Neste algoritmo utiliza-se as entradas e as saídas desejadas para o ajuste dos erros da rede. O treinamento ocorre em duas fases, a fase \emph{forward} e a fase \emph{backward}, em que cada fase percorre a rede em um sentido. Na fase \emph{forward}, a saída da rede é definida considerando certo padrão de entrada. A fase \emph{backward} utiliza a saída desejada e a saída fornecida pela rede para atualizar os pesos nas suas conexões \cite{braga}. O \emph{backpropagation} é simplesmente um método que utiliza o gradiente descendente para minimizar o erro quadrático total da saída calculada pela rede, na qual a derivada parcial define o ajuste dos pesos. Essa derivada mede a contribuição de cada peso no erro da rede para a classificação de dado objeto \cite{fausett, faceli}.
+\todo{inserir informação sobre a necessidade de uma função de ativação contínua e diferenciável para o uso de backpropagation}
+O algoritmo de aprendizado supervisionado mais conhecido e utilizado para treinamento das MLPs é o \emph{backpropagation}. Neste algoritmo utiliza-se as entradas e as saídas desejadas para o ajuste dos erros da rede. O treinamento ocorre em duas fases, a fase \emph{forward} e a fase \emph{backward}, em que cada fase percorre a rede em um sentido. Na fase \emph{forward}, a saída da rede é definida considerando certo padrão de entrada. A fase \emph{backward} utiliza a saída desejada e a saída fornecida pela rede para atualizar os pesos nas suas conexões \cite{braga}. O \emph{backpropagation} é simplesmente um método que utiliza o gradiente descendente para minimizar o erro total da saída calculada pela rede, na qual a derivada parcial define o ajuste dos pesos. Essa derivada mede a contribuição de cada peso no erro da rede para a classificação de dado objeto \cite{fausett, faceli}.
 
-% Não tá legal, ajeitar.
-No âmbito do cálculo, o gradiente indica o sentido e a direção para os quais devem-se mover os valores dos pesos e do bias nas camadas de forma a garantir o maior incremento possível de perda. Ou seja, nas técnicas de \emph{backpropagation}, queremos mudanças de peso que trarão a inclinação mais íngreme ao longo da função de erro \cite{goodfellow, kubat}.
+No âmbito do cálculo, o gradiente indica o sentido e a direção para os quais devem-se mover os valores dos pesos e do bias nas camadas, de forma a garantir o maior incremento possível de perda. Ou seja, nas técnicas de \emph{backpropagation}, queremos mudanças de peso que trarão a inclinação mais íngreme ao longo da função de erro, com o intuito de encontrar o mínimo global desta função \cite{goodfellow, kubat}.
 
 Um grande crescimento do poder computacional em termos de velocidade e memória tem acontecido nos últimos tempos. Dado isto, houve a viabilidade de treinamento das chamadas \emph{redes neurais profundas}, MLPs que possuem mais camadas escondidas do que o usual. Devido a ampla popularidade dessas redes e a capacidade computacional para a utilização de grande quantidade de dados de treinamento, foram desenvolvidas técnicas de \emph{deep learning} em pleno estado da arte para detecção, segmentação, classificação e reconhecimento de objetos em imagens \cite{khan}. Utilizando-se redes neurais convolucionais, podemos ainda elencar aplicações como o reconhecimento de padrões em imagens para uso na medicina \cite{cha}, a modelagem de frases por computadores \cite{kalchbrenner} e o reconhecimento de caracteres e dígitos \cite{lecun}. Essas e outras técnicas serão apresentadas mais profundamente nas seções a seguir.
 
