@@ -31,7 +31,7 @@ As camadas convolucionais são responsáveis por aplicar as operações de convo
 
 
 % Pooling
-Uma camada de \emph{pooling} em uma CNN opera em blocos do mapa de características e combina seus atributos através da operação de \emph{max pooling} ou \emph{average pooling}. Esse bloco é deslizado através do mapa de características com um passo definido como \emph{stride}. A operação de \emph{max pooling} retorna o valor máximo dos dados em uma área retangular. Enquanto a operação de \emph{average pooling}, realiza o mesmo processo do \emph{max pooling}, mas com a média dos valores. O propósito da camada de \emph{pooling} é, além de diminuir a quantidade de amostras no mapa de características, ajudar a sua representação a se tornar invariante a pequenas mudanças nos dados de entrada \cite{khan, goodfellow}. Uma visualização detalhada dessa operação é demonstrada na Figura \ref{fig:pooling}.
+Uma camada de \emph{pooling} em uma CNN opera em blocos do mapa de características e combina seus atributos através da operação de \emph{max pooling} ou \emph{average pooling}. Esse bloco é deslizado através do mapa de características com um passo definido como \emph{stride}. A operação de \emph{max pooling} retorna o valor máximo dos dados em uma área retangular. Enquanto a operação de \emph{average pooling}, realiza o mesmo processo, porém utiliza a média desses valores. O propósito da camada de \emph{pooling} é, além de diminuir a quantidade de amostras no mapa de características, ajudar a sua representação a se tornar invariante a pequenas mudanças nos dados de entrada \cite{khan, goodfellow}. Uma visualização detalhada dessa operação é demonstrada na Figura \ref{fig:pooling}.
 
 \begin{figure}[h!]
   \centering
@@ -42,10 +42,17 @@ Uma camada de \emph{pooling} em uma CNN opera em blocos do mapa de característi
 
 % Fully connected layers, camada de saída??
 
-As \emph{Fully Connected Layers}, ou camadas completamente conectadas, considera um conjunto de neurônios completamente conecetados entre si, sendo comumente encontradas no final de uma CNN. Possui a capacidade de separar as variações de classificação que serão retornadas na saída, resumindo os resultados dos vários mapas de características produzidos pela rede \cite{gulli}.
+As \emph{Camadas Completamente Conectadas}, considera um conjunto de neurônios completamente conectados à camada anterior, sendo usualmente encontradas no final de uma CNN. Possui a capacidade de separar as variações de classificação que serão retornadas na saída, resumindo os resultados dos vários mapas de características produzidos pela rede \cite{khan}. Na última camada de uma CNN, adota-se geralmente a função de ativação \emph{softmax}, a qual atua escalando as saídas da rede em um vetor de probabilidades. Este processo pode ser muito útil para problemas de classificação \cite{gulli}.
 
-% Dropout (Pegar imagens sobre Dropout na pagina favoritada)
+% Dropout (Pegar imagens sobre Dropout na pagina favoritada )
+\begin{figure}[h!]
+  \centering
+  \caption{MLP após a aplicação do \emph{dropout}. Fonte: \cite{dsacademy}}
+  \includegraphics[width=0.5\textwidth]{imgs/dropout-after}
+  \label{fig:dropout}
+\end{figure}
 
+Dropout \cite{dsacademy}
 
 \begin{figure}[h!]
   \centering
@@ -57,5 +64,5 @@ As \emph{Fully Connected Layers}, ou camadas completamente conectadas, considera
 % Arquiteturas canônicas
 
 
-\subsubsection{Arquiteturas canônicas de Redes Neurais Convolucionais}
+\subsubsection{Arquiteturas Canônicas de Redes Neurais Convolucionais}
 \label{subsubsec:arq-cnns}
