@@ -8,7 +8,14 @@ O DL reúne um conjunto de técnicas e modelos que podem ser aplicados a tarefas
 \subsubsection{Redes Neurais Convolucionais}
 \label{subsubsec:cnns}
 
-As \emph{Redes Neurais Convolucionais} (CNNs, do inglês \emph{Convolutional Neural Networks}) são uma categoria de redes neurais profundas, \emph{feedforward}, que comprovaram ser extremamente bem-sucedidas no ramo de visão computacional \cite{khan}. O termo denominado a estas redes, vem do seu aproveitamento da operação matemática chamada convolução, um tipo especializado de operação linear \cite{goodfellow}.
+As \emph{Redes Neurais Convolucionais} (CNNs, do inglês \emph{Convolutional Neural Networks}) são uma categoria de redes neurais profundas, \emph{feedforward}, que comprovaram ser extremamente bem-sucedidas no ramo de visão computacional \cite{khan}. O termo denominado a estas redes, vem do seu aproveitamento da operação matemática chamada convolução, um tipo especializado de operação linear \cite{goodfellow}. Na Figura \ref{fig:areas-ia} é ilustrada a relação das CNNs com alguns campos de estudos conhecidos.
+
+\begin{figure}[h!]
+  \centering
+  \caption{A relação entre a visão humana, visão computacional, ML, DL e CNNs. Adaptado de: \cite{khan}.}
+  \includegraphics[width=0.7\textwidth]{imgs/areas-ia}
+  \label{fig:areas-ia}
+\end{figure}
 
 % Convolução
 A \emph{convolução} é uma operação que consiste na soma dos produtos de toda a extensão de duas entradas em função de um deslocamento. Sendo assim, a convolução $s(t)$ de duas entradas $x_1(t)$ e $x_2(t)$ é uma função representada simbolicamente por $s(t) = x_1(t) * x_2(t)$ e definidade conforme a Equação \ref{eq:conv} \cite{lathi}.
@@ -46,27 +53,26 @@ As \emph{Camadas Completamente Conectadas} consideram um conjunto de neurônios 
 
 Para prevenir o aprendizado de padrões irrelevantes por um modelo de ML, pode-se articular a quantidade de informações que esse modelo pode armazenar ou adicionar restrições sobre as informações que podem ser armazenadas. Se uma CNN tende a memorizar um pequeno número de padrões, o processo de otimização forçará o foco nos padrões mais proeminentes, que possuem uma chance melhor de gerar uma boa generalização. O processo de evitar o \emph{overfitting} dessa maneira é chamado de \emph{regularização} \cite{chollet}.
 
-O \emph{dropout} é um tipo de regularização muito efetivo que é usualmente utilizado em CNNs. Consiste na desativação temporária de alguns neurônios durante a fase de treinamento de uma rede. Nesse processo, os neurônios são desativados mediante uma probabilidade $p$, conhecida como \emph{dropout rate}, retornando um valor de saída igual a $0$. Na fase de teste da rede, nenhum neurônio é desativado, ao passo que, como forma de balanceamento devido a quantidade maior de neurônios presentes em comparação à fase de treinamento, os valores de saída das camadas são reduzidos por um fator igual ao \emph{dropout rate} \cite{chollet}. Dessa maneira, pode-se afirmar que o \emph{dropout} ajuda a previnir o \emph{overfitting} ao possibilitar uma forma de combinar diferentes arquiteturas de redes neurais \cite{buduma}. Na Figura \ref{fig:dropout} é possível visualizar este processo.
+O \emph{dropout} é um tipo de regularização muito efetivo e que é usualmente utilizado em CNNs. Consiste na desativação temporária de alguns neurônios durante a fase de treinamento de uma rede. Nesse processo, os neurônios são desativados mediante uma probabilidade $p$, conhecida como \emph{dropout rate}, retornando um valor de saída igual a $0$. Na fase de teste da rede, nenhum neurônio é desativado, ao passo que, como forma de balanceamento devido a quantidade maior de neurônios presentes em comparação à fase de treinamento, os valores de saída das camadas são reduzidos por um fator igual ao \emph{dropout rate} \cite{chollet}. Dessa maneira, pode-se afirmar que o \emph{dropout} ajuda a previnir o \emph{overfitting} ao possibilitar uma forma de combinar diferentes arquiteturas de redes neurais \cite{buduma}. Esta operação pode ser visualizada na Figura \ref{fig:dropout}, na qual os neurônios desativados são demonstrados pelas circunferências com a borda pontilhada.
 
 % Dropout (Pegar imagens sobre Dropout na pagina favoritada )
 \begin{figure}[h!]
   \centering
-  \caption{MLP após a aplicação do \emph{dropout}. Fonte: \cite{dsacademy}}
-  \includegraphics[width=0.5\textwidth]{imgs/dropout-after}
+\caption{Processo de aplicação da operação de \emph{dropout}. Os neurônios e ligações desativados estão denotados de forma pontilhada. Fonte: \cite{dsacademy}}
+  \subfloat[Arquitetura de uma rede antes da aplicação do \emph{dropout}.\label{subfig:dropout-before}]{%
+    \includegraphics[width=0.4\textwidth]{imgs/dropout-before}
+  }
+  \hfill
+  \subfloat[Arquitetura da rede após a aplicação do \emph{dropout}.\label{subfig:dropout-after}]{%
+    \includegraphics[width=0.4\textwidth]{imgs/dropout-after}
+  }
   \label{fig:dropout}
 \end{figure}
 
-Dropout \cite{dsacademy}
-
-\begin{figure}[h!]
-  \centering
-  \caption{A relação entre a visão humana, visão computacional, ML, DL e CNNs. Adaptado de: \cite{khan}.}
-  \includegraphics[height=4cm]{imgs/areas-ia}
-  \label{fig:areas-ia}
-\end{figure}
-\todo{Inserir essa imagem no contexto.}
 % Arquiteturas canônicas
 
 
 \subsubsection{Arquiteturas Canônicas de Redes Neurais Convolucionais}
 \label{subsubsec:arq-cnns}
+
+Existem algumas arquiteturas de CNNs que obtiveram resultados notáveis.
