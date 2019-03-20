@@ -75,4 +75,24 @@ O \emph{dropout} é um tipo de regularização muito efetivo e que é usualmente
 \subsubsection{Arquiteturas Canônicas de Redes Neurais Convolucionais}
 \label{subsubsec:arq-cnns}
 
-Existem algumas arquiteturas de CNNs que obtiveram resultados notáveis.
+Como mencionado anteriormente, o \emph{ImageNet} é uma base de dados que possui mais de 15 milhões de imagens rotuladas manualmente, de alta resolução, separadas em mais de 22 mil categorias \cite{imagenet}. Visando o uso dessa base, tem sido lançando desde 2010 um desafio anual chamado \emph{ImageNet Large Scale Visual Recognition Challenge} (ILSVRC), no qual possui o intuito de aumentar o desempenho das tecnologias em estado da arte para classificação de imagens e detecção e localização de objetos em imagens \cite{sewak}.
+
+Apesar dos conceitos das camadas que compõem as CNNs serem bastante conhecidos e utilizados, ainda é uma atividade de grande dificuldade e responsabilidade propor arquiteturas de redes neurais que executem determinadas tarefas. Portanto, existem diversas arquiteturas canônicas que apresentam um grande desempenho em treinar e executar tarefas de visão computacional, nas quais a grande maioria foi desenvolvida através do desafio ILSVRC. Devido a grande frequência da utilização dessas arquiteturas, a seguir serão apresentados alguns dos seus aspectos relevantes.
+
+A primeira das arquiteturas a ser desenvolvida utilizando camadas convolucionais em vez de camadas completamente conectadas convencionais foi a LeNet, proposta por LeCun em 1998 \cite{lecun}. Uma variante dessa arquitetura é a LeNet-5, composta por sete camadas, nas quais cinco dessas possuem pesos ajustáveis e outras duas são compostas por operações de \emph{max pooling}. Esta arquitetura foi aplicada na identificação de dígitos manuscritos, utilizando o conjunto de dados \emph{Modified National Institute of Standards and Technology} (MNIST) como treinamento. \cite{khan}. Na Figura \ref{fig:lenet} é possível visualizar a composição da LeNet-5.
+
+\begin{figure}[h!]
+  \centering
+  \caption{A arquitetura LeNet-5. Fonte: \cite{khan}.}
+  \includegraphics[width=0.8\textwidth]{imgs/lenet5}
+  \label{fig:lenet}
+\end{figure}
+
+\begin{itemize}
+  \item LeNet;
+  \item AlexNet;
+  \item VGGNet
+  \item GoogLeNet;
+  \item ResNet;
+  \item DenseNet.
+\end{itemize}
