@@ -77,7 +77,7 @@ O \emph{dropout} é um tipo de regularização muito efetivo e que é usualmente
 
 Como mencionado anteriormente, o \emph{ImageNet} é uma base de dados que possui mais de 15 milhões de imagens rotuladas manualmente, de alta resolução, separadas em mais de 22 mil categorias \cite{imagenet}. Visando o uso dessa base, tem sido lançando desde 2010 um desafio anual chamado \emph{ImageNet Large Scale Visual Recognition Challenge} (ILSVRC), no qual possui o intuito de aumentar o desempenho das tecnologias em estado da arte para classificação de imagens e detecção e localização de objetos em imagens \cite{sewak}.
 
-Apesar dos conceitos das camadas que compõem as CNNs serem bastante conhecidos e utilizados, ainda é uma atividade de grande dificuldade e responsabilidade propor arquiteturas de redes neurais que executem determinadas tarefas. Portanto, existem diversas arquiteturas canônicas que apresentam um grande desempenho em treinar e executar tarefas de visão computacional, nas quais a grande maioria foi desenvolvida através do desafio ILSVRC. Devido a grande frequência da utilização dessas arquiteturas, a seguir serão apresentados alguns dos seus aspectos relevantes.
+Apesar dos conceitos das camadas que compõem as CNNs serem bastante conhecidos e utilizados, ainda é uma atividade de grande dificuldade e responsabilidade propor arquiteturas de redes neurais que executem determinadas tarefas. Portanto, existem diversas arquiteturas canônicas que apresentam um grande desempenho em treinar e executar tarefas de visão computacional, nas quais a grande maioria foi desenvolvida através do desafio ILSVRC. Devido a grande frequência da utilização dessas arquiteturas, a seguir serão apresentados alguns dos seus aspectos mais relevantes.
 
 A primeira das arquiteturas a ser desenvolvida utilizando camadas convolucionais em vez de camadas completamente conectadas convencionais foi a LeNet, proposta por LeCun em 1998 \cite{lecun}. Uma variante dessa arquitetura é a LeNet-5, composta por sete camadas, nas quais cinco dessas possuem pesos ajustáveis e outras duas são compostas por operações de \emph{max pooling}. Esta arquitetura foi aplicada na identificação de dígitos manuscritos, utilizando o conjunto de dados \emph{Modified National Institute of Standards and Technology} (MNIST) como treinamento. \cite{khan}. Na Figura \ref{fig:lenet} é possível visualizar a composição da LeNet-5.
 
@@ -88,8 +88,10 @@ A primeira das arquiteturas a ser desenvolvida utilizando camadas convolucionais
   \label{fig:lenet}
 \end{figure}
 
+O primeiro modelo em larga escala de CNNs utilizou-se da arquitetura AlexNet, garantindo o primeiro lugar no desafio ILSVRC em 2012 por uma grande margem de diferença dos outros modelos e levando ao ressurgimento da utilização de redes neurais profundas em visão computacional. O uso da função de ativação ReLu após suas oito camadas paramétricas, nas quais as cinco primeiras são convolucionais e as últimas três são completamente conectadas, é um diferencial dessa arquitetura. Operações de \emph{max pooling} são aplicadas após as duas primeiras e a última camada convolucional, ao passo que operações de \emph{dropout} são executadas após as duas primeiras camadas completamente conectadas, acarretando na diminuição do \emph{overfitting} e garantindo uma boa generalização para exemplos não vistos anteriormente \cite{khan}. Apesar de já existirem arquiteturas de CNNs mais eficientes disponíveis, a AlexNet ainda é muito utilizada atualmente, devido a sua estrutura simples e profundidade relativamente menor \cite{sewak}.
+
 \begin{itemize}
-  \item LeNet;
+  \item LeNet Ok;
   \item AlexNet;
   \item VGGNet
   \item GoogLeNet;
