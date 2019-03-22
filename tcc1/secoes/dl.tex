@@ -49,7 +49,7 @@ Uma camada de \emph{pooling} em uma CNN opera em blocos do mapa de característi
 
 % Fully connected layers, camada de saída??
 
-As \emph{Camadas Completamente Conectadas} consideram um conjunto de neurônios completamente conectados aos neurônios da camada anterior, sendo usualmente encontradas no final de uma CNN. Possui a capacidade de separar as variações de classificação que serão retornadas na saída, resumindo os resultados dos vários mapas de características produzidos pela rede \cite{khan}. Na última camada de uma CNN, adota-se geralmente a função de ativação \emph{softmax}, a qual atua escalando as saídas da rede em um vetor de probabilidades, esse processo pode ser muito útil para problemas de classificação \cite{gulli}.
+As \emph{Camadas Completamente Conectadas} (FCL, do inglês \emph{Fully Connected Layers}) consideram um conjunto de neurônios completamente conectados aos neurônios da camada anterior, sendo usualmente encontradas no final de uma CNN. Possui a capacidade de separar as variações de classificação que serão retornadas na saída, resumindo os resultados dos vários mapas de características produzidos pela rede \cite{khan}. Na última camada de uma CNN, adota-se geralmente a função de ativação \emph{softmax}, a qual atua escalando as saídas da rede em um vetor de probabilidades, esse processo pode ser muito útil para problemas de classificação \cite{gulli}.
 
 Para prevenir o aprendizado de padrões irrelevantes por um modelo de ML, pode-se articular a quantidade de informações que esse modelo pode armazenar ou adicionar restrições sobre as informações que podem ser armazenadas. Se uma CNN tende a memorizar um pequeno número de padrões, o processo de otimização forçará o foco nos padrões mais proeminentes, que possuem uma chance melhor de gerar uma boa generalização. O processo de evitar o \emph{overfitting} dessa maneira é chamado de \emph{regularização} \cite{chollet}.
 
@@ -90,11 +90,25 @@ A primeira das arquiteturas a ser desenvolvida utilizando camadas convolucionais
 
 O primeiro modelo em larga escala de CNNs utilizou-se da arquitetura AlexNet, garantindo o primeiro lugar no desafio ILSVRC em 2012 por uma grande margem de diferença dos outros modelos e levando ao ressurgimento da utilização de redes neurais profundas em visão computacional. O uso da função de ativação ReLu após suas oito camadas paramétricas, nas quais as cinco primeiras são convolucionais e as últimas três são completamente conectadas, é um diferencial dessa arquitetura. Operações de \emph{max pooling} são aplicadas após as duas primeiras e a última camada convolucional, ao passo que operações de \emph{dropout} são executadas após as duas primeiras camadas completamente conectadas, acarretando na diminuição do \emph{overfitting} e garantindo uma boa generalização para exemplos não vistos anteriormente \cite{khan}. Apesar de já existirem arquiteturas de CNNs mais eficientes disponíveis, a AlexNet ainda é muito utilizada atualmente, devido a sua estrutura simples e profundidade relativamente menor \cite{sewak}.
 
-\begin{itemize}
-  \item LeNet Ok;
-  \item AlexNet;
-  \item VGGNet
-  \item GoogLeNet;
-  \item ResNet;
-  \item DenseNet.
-\end{itemize}
+A VGGNet é uma das mais populares arquiteturas de CNN desde a sua introdução em 2014 e, mesmo não ganhando o desafio ILSRVC, conseguiu uma taxa de erro de apenas $7.3 \%$. Concebida na Universidade de Oxford, a VGGNet é composta por uma combinação de camadas convolucionais, FCLs, camadas de \emph{pooling} e \emph{dropout}. Esta arquitetura existe em duas versões, a VGG16 e a VGG19, nas quais os números associados aos seus nomes correspondem a sua quantidade de camadas, sem considerar as camadas de \emph{pooling} e \emph{dropout} \cite{khan, sewak}. A VGGNet usa apenas filtros de convolução com uma dimensão de  $3 \times 3$ e as operações de \emph{max pooling} são realizadas através de uma janela de $2 \times 2$ pixeis com um \emph{stride} igual a $2$ \cite{simonyan}.
+
+A arquitetura GoogLeNet, também chamada de Inception, foi desenvolvida pela empresa Google e se tornou a vencedora do desafio ILSRVC de 2014. Seu diferencial em relação às outras arquiteturas foi a combinação não sequencial das suas 22 camadas convolucionais. Como mostrado na Figura \ref{fig:inception-module}, cada camada é executada de forma paralela com outras camadas formando um módulo chamado Inception, que condensa os mapas de características obtido por cada camada e passa como entrada para o próximo bloco Inception encontrado na rede \cite{khan}. Na GoogLeNet, geralmente ocorre o uso de convoluções $1 \times 1$ com a função de ativação ReLu com intuito de diminuir as dimensões do problema antes das dispendiosas convoluções de $3 \times 3$ e $5 \times 5$ \cite{sewak}.
+
+\begin{figure}[h!]
+  \centering
+  \caption{Exemplo de um módulo Inception da GoogLeNet. Fonte: \cite{khan}.}
+  \includegraphics[width=0.6\textwidth]{imgs/inception-module}
+  \label{fig:inception-module}
+\end{figure}
+
+A Microsoft \emph{Residual Network} (ResNet) foi a CNN vencedora do desafio ILSVRC 2015 com um grande ganho em desempenho, diminuindo a taxa de erro top-5 para apenas $3.6\%$ em comparação à taxa de $6.7\%$ da vencedora do ano anterior, a GoogLeNet. Com o total de 152 camadas, a ResNet deve seu sucesso aos chamados blocos residuais, representado na Figura \ref{fig:residual-block}, no qual as entradas originais são submetidas a uma função de transformação que é conectada diretamente à entrada, chamada de \emph{skip identity connection}. Segundo Khan, uma rede muito profunda sem nenhuma conexão residual obtem uma taxa maior de erro no treinamento e no teste, portanto, as conexões residuais são consideradas fatores importantes para uma melhor classificação de redes neurais profundas \cite{khan}.
+
+\begin{figure}[h!]
+  \centering
+  \caption{Estrutura de um bloco residual da ResNet. Fonte: \cite{khan}.}
+  \includegraphics[width=0.6\textwidth]{imgs/residual-block}
+  \label{fig:residual-block}
+\end{figure}
+
+
+% Falar sobre a dificuldade de treinar uma rede neural profunda?
