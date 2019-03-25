@@ -1,7 +1,7 @@
 
 \begin{table}[h!]
 	\centering
-	\caption{Divisão dos dados}
+	\caption{Quantitativo de exemplos de cada classe por finalidade dos dados na tarefa de AM.}
 	\label{tab:divisao-dados}
 \resizebox{\textwidth}{!}{
 	\begin{tabular}{c c c c c c c c}
@@ -11,11 +11,11 @@
 		\multirow{2}{*}{1} & \multirow{2}{*}{Dados desbalanceados} & Genuíno & 2.011 & 299 & 618 & 2.928 & $15\%$ \\
     &  & Forjado & 11.649 & 1.648 & 3.237 & 16.534 & $85\%$\\
      \midrule
-    \multirow{2}{*}{2} & \multirow{2}{*}{Dados balanceados} & Genuíno & 2011 & 299 & 618 & & $50\%$  \\
-    &  & Forjado & 2024 & 308 & 569 &  & $50\%$ \\
+    \multirow{2}{*}{2} & \multirow{2}{*}{Dados balanceados} & Genuíno & 2.011 & 299 & 618 & 2.928 & $50\%$  \\
+    &  & Forjado & 2.024 & 308 & 569 & 2.901 & $50\%$ \\
 		 \midrule
-		\multirow{2}{*}{3} & \multirow{2}{*}{Quasi-balanceados} & Genuíno & 2011 & 299 & 618  &  & \\
-		 & & Forjado & 2024 & 308 & 569 & &\\
+		\multirow{2}{*}{3} & \multirow{2}{*}{Quasi-balanceados} & Genuíno & 8.131 & 1.134 & 2.257  & 11.522 & $41\%$\\
+		 & & Forjado & 11.649 & 1.648 & 3.237 & 16.534 & $59\%$\\
 		\bottomrule
 	\end{tabular}}
 \end{table}
@@ -24,13 +24,16 @@
 
 \begin{figure}[h!]
   \centering
-\caption{Visualização da divisão dos dados}
+\caption{Detalhamento da quantidade de exemplos por finalidade e por abordagem.}
   \subfloat[Abordagem 1\label{subfig:approach1}]{%
-    \includegraphics[width=0.7\textwidth]{imgs/approach1}
+    \includegraphics[width=0.5\textwidth]{imgs/approach1}
   }
-  \hfill
   \subfloat[Abordagem 2\label{subfig:approach2}]{%
-    \includegraphics[width=0.7\textwidth]{imgs/approach2}
+    \includegraphics[width=0.5\textwidth]{imgs/approach2}
+  }
+	\hfill
+	\subfloat[Abordagem 3\label{subfig:approach3}]{%
+    \includegraphics[width=0.5\textwidth]{imgs/approach3}
   }
   \label{fig:divisao-dados}
 \end{figure}
