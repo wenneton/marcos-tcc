@@ -5,7 +5,7 @@ A SigComp2009 utilizou-se de conjuntos de dados diferentes em cada uma das duas 
 % NISDCC: Norwegian Information Security laboratory and Donders Centre for Cognition
 % NFI: Netherlands Forensic Institute
 
-O melhor tipo de falsificação de assinatura é a chamada \emph{over-the-shoulder}, na qual o autor forjador tem a oportunidade de visualizar a assinatura genuína antes da falsificação. As assinaturas forjadas encontradas nos conjuntos NISDCC e NFI pertencem a esse tipo de falsificação, nas quais os seus autores tiveram a oportunidade de praticá-las anteriormente a fim de aumentar a sua semelhança com a assinatura original. De acordo com Blankers, falsificações desse tipo normalmente são muito difíceis de detectar \cite{icdar2009}.
+O melhor tipo de falsificação de assinatura é a chamada \emph{over-the-shoulder}, na qual o autor forjador tem a oportunidade de visualizar a assinatura genuína antes da falsificação. As assinaturas forjadas encontradas nos conjuntos NISDCC e NFI pertencem a esse tipo de falsificação, ou seja, os seus autores tiveram a oportunidade de praticá-las anteriormente a fim de aumentar a sua semelhança com a assinatura original. De acordo com Blankers, falsificações desse tipo normalmente são muito difíceis de detectar \cite{icdar2009}.
 
 Os conjuntos disponibilizados pela SigComp2009 aos participantes eram compostos por dois tipos de assinaturas, as assinaturas \emph{offline} e as assinaturas \emph{online}. Nas assinaturas \emph{offline}, é considerado apenas o aspecto estático da mesma, ou seja, uma imagem obtida após o processo da assinatura ter sido concluído. Estes dados foram segmentados, inspecionados visualmente e, em seguida, pré-processados para fornecer imagens formatadas em cores, em escala de cinza e binárias com as resoluções de 300 e 600 dpi. Os dados das assinaturas \emph{online}, por sua vez, continham informações dinâmicas, que consistiam em arquivos de texto que descreviam os detalhes capturados em vários pontos durante o processo da assinatura, sendo estes as coordenadas $x$ e $y$ da ponta da caneta, a pressão exercida sobre a caneta, o ângulo de azimute e o ângulo de elevação \cite{icdar2009}. Um exemplo de uma assinatura \emph{offline} e a sua representação \emph{online} com os pontos plotados pode ser encontrada na Figura \ref{fig:sample-signature}.
 
@@ -17,7 +17,7 @@ Os conjuntos disponibilizados pela SigComp2009 aos participantes eram compostos 
 \includegraphics[width=0.5\textwidth]{imgs/sample-signature}
 \end{figure}
 
-Apesar da quantidade de assinaturas originalmente utilizada na competição, foram disponibilizadas atráves da \emph{International Association for Pattern Recognition} (IAPR) apenas 1.898 assinaturas do conjunto NISDCC e 1.564 assinaturas do conjunto NFI \cite{iapr-tc11}. Desses dados disponibilizados, apenas as assinaturas \emph{offline} de cada conjunto foram utilizadas para a construção dos modelos propostos para a resolução do problema descrito neste trabalho, devido a preferência por desenvolver uma solução em visão computacional. Uma demonstração dos dados disponibilizados pela IAPR em relação a quantidade de autores e assinaturas pode ser visualizado na Tabela \ref{tab:demonstracao-dataset}.
+Desses dados disponibilizados, apenas as assinaturas \emph{offline} de cada conjunto foram utilizadas para a construção dos modelos propostos para a resolução do problema descrito neste trabalho, devido a preferência por desenvolver uma solução em visão computacional. Apesar da quantidade de assinaturas \emph{offline} originalmente utilizadas na competição, foram disponibilizadas atráves da \emph{International Association for Pattern Recognition} (IAPR) apenas 1.898 assinaturas do conjunto NISDCC e 1.564 assinaturas do conjunto NFI \cite{iapr-tc11}. Uma demonstração dos dados disponibilizados pela IAPR em relação a quantidade de autores e assinaturas pode ser visualizado na Tabela \ref{tab:demonstracao-dataset}.
 
 \begin{table}[h!]
 	\centering
@@ -34,7 +34,7 @@ Apesar da quantidade de assinaturas originalmente utilizada na competição, for
 	\end{tabular}}
 \end{table}
 
-As imagens correspondentes às assinaturas \emph{offline} presentes nos conjuntos estão em formato \emph{png}, com resolução de 600 dpi e com diferentes dimensões, de forma que todo o conteúdo da assinatura em questão seja visualizado. Contudo, a fim de padronizar esta base de dados para a criação de exemplos compatíveis com o modelo que deseja-se desenvolver, é necessário um pré-processamento das suas imagens, conforme descrito na seção a seguir.
+As imagens correspondentes às assinaturas \emph{offline} presentes nos conjuntos estão em formato \emph{png}, com resolução de 600 dpi e com diferentes dimensões, de forma que todo o conteúdo da assinatura em questão seja visualizado. Contudo, a fim de padronizar esta base de dados para a criação de exemplos compatíveis com o modelo que deseja-se desenvolver, foi necessário um pré-processamento dessas imagens, conforme descrito na seção a seguir.
 
 
 
