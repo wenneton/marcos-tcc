@@ -1,38 +1,24 @@
-Sabe-se que algoritmos de AM necessitam de quantidade significante de dados, preferencialmente sem muitos ruídos, para serem executados de forma a obter um bom desempenho \cite{marsland}. Portanto, visando a consolidação de uma base de dados própria que se adeque a solução proposta e que diminua a sobrecarga de processamento necessária para o treinamento do modelo, fez se necessário um pré-processamento das imagens contidas no conjunto de dados disponibilizado pelo IAPR.
+Sabe-se que algoritmos de AM necessitam de quantidade significantiva de dados, preferencialmente sem muitos ruídos, para serem utilizados de forma a obter um modelo que possua bom desempenho \cite{marsland}. Levando isto em conta e com vistas a adequar os dados disponíveis com a tarefa de aprendizado considerada, uma etapa de pré-processamento fez-se necessárias, cujos passos são descritos a seguir.
 
-Na fase de pré-processamento da base de dados, foi necessária a adaptação das imagens de forma a seguir o processo de aprendizado ilustrado na Figura \ref{fig:esquema-solucao}. Para isto, foi feita a combinação de cada assinatura genuína de um autor com ela mesma e suas outras assinaturas genuínas, a fim de criar exemplos genuínos, e também a combinação dessa assinatura com cada assinatura forjada do mesmo autor, criando assim os exemplos rotulados como forjados. Todas as imagens obtidas dessas combinações foram utilizadas como exemplos para o processo de treinamento, validação e teste do modelo proposto.
+Primeiramente foi necessário realizar a adaptação das imagens individuais para as imagens compostas, conforme apresentado anteriormente no esquema da Figura \ref{fig:esquema-solucao}. Para isto, foi feita a combinação de cada assinatura genuína de um autor com suas diferentes versões originais, produzindo uma nova imagem para cada caso a qual associou-se o rótulo de autêntica. Após esta etapa, também foram combinados os exemplos genuínos com suas respectivas versões forjadas, aos quais foi associado o rótulo de forjado. Todas as imagens obtidas dessas combinações serão utilizadas como exemplos para o processo de treinamento, validação e teste do modelo proposto.
 
-O processo de combinação das imagens de cada um dos exemplos foi concluído em três etapas. Na primeira etapa, ambas as imagens foram redimensionadas para um tamanho de $256 \times 256$ \emph{pixels}. Em seguida, as imagens foram concatenadas verticalmente com a intenção de formar uma única imagem de $256 \times 512$ \emph{pixels}. Por fim, a imagem resultante foi redimensionada novamente em um tamanho de $256 \times 256$ \emph{pixels} e transformada para um espaço de cores em escala de cinza, com a intenção de padronizar todas as entradas recebidas pelas CNNs.
+O processo de combinação das imagens de cada um dos exemplos foi realizado em três etapas. Na primeira etapa, ambas as imagens foram redimensionadas para um tamanho de $256 \times 256$ \emph{pixels}. Em seguida, as imagens foram concatenadas verticalmente com a intenção de formar uma única imagem de $256 \times 512$ \emph{pixels}. Por fim, a imagem resultante foi redimensionada novamente em um tamanho de $256 \times 256$ \emph{pixels} e transformada para um espaço de cores em escala de cinza, com a intenção de padronizar todas os exemplos.
 
 % Escrever algo sobre como foi atingida a quantidade de exemplos atual?
 
-Devido a desproporção no número de exemplos genuínos e forjados e considerando que para alguns indivíduos o conjunto de dados original não possuía assinaturas forjadas, apenas genuínas, foi necessário consolidar bases de dados diferentes considerando três abordagens distintas, visando um melhor aproveitamento dos exemplos disponíveis e a consideração de diferentes percentuais de exemplos, como pode ser visualizado na Figura \ref{fig:divisao-dados}. Em todas as abordagens a proporção de dados separados para as etapas treinamento, teste e validação foi a mesma, aproximadamente $70\%$ para treinamento, aproximadamente $20\%$ para teste e aproximadamente $10\%$ para validação. % Citar o método de holdout explicado na seção Tarefa de Aprendizado.
+Ao concluir a etapa anterior, percebeu-se uma desproporção significativa no número de exemplos de cada classe, o que poderia comprometer o processo de aprendizado do modelo. Para contornar este problema, foram então consideradas três abordagens distintas para os exemplos disponíveis:
 
-\begin{figure}[h!]
-	\centering
-	\caption{Detalhamento da quantidade de exemplos por finalidade e por abordagem.}
-	\subfloat[Abordagem 1\label{subfig:approach1}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach1}
-	}
-	\subfloat[Abordagem 2\label{subfig:approach2}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach2}
-	}
-	\hfill
-	\subfloat[Abordagem 3\label{subfig:approach3}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach3}
-	}
-	\label{fig:divisao-dados}
-\end{figure}
+\begin{enumerate}
+	\item \textbf{Abordagem 1}. Considera apenas os exemplos autênticos para os quais há uma versão forjada. Neste cenário, tem-se apenas $15\%$ de exemplos autênticos e $85\%$ de exemplos forjados;
+	\item \textbf{Abordagem 2}. Nesta abordagem foi preservado o total de exemplos autênticos da abordagem anterior, mas o excedente de exemplos forjados que causavam um desbalanceamento evidente foram descartados de maneira pseudo-aleatória. Embora contenha menos exemplos, esta abordagem tem um \emph{dataset} balanceado, com mesma proporção para ambas as classes;
+	\item \textbf{Abordagem 3}. Visando um melhor aproveitamento das assinaturas originais no \emph{dataset} NFI, considerou o incremento de assinaturas autênticas, ainda que não haja exemplos forjados para mesma. É importante enfatizar que os exemplos forjados desta abordagem são iguais ao da primeira. Obteve-se, então, um \emph{dataset} com mais exemplos e \emph{quasi}-balanceado.
+\end{enumerate}
 
-Na primeira abordagem, foram considerados apenas os exemplos nos quais os indivíduos possuíam assinaturas genuínas e forjadas, sem se importar com a quantidade de exemplos para cada classe, criando assim uma base de dados com uma característica desbalanceada. Entretanto, para a segunda abordagem, foram retirados alguns exemplos de assinaturas forjadas de forma pseudoaleatória, a fim de criar uma base de dados balanceada. Por fim, na terceira abordagem, além de se utilizar todos os dados da primeira abordagem, utilizou-se também os exemplos genuínos de indivíduos que não possuíam assinaturas forjadas, criando desta forma uma base de dados com uma característica \emph{quasi}-balanceada. Uma descrição mais detalhada da composição dos dados em cada uma das abordagens pode ser visualizado na Tabela \ref{tab:divisao-dados}.
-
-% Processo de obtenção do exemplo que será dado como entrada às CNNs.
-% Descrição das abordagens
-% O processo de separação dos dados de treinamento, validação e teste.
+Após a organização dos exemplos conforme as abordagens distintas, realizou-se então a partição \emph{holdout} de validação cruzada, com $70\%$ dos exemplos para treinamento, $10\%$ para validação e $20\%$ para testes. A Tabela \ref{tab:divisao-dados} apresenta a descrição destes dados, suas quantidades e divisões e a Figura \ref{fig:divisao-dados} auxilia na visualização da proporcionalidade nas diferentes abordagens consideradas.
 
 \begin{table}[h!]
 	\centering
-	\caption{Quantitativo de exemplos de cada classe por finalidade dos dados na tarefa de AM.}
+	\caption{Quantitativo de exemplos por abordagem, classe e finalidade na tarefa de aprendizado considerada.}
 	\label{tab:divisao-dados}
 \resizebox{\textwidth}{!}{
 	\begin{tabular}{c c c c c c c c}
@@ -50,3 +36,21 @@ Na primeira abordagem, foram considerados apenas os exemplos nos quais os indiv�
 		\bottomrule
 	\end{tabular}}
 \end{table}
+
+\begin{figure}[h!]
+	\centering
+	\caption{Representação gráfica da proporção dos exemplos por abordagem, classe e finalidade na tarefa de aprendizado considerada.}
+	\subfloat[Abordagem 1\label{subfig:approach1}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/approach1}
+	}
+	\subfloat[Abordagem 2\label{subfig:approach2}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/approach2}
+	}
+	\hfill
+	\subfloat[Abordagem 3\label{subfig:approach3}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/approach3}
+	}
+	\label{fig:divisao-dados}
+\end{figure}
+
+Ao serem fornecidas para treinamento pelas CNNs, todas os \emph{pixels} das imagens serão normalizados por meio de uma divisão por $255$, passando a residirem no intervalo $[0,1]$. Esta normalização é realizada em virtude das redes neurais que, em geral, aprendem mais eficientemente nestas condições \cite{chollet}.
