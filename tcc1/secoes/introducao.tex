@@ -1,13 +1,18 @@
 %!TEX root = ../main.tex
 
-A verificação automática de identidade por biometria tornou-se nos últimos anos uma rotina diária na vida de várias pessoas. Biometria é definida como a utilização de características fisiológicas ou traços comportamentais para verificação de identidade de um indivíduo. Embora a lista dessas características e traços seja muito longa, pode-se citar, por exemplo, traços faciais, íris, impressão digital, assinatura e voz. A autenticação por biometria ganhou muita popularidade como uma alternativa confiável para sistemas baseados em segurança por chave, devido suas propriedades únicas e a capacidade quase nula de cópia, roubo ou adivinhação \cite{kholmatov}.
+A verificação automática de identidade por biometria tornou-se nos últimos anos uma rotina diária na vida de várias pessoas. A biometria é definida como a utilização de características fisiológicas ou traços comportamentais para verificação de identidade de um indivíduo. A autenticação por biometria ganhou muita popularidade como uma alternativa confiável para sistemas baseados em segurança por chave, devido suas propriedades únicas e a capacidade quase nula de cópia, roubo ou adivinhação \cite{kholmatov}.
 
-A assinatura manuscrita é um tipo de biometria comportamental que apresenta diversas vantagens em relação às demais técnicas de autenticação. Uma vantagem é a segurança, pois ao contrário das senhas, mesmo que alguém conheça a assinatura de um usuário, normalmente não é possível reproduzi-la de forma trivial. Outra vantagem é a familiaridade dos seres humanos em utilizar assinaturas como uma forma de autenticação em transações financeiras, e assim sentem-se mais seguros e confortáveis em relação ao seu uso \cite{heinen}.
+Dentre as biometrias que utilizam-se de características fisiológicas estão, por exemplo, as impressões digitais, o exame de fundo de retina e da palma da mão. Estas técnicas são muito mais seguras do que senhas convecionais, porém deparam-se com problemas operacionais que dificultam o seu uso em larga escala, como o grande custo com \emph{hardwares} especializados e o grau de intrusão elevado aos usuários na captura destas características \cite{[5]noheinen2002}. Por outro lado, existem as características biométricas que utilizam-se de traços comportamentais como, por exemplo, expressões faciais, gestos e assinaturas manuscritas. Dentre essas técnicas, a que mais se destaca é a autenticação de identidade através de assinaturas manuscritas, devido às suas diversas vantagens em relação às outras técnicas \cite{heinen2002}.
 
-% Assinaturas manuscritas como técnicas de identificação de propriedade
-% Detalhes técnicos das assinaturas manuscritas
-% Machine learning
-% Visão computacional
+Uma das vantagens das assinaturas manuscritas é a segurança, pois ao contrário das senhas, mesmo que alguém conheça a assinatura de um usuário, normalmente não é possível reproduzi-la de forma trivial. Outra de suas vantagens é a familiaridade de alguns seres humanos em utilizar suas assinaturas como uma forma de autenticação em transações financeiras, e assim sentem-se mais seguros e confortáveis em relação ao seu uso \cite{heinen2004}. Além disso, este método biométrico possui ainda a característica de ser pouco invasivo e ter um baixo custo de aquisição, aumentando ainda mais a sua aceitação como método de autenticação \cite{souza2009}.
+
+% (?) Falar sobre as assinaturas online e offline na introdução?
+
+O maior desafio das técnicas de verificação de assinaturas é determinar se uma assinatura em questão é, de fato, escrita por quem afirma ser e se falsificações podem ser identificadas. Apesar de todas as vantagens apresentadas, a autenticação automatizada de assinaturas manuscritas não é uma tarefa trivial de se realizar, pois ao contrário das impressões digitais e do exame de fundo de retina, onde o padrão a ser reconhecido varia muito pouco, as assinaturas manuscritas apresentam uma grande variabilidade, inclusive entre diferentes assinaturas de um mesmo indivíduo \cite{heinen2002}. Na literatura já foram explorados diversos métodos com vistas a superar este desafio, nos quais bons resultados foram encontrados principalmente utilizando Máquinas de Vetores de Suporte, Modelos Escondidos de Markov, Análise do Componente Principal, \emph{Dynamic Time Warping}, dentre outros \cite{souza2009}.
+
+O \emph{Deep Learning} (DL), às vezes chamado de aprendizado profundo, é uma subárea da Inteligência Artificial que possui grande destaque na resolução de problemas de Visão Computacional. Com base nisso, para este trabalho, utilizou-se técnicas de DL envolvendo Redes Neurais Convolucionais para a determinação de padrões existentes em imagens de assinaturas de diversos autores diferentes, a fim de criar modelos capazes de identificar falsificações em assinaturas.
+
+% Ultimo páragrafo para relacionar as próximas seçẽos da introdução?
 
 \subsection{Objetivos}
 
@@ -36,4 +41,3 @@ O objetivo geral deste trabalho consiste em verificar a autenticidade de assinat
 
 \subsection{Organização do Documento}
 \input{./secoes/introducao/organizacao}
-(..)
