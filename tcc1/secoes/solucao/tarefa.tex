@@ -20,7 +20,7 @@ O treinamento e teste das CNNs seguirão o método \emph{holdout} de validação
 
 Os modelos propostos serão avaliados perante as métricas de desempenho de \emph{Acurácia} e \emph{F-score}. A acurácia indica a proporção de predições corretas inferidas pelos modelos. O \emph{F-score}, por sua vez, é calculado pela média harmônica da precisão e da revocação, que assumirá valores diferentes dependendo do balanceamento do conjunto de dados apresentando ao modelo.
 
-Para um \emph{dataset} balanceado, os cálculos da precisão e revocação serão realizados através da técnica de \emph{micro-average}, enquanto para um \emph{dataset} desbalanceado, esses valores serão determinados através do \emph{macro-average}. Nas equações \ref{eq:precision} e \ref{eq:recall} estão demonstrados os valores de precisão ($P$) e revocação ($R$) considerando um problema com duas classes diferentes. Os valores de $TP_n$, $FP_n$ e $FN_n$ são respectivamente os valores de verdadeiros positivos, falsos positivos e falsos negativos aferidos para a classe $n$.
+Para um \emph{dataset} balanceado, os cálculos da precisão e revocação serão realizados através da técnica de \emph{macro-average}, enquanto para um \emph{dataset} desbalanceado, esses valores serão determinados através do \emph{micro-average}. Nas equações \ref{eq:precision} e \ref{eq:recall} estão demonstrados os valores de precisão ($P$) e revocação ($R$) considerando um problema com duas classes diferentes. Os valores de $TP_n$, $FP_n$ e $FN_n$ são respectivamente os valores de verdadeiros positivos, falsos positivos e falsos negativos aferidos para a classe $n$.
 
 \begin{equation}
 \label{eq:precision}
