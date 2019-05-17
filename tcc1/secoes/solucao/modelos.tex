@@ -1,19 +1,33 @@
 %!TEX root = ../../main.tex
 
-Como visto anteriormente, arquiteturas eficientes de CNNs que satisfaçam as necessidades encontradas em determinada tarefa de aprendizado ainda são difíceis de se elaborar. Consequentemente, para o problema apresentado neste trabalho, escolheu-se utilizar topologias canônicas de CNNs, ajustando seus parâmetros e hiperparâmetros com a finalidade de encontrar modelos que possuam um bom desempenho para a tarefa de aprendizado aqui definida.
+Como visto anteriormente, arquiteturas eficientes de CNNs que satisfaçam as necessidades encontradas em determinada tarefa de aprendizado ainda são difíceis de se elaborar. Consequentemente, para o problema apresentado neste trabalho, escolheu-se utilizar topologias canônicas de CNNs, ajustando seus parâmetros e hiperparâmetros com a finalidade de encontrar modelos que possuam um bom desempenho para a tarefa de aprendizado aqui definida. Dentre estas topologias, as selecionadas para o escopo deste trabalho estão descritas a seguir:
 
-Os parâmetros estão relacionados aos pesos atribuídos a uma rede neural, enquanto os hiperparâmetros estão relacionados ao ajuste em nível de arquitetura das CNNs \cite{chollet}\todo{Parei aqui, refazer última sentença utilizando o chollet}.
+\begin{itemize}
+	\item \textbf{LeNet: } Desenvolvida por LeCun em 1989, a arquitetura LeNet foi uns dos primeiros grandes sucessos na aplicação de CNNs e foi utilizada para a detecção de dígitos manuscritos utilizando o dataset MNIST \cite{lecun}.
+		\item \textbf{AlexNet: } Em 2012, a arquitetura AlexNet foi a primeira CNN a vencer o desafio ILSVRC da ImageNet, tendo uma grande margem de diferença dos outros modelos da competição. Para o seu treinamento com o conjunto de dados ImageNet, foram utilizadas duas GPUs de 3 GB de memória cada, que foram capazes de armazenar o processamento de aproximadamente 62 milhões de parâmetros \cite{alexnet,khan}.
+	\item \textbf{SqueezeNet: } Foi desenvolvida em 2016 através de uma parceria entre os cientistas da DeepScale, University of California, Berkeley e Stanford University. A idéia foi criar uma arquitetura com o nível de acurácia da AlexNet com $50 \times$ menos parâmetros e com um tamanho $0.5$ MB menor, permitindo uma maior eficiência no treinamento em sistemas distribuidos, menor sobrecarga na exportação de modelos através da rede e sua capacidade de ajustar-se a sistemas com pouca memória \cite{squeezenet}.
+	\item \textbf{MobileNet: } Constituída por um conjunto de dois hiperparâmetros, esta arquitetura possui menor latência e um tamanho menor comparada a outras arquiteturas existentes, possuindo os requisitos que facilitam a sua implementação em aplicações para dispositivos móveis e embarcados \cite{mobilenet}. No \emph{framework} \texttt{keras}, que foi utilizado nas atividades realizadas neste trabalho, esta arquitetura possui uma profundidade de $88$ camadas, $4.253.864$ parâmetros e um tamanho de 17 MB \cite{keras}.
+\end{itemize}
 
-% \begin{table}[h!]
-% 	\centering
-% 	\caption{Parâmetros e hiperparâmetros selecionados para o treinamento dos modelos propostos.}
-% 	\label{tab:parametros}
-% 	\begin{tabular}{c c c c c}
-% 		\toprule
-% 		 \textbf{CNN} & \textbf{Épocas} & \textbf{\emph{Patience}} & \textbf{Otimizador} & \textbf{Função de ativação}  \\
-% 		\midrule
-% 		AlexNet & 200 & 20 & SGD & ReLU \\
-%     LeNet & 200 & 20 & Adam & Leaky ReLU \\
-% 		\bottomrule
-% 	\end{tabular}
-% \end{table}
+Os parâmetros estão relacionados aos pesos atribuídos a uma rede neural e são treinados através do \emph{backpropagation}. Os hiperparâmetros, por sua vez, estão relacionados ao ajuste em nível de arquitetura das CNNs \cite{chollet}. Os parâmetros e hiperparâmetros selecionados para serem ajustados durante o treino das CNNs neste trabalho serão: o otimizador, a função de ativação e a \emph{patience}.
+
+\begin{table}[h!]
+	\centering
+	\caption{Valores dos parâmetros e hiperparâmetros selecionados para a elaboração dos modelos.}
+	\label{tab:parametros}
+	\begin{tabular}{c c C{3cm} C{3cm}}
+		\toprule
+		 \textbf{Épocas} & \textbf{\emph{Patience}} & \textbf{Otimizador} & \textbf{Função de ativação}  \\
+		\midrule
+		200 & 5, 10 e 15 & SGD, Adam e RMSprop & ReLU, ELU, SELU e Leaky ReLU \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+O \emph{Early Stopping} é um hiperparâmetro utilizado para monitorar uma métrica de desempenho durante o treinamento da rede (\emph{loss} do conjunto de treinamento; acurácia no conjunto de validação, entre outras), interrompendo o mesmo ao perceber que uma condição especificada foi atingida. No caso deste trabalho, será contabilizada a quantidade de vezes que a métrica escolhida não foi melhorada e então, quando essa contagem atingir o valor especificado pelo valor de \emph{patience}, o treinamento é finalizado.
+
+\todo{Inserir otimizadores.}
+
+As função de ativação ReLU e as suas variações Leaky ReLu, ELU (\emph{Exponential Linear Unit}) e SELU (\emph{Scaled Exponential Linear Unit}) foram escolhidas para estarem presentes nos neurônios das camadas internas das CNNs. Na Leaky ReLu é adicionado um parâmetro $\alpha$ que é chamado de vazamento, fazendo com que o gradiente seja pequeno, mas nunca igual a zero. A função ELU é uma boa alternativa à ReLU pois diminui a mudança do \emph{bias} ao pressionar a ativação média para zero. A SELU, por sua vez, possui uma auto-normalização, fazendo com que a aprendizagem seja altamente robusta e permitindo treinar redes com muitas camadas \cite{relu}.
+
+Por fim, na camada de saída dos modelos produzidos, será diposto apenas um neurônio com a função de ativação sigmoidal, a partir do qual serão calculadas as probabilidades de pertencimento a cada classe.
