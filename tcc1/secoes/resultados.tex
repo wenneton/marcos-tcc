@@ -3,16 +3,21 @@
 Nesta seção serão apresentados os resultados parciais obtidos no treinamento de modelos baseados em algumas das arquiteturas selecionadas para o escopo deste trabalho. \todo{Terminar a apresentação das seções após o término da análise dos modelos treinados}
 
 
+\todo{Falar dos recursos de hardware utilizados para executar os treinos e testes.}
+
+
 \subsection{Resultados Obtidos com a CNN LeNet}
 \label{sec:lenet}
 
-A primeira fase do treinamento dos modelos foi dada utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, gerando um total de 108 modelos no total. Alguns desses modelos tiveram seus resultados degenerados, ou seja, não conseguiram aprender e acabaram voltando suas saídas para apenas um valor.
+A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, gerando um total de $108$ modelos a serem treinados e testados.
 
-Considerando a métrica de \emph{F-score} como referência, foi possível identificar os melhores resultados utilizando conjunto de testes de cada uma das três abordagens conforme a Tabela \ref{tab:lenet}.
+Após a etapa de treino, foram realizados os testes para aferir os modelos no tocante às métricas de desempenho para o conjunto de testes. Nesta etapa, percebeu-se que alguns modelos tornaram-se degenerados e acabaram prevendo apenas uma das classes. Duas hipóteses podem justificar a ocorrência desse problema: o ReLU \emph{dying problem}, quando a função de ativação ReLU foi utilizada; ou a tendência a permanência em mínimos locais durante o treinamento da CNN. Todas as CNNs que manifestaram este comportamento no conjunto de testes tiveram seus resultados descartados, pois as métricas obtidas não refletiam o aprendizado do problema considerado.
+
+Para os demais casos, utilizou-se a métrica \emph{F-score} como referência. Em relação às três abordagens consideradas, os modelos dispostos na Tabela \ref{tab:lenet} foram identificados como tendo melhor desempenho para a tarefa em questão.
 
 \begin{table}[h!]
 \centering
-\caption{Detalhamento dos melhores modelos obtidos com a arquitetura LeNet, organizados de forma descrescente considerando o valor de Acurácia.}
+\caption{Detalhamento dos melhores modelos obtidos com a arquitetura LeNet, organizados de forma descrescente considerando o valor de acurácia.}
 \label{tab:lenet}
 \begin{tabular}{cccccc}
 \toprule
@@ -25,10 +30,11 @@ Abordagem 3 & RMSprop & 5 & ELU & $0.4696$ & $0.5099$ \\
 \end{tabular}
 \end{table}
 
+
 Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda (\emph{loss}) e acurácia para o conjunto de treinamento e validação destas redes. Nota-se que nenhuma delas chegou ao limite máximo de épocas possíveis, interrompendo o aprendizado por meio de \emph{early stopping}.
 
-
-\begin{figure}[h!]
+\todo{Corrigir posicionamento das figuras.}
+\begin{figure}[H]
 	\centering
 	\caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura LeNet.}
 	\subfloat[Abordagem 1 com RMSprop, SELU e \emph{patience} igual a 5\label{subfig:approach1-lenet}]{%
@@ -44,11 +50,11 @@ Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda
 	\label{fig:treinamento-lenet}
 \end{figure}
 
-Examinando mais atentamente o desempenho destas redes, tem-se, então, as matrizes de confusão mostradas na Figura \ref{fig:matrizes-lenet}. Nestas matrizes, a soma das linhas representam a quantidade de assinaturas previstas para cada classe pelo modelo em questão, enquanto a soma das colunas denotam a quantidade de assinaturas existentes em cada classe.
+Examinando mais atentamente o desempenho destas redes no conjunto de testes, tem-se, então, as matrizes de confusão mostradas na Figura \ref{fig:matrizes-lenet}. Nestas matrizes, a soma das linhas representam a quantidade de assinaturas previstas para cada classe pelo modelo em questão, enquanto a soma das colunas denotam a quantidade de assinaturas existentes em cada classe.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
-	\caption{Matrizes de confusão dos melhores modelos obtidos com a arquitetura LeNet.}
+	\caption{Matrizes de confusão dos melhores modelos obtidos com a arquitetura LeNet.}\label{fig:matrizes-lenet}
 	\subfloat[Abordagem 1\label{subfig:matriz-approach1-lenet}]{%
 	\includegraphics[width=0.5\textwidth]{imgs/matriz-approach1-lenet}
 	}
@@ -59,12 +65,13 @@ Examinando mais atentamente o desempenho destas redes, tem-se, então, as matriz
 	\subfloat[Abordagem 3\label{subfig:matriz-approach1-lenet}]{%
 	\includegraphics[width=0.5\textwidth]{imgs/matriz-approach3-lenet}
 	}
-	\label{fig:matrizes-lenet}
 \end{figure}
 
 %%%% ARGUMENTAÇÃO
 
-Para esta arquitetura, é possível visualizar que, os melhores modelos foram aqueles que possuiam o menor valor de \emph{patience}. Isso demonstra que foi necessário poucas épocas de treinamento para obter modelos melhores que a maioria. É importante afirmar também que, mesmo com a mudança de hiperparâmetros, as métricas de desempenho resultantes de modelos que foram treinados perante uma mesma abordagem não obtiveram uma grande variação. Isso demonstra que o balanceamento dos conjuntos de dados, no caso desta topologia, foi essencial para a obtenção de melhores resultados.
+Para esta arquitetura, é possível visualizar que os melhores modelos foram aqueles que possuíram o menor valor de \emph{patience}. Isso revela que houve uma oscilação no treinamento, de modo que o aprendizado de característica sobre o problema foi instável, resultando em uma parada precoce. Para contornar este efeito, pode ser necessário buscar ajustes de parâmetros (\emph{fine-tuning}) ou também avaliar outras arquiteturas nesta tarefa, nas quais este efeito é minimizado.
+
+No geral, o desempenho obtido com as redes LeNet ainda não foram suficientemente bons para a tarefa considerada. Embora a acurácia denote valores altos para a primeira abordagem ($0.7224$), precisa-se relembrar que isto é mais predominantemente decorrente do desbalanceamento do \emph{dataset} do que da qualidade do modelo em si, conforme revela o \emph{F-Score} associado ($0.1794$). As matrizes de confusão ilustradas na Figura \ref{fig:matrizes-lenet} denotam uma diagonal principal ainda pouco densa, sugerindo que melhorias na tarefa ainda são necessárias. Neste ponto, tem-se os resultados da Abordagem 2 como sendo melhores para a tarefa considerada.
 
 
 
