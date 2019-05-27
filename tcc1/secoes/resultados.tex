@@ -17,7 +17,7 @@ Para os demais casos, utilizou-se a métrica \emph{F-score} como referência. Em
 
 \begin{table}[h!]
 \centering
-\caption{Detalhamento dos melhores modelos obtidos com a arquitetura LeNet, organizados de forma descrescente considerando o valor de acurácia.}
+\caption{Detalhamento dos melhores modelos obtidos com a arquitetura LeNet, organizados de forma decrescente considerando o valor de acurácia.}
 \label{tab:lenet}
 \begin{tabular}{cccccc}
 \toprule
@@ -33,19 +33,29 @@ Abordagem 3 & RMSprop & 5 & ELU & $0.4696$ & $0.5099$ \\
 
 Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda (\emph{loss}) e acurácia para o conjunto de treinamento e validação destas redes. Nota-se que nenhuma delas chegou ao limite máximo de épocas possíveis, interrompendo o aprendizado por meio de \emph{early stopping}.
 
-\todo{Corrigir posicionamento das figuras.}
+
 \begin{figure}[H]
 	\centering
 	\caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura LeNet.}
-	\subfloat[Abordagem 1 com RMSprop, SELU e \emph{patience} igual a 5\label{subfig:approach1-lenet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach1-lenet-rmsprop-5-selu}
+	\subfloat[\emph{Loss} durante treinamento com a Abordagem 1\label{subfig:approach1-lenet-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach1-lenet-rmsprop-5-selu-loss}
 	}
-	\subfloat[Abordagem 2 com Adam, ReLU e \emph{patience} igual a 5\label{subfig:approach2-lenet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach2-lenet-adam-5-relu}
+	\subfloat[Acurácia durante treinamento com a Abordagem 1\label{subfig:approach1-lenet-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach1-lenet-rmsprop-5-selu-acc}
 	}
 	\hfill
-	\subfloat[Abordagem 3 com RMSprop, ELU e \emph{patience} igual a 5\label{subfig:approach3-lenet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach3-lenet-rmsprop-5-elu}
+	\subfloat[\emph{Loss} durante treinamento com a Abordagem 2\label{subfig:approach2-lenet-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach2-lenet-adam-5-relu-loss}
+	}
+	\subfloat[Acurácia durante treinamento com a Abordagem 2\label{subfig:approach2-lenet-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach2-lenet-adam-5-relu-acc}
+	}
+	\hfill
+	\subfloat[\emph{Loss} durante treinamento com a Abordagem 3\label{subfig:approach3-lenet-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach3-lenet-rmsprop-5-elu-loss}
+	}
+	\subfloat[Acurácia durante treinamento com a Abordagem 3\label{subfig:approach3-lenet-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach3-lenet-rmsprop-5-elu-acc}
 	}
 	\label{fig:treinamento-lenet}
 \end{figure}
@@ -85,18 +95,45 @@ No geral, o desempenho obtido com as redes LeNet ainda não foram suficientement
 
  \begin{table}[h!]
  \centering
- \caption{Detalhamento dos melhores modelos obtidos com a arquitetura AlexNet, organizados de forma descrescente considerando o valor de Acurácia.}
+ \caption{Detalhamento dos melhores modelos obtidos com a arquitetura AlexNet, organizados de forma decrescente considerando o valor de Acurácia.}
  \label{tab:alexnet}
  \begin{tabular}{cccccc}
  \toprule
  \textbf{Conjunto} & \textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} \\
  \midrule
- Abordagem 3 & Adam & 15 & SELU & $0.4456$ & $0.5524$ \\
  Abordagem 2 & SGD & 5 & \emph{Leaky} ReLU & $0.5282$ & $0.6349$ \\
+ Abordagem 3 & Adam & 15 & SELU & $0.4456$ & $0.5524$ \\
  Abordagem 1 & RMSprop & 5 & ReLU & $0.1844$ & $0.2765$ \\
  \bottomrule
  \end{tabular}
 \end{table}
+
+
+\begin{figure}[H]
+	\centering
+	\caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura AlexNet.}
+	\subfloat[\emph{Loss} durante treinamento com a Abordagem 1\label{subfig:approach1-alexnet-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach1-alexnet-rmsprop-5-relu-loss}
+	}
+	\subfloat[Acurácia durante treinamento com a Abordagem 1\label{subfig:approach1-alexnet-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach1-alexnet-rmsprop-5-relu-acc}
+	}
+	\hfill
+	\subfloat[\emph{Loss} durante treinamento com a Abordagem 2\label{subfig:approach2-alexnet-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach2-alexnet-sgd-5-lrelu-loss}
+	}
+	\subfloat[Acurácia durante treinamento com a Abordagem 2\label{subfig:approach2-alexnet-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach2-alexnet-sgd-5-lrelu-acc}
+	}
+	\hfill
+	\subfloat[\emph{Loss} durante treinamento com a Abordagem 3\label{subfig:approach3-alexnet-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach3-alexnet-adam-15-selu-loss}
+	}
+	\subfloat[Acurácia durante treinamento com a Abordagem 3\label{subfig:approach3-alexnet-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/approach3-alexnet-adam-15-selu-acc}
+	}
+	\label{fig:treinamento-alexnet}
+\end{figure}
 
 
 \begin{figure}[h!]
