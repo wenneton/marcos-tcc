@@ -45,18 +45,22 @@ class LeNet(CNN):
         self.add(Conv2D(6, (5,5), strides=(1,1), input_shape=input_shape, padding='valid', name='conv_1'))
         self.add_activation()
         self.add(MaxPooling2D(pool_size=(1,1), strides=(2,2), padding='valid'))
+        self.add(BatchNormalization())
 
         self.add(Conv2D(16, (5,5), strides=(1,1), padding='valid', name='conv_2'))
         self.add_activation()
         self.add(MaxPooling2D(pool_size=(1,1), strides=(2,2), padding='valid'))
+        self.add(BatchNormalization())
 
         self.add(Flatten())
 
         self.add(Dense(120))
         self.add_activation()
+        self.add(BatchNormalization())
 
         self.add(Dense(84))
         self.add_activation()
+        self.add(BatchNormalization())
 
         self.add(Dense(1))
         self.add(Activation('sigmoid'))
@@ -69,34 +73,69 @@ class AlexNet(CNN):
         elif K.image_data_format()=='channels_last':
             input_shape=(img_width,img_height,img_depth)
         
-        self.add(Conv2D(96, (11,11), strides=(4,4), input_shape=input_shape, padding='same', name='conv_1'))
+        # 1st Convolutional Layer
+        self.add(Conv2D(filters=96, input_shape=(256,256,1), kernel_size=(11,11),\
+         strides=(4,4), padding='valid'))
         self.add_activation()
+        # Pooling 
+        self.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
+        # Batch Normalisation before passing it to the next layer
         self.add(BatchNormalization())
-        self.add(MaxPooling2D(pool_size=(3,3), strides=(2,2), padding='valid'))
 
-        self.add(Conv2D(256, (5,5), strides=(1,1), padding='same',  name='conv_2'))
+        # 2nd Convolutional Layer
+        self.add(Conv2D(filters=256, kernel_size=(11,11), strides=(1,1), padding='valid'))
         self.add_activation()
+        # Pooling
+        self.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
+        # Batch Normalisation
         self.add(BatchNormalization())
-        self.add(MaxPooling2D(pool_size=(3,3), strides=(2,2), padding='valid', name='convpool_1'))
 
-        self.add(Conv2D(384, (3,3), strides=(1,1), padding='same', name='conv_3'))
+        # 3rd Convolutional Layer
+        self.add(Conv2D(filters=384, kernel_size=(3,3), strides=(1,1), padding='valid'))
         self.add_activation()
-        
-        self.add(Conv2D(384, (3,3), strides=(1,1), padding='same', name='conv_4'))
-        self.add_activation()
-        
-        self.add(Conv2D(256, (3,3), strides=(1,1), padding='same', name='conv_5'))
-        self.add_activation()
-        self.add(MaxPooling2D(pool_size=(3,3), strides=(2,2), padding='valid', name='convpool_5'))
+        # Batch Normalisation
+        self.add(BatchNormalization())
 
-        self.add(Flatten(name='flatten'))
+        # 4th Convolutional Layer
+        self.add(Conv2D(filters=384, kernel_size=(3,3), strides=(1,1), padding='valid'))
+        self.add_activation()
+        # Batch Normalisation
+        self.add(BatchNormalization())
+
+        # 5th Convolutional Layer
+        self.add(Conv2D(filters=256, kernel_size=(3,3), strides=(1,1), padding='valid'))
+        self.add_activation()
+        # Pooling
+        self.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
+        # Batch Normalisation
+        self.add(BatchNormalization())
+
+        # Passing it to a dense layer
+        self.add(Flatten())
+        # 1st Dense Layer
+        self.add(Dense(4096, input_shape=(256*256*3,)))
+        self.add_activation()
+        # Add Dropout to prevent overfitting
+        self.add(Dropout(0.4))
+        # Batch Normalisation
+        self.add(BatchNormalization())
+
+        # 2nd Dense Layer
         self.add(Dense(4096))
         self.add_activation()
-        self.add(Dropout(0.5))
-        
-        self.add(Dense(4096))
-        self.add_activation()
-        self.add(Dropout(0.5))
+        # Add Dropout
+        self.add(Dropout(0.4))
+        # Batch Normalisation
+        self.add(BatchNormalization())
 
+        # 3rd Dense Layer
+        self.add(Dense(1000))
+        self.add_activation()
+        # Add Dropout
+        self.add(Dropout(0.4))
+        # Batch Normalisation
+        self.add(BatchNormalization())
+
+        # Output Layer
         self.add(Dense(1))
         self.add(Activation('sigmoid'))
