@@ -1,31 +1,26 @@
 %!TEX root = ../main.tex
 
-Nesta seção serão apresentados os resultados parciais obtidos no teste de modelos baseados em algumas das arquiteturas selecionadas para o escopo deste trabalho. \todo{Terminar a apresentação das seções após o término da análise dos modelos treinados}
+Nesta seção serão apresentados os resultados parciais obtidos no teste de modelos baseados em algumas das arquiteturas selecionadas para o escopo deste trabalho. As Seções \ref{sec:lenet} e \ref{sec:alexnet} demonstram os resultados obtidos pelos melhores modelos encontrados com as arquiteturas LeNet e AlexNet, respectivamente. O treinamento destas CNNs foi realizado utilizando os recursos computacionais de um servidor, disponível no LSI, dedicado especialmente para tarefas de DL, o qual possui um processador Intel Core i7 com 16 GB de RAM e duas placas gráficas com 11 GB de memória cada, ajudando no processamento dos algoritmos de aprendizado.
 
-O treinamento destes modelos foi realizado utilizando os recursos computacionais de um servidor, disponível no LSI, dedicado especialmente para tarefas de DL, o qual possui um processador Intel Core i7 com 16 GB de RAM e duas placas gráficas com 11 GB de memória cada, ajudando no processamento do algoritmo de aprendizado.
-\todo{Falar do tempo de treinamento (?)}
+Após a etapa de treino, foram realizados os testes para aferir os modelos no tocante às métricas de desempenho para o conjunto de testes. Nesta etapa, percebeu-se que alguns modelos tornaram-se degenerados e acabaram prevendo apenas uma das classes. Duas hipóteses podem justificar a ocorrência desse problema: o ReLU \emph{dying problem}, quando a função de ativação ReLU foi utilizada; ou a tendência a permanência em mínimos locais durante o treinamento do modelo. Todas as CNNs que manifestaram este comportamento no conjunto de testes tiveram seus resultados descartados, pois as métricas obtidas não refletiam o aprendizado do problema considerado.
 
 
 \subsection{Resultados Obtidos com a CNN LeNet}
 \label{sec:lenet}
 
-A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, gerando um total de $108$ modelos a serem treinados e testados.
-
-Após a etapa de treino, foram realizados os testes para aferir os modelos no tocante às métricas de desempenho para o conjunto de testes. Nesta etapa, percebeu-se que alguns modelos tornaram-se degenerados e acabaram prevendo apenas uma das classes. Duas hipóteses podem justificar a ocorrência desse problema: o ReLU \emph{dying problem}, quando a função de ativação ReLU foi utilizada; ou a tendência a permanência em mínimos locais durante o treinamento da CNN. Todas as CNNs que manifestaram este comportamento no conjunto de testes tiveram seus resultados descartados, pois as métricas obtidas não refletiam o aprendizado do problema considerado.
-
-Para os demais casos, utilizou-se a métrica \emph{F-score} como referência. Em relação às três abordagens consideradas, os modelos dispostos na Tabela \ref{tab:lenet} foram identificados como tendo melhor desempenho para a tarefa em questão.
+A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, gerando um total de $36$ modelos a serem treinados e testados. Para estes modelos, excluindo aqueles que se tornaram degenerados, utilizou-se a métrica \emph{F-score} como referência para um melhor desempenho. Em relação aos três otimizadores considerados, os modelos dispostos na Tabela \ref{tab:lenet} foram identificados como tendo melhor desempenho para a tarefa em questão.
 
 \begin{table}[h!]
 \centering
 \caption{Detalhamento dos melhores modelos obtidos com a arquitetura LeNet, organizados de forma decrescente considerando o valor de acurácia.}
 \label{tab:lenet}
-\begin{tabular}{cccccc}
+\begin{tabular}{ccccc}
 \toprule
-\textbf{Conjunto} & \textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} \\
+\textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} \\
 \midrule
-Abordagem 1 & RMSprop & 5 & SELU & $0.7224$ & $0.1794$ \\
-Abordagem 2 & Adam & 5 & ReLU & $0.5088$ & $0.6036$ \\
-Abordagem 3 & RMSprop & 5 & ELU & $0.4696$ & $0.5099$ \\
+RMSprop & 5 & \emph{Leaky} ReLU & $0.9865$ & $0.9755$ \\
+SGD & 5 & ELU & $0.9787$ & $0.9619$ \\
+Adam & 10 & ReLU & $0.9366$ & $0.8974$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -37,25 +32,25 @@ Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda
 \begin{figure}[H]
 	\centering
 	\caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura LeNet.}
-	\subfloat[\emph{Loss} durante treinamento com a Abordagem 1\label{subfig:approach1-lenet-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach1-lenet-rmsprop-5-selu-loss}
+	\subfloat[\emph{Loss} durante treinamento do melhor modelo com RMSprop.\label{subfig:lenet-rmsprop-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-rmsprop-loss}
 	}
-	\subfloat[Acurácia durante treinamento com a Abordagem 1\label{subfig:approach1-lenet-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach1-lenet-rmsprop-5-selu-acc}
-	}
-	\hfill
-	\subfloat[\emph{Loss} durante treinamento com a Abordagem 2\label{subfig:approach2-lenet-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach2-lenet-adam-5-relu-loss}
-	}
-	\subfloat[Acurácia durante treinamento com a Abordagem 2\label{subfig:approach2-lenet-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach2-lenet-adam-5-relu-acc}
+	\subfloat[Acurácia durante treinamento do melhor modelo com RMSprop.\label{subfig:lenet-rmsprop-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-rmsprop-acc}
 	}
 	\hfill
-	\subfloat[\emph{Loss} durante treinamento com a Abordagem 3\label{subfig:approach3-lenet-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach3-lenet-rmsprop-5-elu-loss}
+	\subfloat[\emph{Loss} durante treinamento do melhor modelo com SGD.\label{subfig:lenet-sgd-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-sgd-loss}
 	}
-	\subfloat[Acurácia durante treinamento com a Abordagem 3\label{subfig:approach3-lenet-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach3-lenet-rmsprop-5-elu-acc}
+	\subfloat[Acurácia durante treinamento do melhor modelo com SGD.\label{subfig:lenet-sgd-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-sgd-acc}
+	}
+	\hfill
+	\subfloat[\emph{Loss} durante treinamento do melhor modelo com Adam.\label{subfig:lenet-adam-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-adam-loss}
+	}
+	\subfloat[Acurácia durante treinamento do melhor modelo com Adam.\label{subfig:lenet-adam-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-adam-acc}
 	}
 	\label{fig:treinamento-lenet}
 \end{figure}
@@ -151,9 +146,3 @@ No geral, o desempenho obtido com as redes LeNet ainda não foram suficientement
 	}
 	\label{fig:matrizes-alexnet}
 \end{figure}
-
-\subsection{Resultados Obtidos com a CNN SqueezeNet}
-\label{sec:squeezenet}
-
-\subsection{Resultados Obtidos com a CNN MobileNet}
-\label{sec:mobilenet}
