@@ -60,15 +60,15 @@ Examinando mais atentamente o desempenho destas redes no conjunto de testes, tem
 \begin{figure}[H]
 	\centering
 	\caption{Matrizes de confusão dos melhores modelos obtidos com a arquitetura LeNet.}\label{fig:matrizes-lenet}
-	\subfloat[Abordagem 1\label{subfig:matriz-approach1-lenet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-approach1-lenet}
+	\subfloat[Modelo com RMSprop\label{subfig:matriz-lenet-rmsprop}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-rmsprop}
 	}
-	\subfloat[Abordagem 2\label{subfig:matriz-approach2-lenet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-approach2-lenet}
+	\subfloat[Modelo com SGD\label{subfig:matriz-lenet-sgd}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-sgd}
 	}
 	\hfill
-	\subfloat[Abordagem 3\label{subfig:matriz-approach1-lenet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-approach3-lenet}
+	\subfloat[Modelo com Adam\label{subfig:matriz-lenet-adam}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-adam}
 	}
 \end{figure}
 
@@ -92,13 +92,13 @@ No geral, o desempenho obtido com as redes LeNet ainda não foram suficientement
  \centering
  \caption{Detalhamento dos melhores modelos obtidos com a arquitetura AlexNet, organizados de forma decrescente considerando o valor de Acurácia.}
  \label{tab:alexnet}
- \begin{tabular}{cccccc}
+ \begin{tabular}{ccccc}
  \toprule
- \textbf{Conjunto} & \textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} \\
+ \textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} \\
  \midrule
- Abordagem 2 & SGD & 5 & \emph{Leaky} ReLU & $0.5282$ & $0.6349$ \\
- Abordagem 3 & Adam & 15 & SELU & $0.4456$ & $0.5524$ \\
- Abordagem 1 & RMSprop & 5 & ReLU & $0.1844$ & $0.2765$ \\
+ Adam & 15 & ELU & $0.9654$ & $0.9393$ \\
+ SGD & 10 & \emph{Leaky} ReLU & $0.9601$ & $0.9311$ \\
+ RMSprop & 15 & \emph{Leaky} ReLU & $0.9397$ & $0.8975$ \\
  \bottomrule
  \end{tabular}
 \end{table}
@@ -107,42 +107,42 @@ No geral, o desempenho obtido com as redes LeNet ainda não foram suficientement
 \begin{figure}[H]
 	\centering
 	\caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura AlexNet.}
-	\subfloat[\emph{Loss} durante treinamento com a Abordagem 1\label{subfig:approach1-alexnet-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach1-alexnet-rmsprop-5-relu-loss}
-	}
-	\subfloat[Acurácia durante treinamento com a Abordagem 1\label{subfig:approach1-alexnet-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach1-alexnet-rmsprop-5-relu-acc}
-	}
-	\hfill
-	\subfloat[\emph{Loss} durante treinamento com a Abordagem 2\label{subfig:approach2-alexnet-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach2-alexnet-sgd-5-lrelu-loss}
-	}
-	\subfloat[Acurácia durante treinamento com a Abordagem 2\label{subfig:approach2-alexnet-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach2-alexnet-sgd-5-lrelu-acc}
-	}
-	\hfill
-	\subfloat[\emph{Loss} durante treinamento com a Abordagem 3\label{subfig:approach3-alexnet-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach3-alexnet-adam-15-selu-loss}
-	}
-	\subfloat[Acurácia durante treinamento com a Abordagem 3\label{subfig:approach3-alexnet-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/approach3-alexnet-adam-15-selu-acc}
-	}
 	\label{fig:treinamento-alexnet}
+	\subfloat[\emph{Loss} durante treinamento do melhor modelo com Adam.\label{subfig:alexnet-adam-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/alexnet-adam-loss}
+	}
+	\subfloat[Acurácia durante treinamento do melhor modelo com Adam.\label{subfig:alexnet-adam-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/alexnet-adam-acc}
+	}
+	\hfill
+	\subfloat[\emph{Loss} durante treinamento do melhor modelo com SGD.\label{subfig:alexnet-sgd-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/alexnet-sgd-loss}
+	}
+	\subfloat[Acurácia durante treinamento do melhor modelo com SGD.\label{subfig:alexnet-sgd-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/alexnet-sgd-acc}
+	}
+	\hfill
+	\subfloat[\emph{Loss} durante treinamento do melhor modelo com RMSprop.\label{subfig:alexnet-rmsprop-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/alexnet-rmsprop-loss}
+	}
+	\subfloat[Acurácia durante treinamento do melhor modelo com RMSprop.\label{subfig:alexnet-rmsprop-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/alexnet-rmsprop-acc}
+	}
 \end{figure}
 
 
 \begin{figure}[h!]
 	\centering
 	\caption{Matrizes de confusão dos melhores modelos obtidos com a arquitetura AlexNet.}
-	\subfloat[Abordagem 1\label{subfig:matriz-approach1-alexnet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-approach1-alexnet}
+	\subfloat[Modelo com Adam\label{subfig:matriz-alexnet-adam}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-adam}
 	}
-	\subfloat[Abordagem 2\label{subfig:matriz-approach2-alexnet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-approach2-alexnet}
+	\subfloat[Modelo com SGD\label{subfig:matriz-alexnet-sgd}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-sgd}
 	}
 	\hfill
-	\subfloat[Abordagem 3\label{subfig:matriz-approach1-alexnet}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-approach3-alexnet}
+	\subfloat[Modelo com RMSprop\label{subfig:matriz-alexnet-rmsprop}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-rmsprop}
 	}
 	\label{fig:matrizes-alexnet}
 \end{figure}
