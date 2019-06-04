@@ -8,51 +8,44 @@ O processo de combinação das imagens de cada um dos exemplos foi realizado em 
 
 % Escrever algo sobre como foi atingida a quantidade de exemplos atual?
 
-Ao concluir a etapa anterior, percebeu-se uma desproporção significativa no número de exemplos de cada classe, o que poderia comprometer o processo de aprendizado do modelo. Para contornar este problema, foram então consideradas três abordagens distintas para os exemplos disponíveis:
+Ao concluir a etapa anterior, realizou-se então a partição \emph{holdout} previamente especificada nos exemplos autênticos. Porém, para o exemplos forjados, percebeu-se a necessidade da não existência de assinaturas realizadas por um mesmo autor forjador nos conjuntos de treinamento, validação e teste, pois isto levaria os modelos a prever, na etapa de teste, dados muito parecidos com os encontrados no conjunto de treinamento. Sendo assim, para contornar este problema, a separação dos exemplos forjados foi baseada na quantidade de autores forjadores que cada assinatura autêntica possui e foi obtida da seguinte maneira:
 
-\begin{enumerate}
-	\item \textbf{Abordagem 1}. Considera apenas os exemplos autênticos para os quais há uma versão forjada. Neste cenário, tem-se apenas $15\%$ de exemplos autênticos e $85\%$ de exemplos forjados;
-	\item \textbf{Abordagem 2}. Nesta abordagem foi preservado o total de exemplos autênticos da abordagem anterior, porém o excedente de exemplos forjados que causavam um desbalanceamento evidente foram descartados de maneira pseudo-aleatória. Embora contenha menos exemplos, esta abordagem tem um \emph{dataset} balanceado, com mesma proporção para ambas as classes;
-	\item \textbf{Abordagem 3}. Visando um melhor aproveitamento das assinaturas originais no \emph{dataset} NFI, considerou o incremento de assinaturas autênticas, ainda que não haja exemplos forjados para mesma. Obteve-se, então, um \emph{dataset} com mais exemplos e \emph{quasi}-balanceado.  É importante enfatizar que os exemplos forjados desta abordagem são iguais aos da primeira.
-\end{enumerate}
+\begin{itemize}
+	\item Se uma assinatura autêntica possui apenas um autor forjador, todos os exemplos forjados para esta assinatura vão para o conjunto de treinamento;
+	\item Se uma assinatura autêntica possui quatro autores forjadores, as assinaturas de três desses autores irão para o conjunto de treinamento e o restante irá para o conjunto de testes;
+	\item Se uma assinatura autêntica possui cinco autores forjadores, as assinaturas de quatro desses autores irão para a etapa de treinamento e o restante irá para a etapa de testes;
+	\item Se uma assinatura autêntica possui seis autores forjadores, as assinaturas de quatro desses autores irão para a etapa de treinamento e as assinaturas dos outros dois irão para a etapa de testes;
+	\item Se uma assinatura possui trinta ou mais autores forjadores, as assinaturas de dez desses autores irão para o conjunto de teste, três desses autores serão utilizados para o conjunto de validação e o restante das assinaturas irá ser separada para o conjunto de treinamento;
+	\item Em todo o conjunto de dados, não foram encontradas assinaturas que foram forjadas por dois, três, mais de seis e menos que trinta autores.
+\end{itemize}
 
-Após a organização dos exemplos conforme as abordagens distintas, realizou-se então a partição \emph{holdout} previamente especificada. A Tabela \ref{tab:divisao-dados} apresenta a descrição destes dados, suas quantidades e divisões e a Figura \ref{fig:divisao-dados} auxilia na visualização da proporcionalidade nas diferentes abordagens consideradas.
+\todo{Escrever algo sobre o balanceamento dos dados} A Tabela \ref{tab:divisao-dados} apresenta a descrição destes dados, suas quantidades e divisões e a Figura \ref{fig:divisao-dados} auxilia na visualização da proporcionalidade nas diferentes abordagens consideradas.
 
 \begin{table}[h!]
 	\centering
-	\caption{Quantitativo de exemplos por abordagem, classe e finalidade na tarefa de aprendizado considerada.}
+	\caption{Quantitativo de exemplos por finalidade na tarefa de aprendizado considerada e classe.}
 	\label{tab:divisao-dados}
-\resizebox{\textwidth}{!}{
-	\begin{tabular}{c c c c c c c c}
+	\begin{tabular}{c c c c}
 		\toprule
-		\textbf{Abordagem} & \textbf{Característica} & \textbf{Tipo de Exemplo} & \textbf{Treino} & \textbf{Validação} & \textbf{Teste} & \textbf{Total} & \textbf{Proporção}\\
+		\textbf{Conjunto} & \textbf{Tipo de Exemplo} & \textbf{Quantidade de Dados} & \textbf{Proporção}\\
 		\midrule
-		\multirow{2}{*}{1} & \multirow{2}{*}{Dados desbalanceados} & Genuíno & 2.011 & 299 & 618 & 2.928 & $15\%$ \\
-    &  & Forjado & 11.649 & 1.648 & 3.237 & 16.534 & $85\%$\\
+		\multirow{2}{*}{Treinamento} & Autêntico & 9.374 & $54\%$ \\
+    & Forjado & 8.131 & $46\%$\\
      \midrule
-    \multirow{2}{*}{2} & \multirow{2}{*}{Dados balanceados} & Genuíno & 2.011 & 299 & 618 & 2.928 & $50\%$  \\
-    &  & Forjado & 2.024 & 308 & 569 & 2.901 & $50\%$ \\
+		 \multirow{2}{*}{Validação} & Autêntico & 947 & $46\%$ \\
+     & Forjado & 1.134 & $54\%$\\
 		 \midrule
-		\multirow{2}{*}{3} & \multirow{2}{*}{Dados \emph{quasi}-balanceados} & Genuíno & 8.131 & 1.134 & 2.257  & 11.522 & $41\%$\\
-		 & & Forjado & 11.649 & 1.648 & 3.237 & 16.534 & $59\%$\\
+		 \multirow{2}{*}{Teste} & Autêntico & 6.119 & $73\%$ \\
+     & Forjado & 2.257 & $27\%$\\
 		\bottomrule
-	\end{tabular}}
+	\end{tabular}
 \end{table}
 
 \begin{figure}[h!]
-	\centering
-	\caption{Representação gráfica da proporção dos exemplos por abordagem, classe e finalidade na tarefa de aprendizado considerada.}
-	\subfloat[Abordagem 1\label{subfig:approach1}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach1}
-	}
-	\subfloat[Abordagem 2\label{subfig:approach2}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach2}
-	}
-	\hfill
-	\subfloat[Abordagem 3\label{subfig:approach3}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/approach3}
-	}
-	\label{fig:divisao-dados}
+\centering
+\caption{Representação gráfica da proporção dos exemplos por classe e finalidade na tarefa de aprendizado considerada.}
+\label{fig:divisao-dados}
+\includegraphics[width=0.5\textwidth]{imgs/divisao-dados}
 \end{figure}
 
 Ao serem fornecidas para treinamento pelas CNNs, todos os \emph{pixels} das imagens serão normalizados por meio de uma divisão por $255$, passando a residirem no intervalo $[0,1]$. Esta normalização é realizada em virtude das redes neurais que, em geral, aprendem mais eficientemente nestas condições \cite{chollet}.
