@@ -1,3 +1,5 @@
+%!TEX root = ../../main.tex
+
 %% Trabalhar aqui
 Para a AlexNet, assim como para a CNN anterior, foi realizada uma busca em \emph{grid} com os hiperparâmetros selecionados anteriormente, com vistas a obter os melhores modelos para cada abordagem de separação de dados, gerando assim, mais $36$ modelos a serem avaliados quanto às suas métricas de desempenho.
 
@@ -23,25 +25,25 @@ AlexNet C & SGD & 5 & SELU & $0.9561$ & $0.9244$ \\
  \centering
  \caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura AlexNet.}
  \label{fig:treinamento-alexnet}
- \subfloat[\emph{Loss} durante treinamento do melhor modelo com Adam.\label{subfig:alexnet-adam-loss}]{%
- \includegraphics[width=0.45\textwidth]{imgs/alexnet-adam-loss}
+ \subfloat[\emph{Loss} durante treinamento da rede AlexNet A.\label{subfig:alexnet-a-loss}]{%
+ \includegraphics[width=0.45\textwidth]{imgs/alexnet-a-loss}
  }
- \subfloat[Acurácia durante treinamento do melhor modelo com Adam.\label{subfig:alexnet-adam-acc}]{%
- \includegraphics[width=0.45\textwidth]{imgs/alexnet-adam-acc}
- }
- \hfill
- \subfloat[\emph{Loss} durante treinamento do melhor modelo com SGD.\label{subfig:alexnet-sgd-loss}]{%
- \includegraphics[width=0.45\textwidth]{imgs/alexnet-sgd-loss}
- }
- \subfloat[Acurácia durante treinamento do melhor modelo com SGD.\label{subfig:alexnet-sgd-acc}]{%
- \includegraphics[width=0.45\textwidth]{imgs/alexnet-sgd-acc}
+ \subfloat[Acurácia durante treinamento da rede AlexNet A.\label{subfig:alexnet-a-acc}]{%
+ \includegraphics[width=0.45\textwidth]{imgs/alexnet-a-acc}
  }
  \hfill
- \subfloat[\emph{Loss} durante treinamento do melhor modelo com RMSprop.\label{subfig:alexnet-rmsprop-loss}]{%
- \includegraphics[width=0.45\textwidth]{imgs/alexnet-rmsprop-loss}
+ \subfloat[\emph{Loss} durante treinamento da rede AlexNet B.\label{subfig:alexnet-b-loss}]{%
+ \includegraphics[width=0.45\textwidth]{imgs/alexnet-b-loss}
  }
- \subfloat[Acurácia durante treinamento do melhor modelo com RMSprop.\label{subfig:alexnet-rmsprop-acc}]{%
- \includegraphics[width=0.45\textwidth]{imgs/alexnet-rmsprop-acc}
+ \subfloat[Acurácia durante treinamento da rede AlexNet B.\label{subfig:alexnet-b-acc}]{%
+ \includegraphics[width=0.45\textwidth]{imgs/alexnet-b-acc}
+ }
+ \hfill
+ \subfloat[\emph{Loss} durante treinamento da rede AlexNet C.\label{subfig:alexnet-c-loss}]{%
+ \includegraphics[width=0.45\textwidth]{imgs/alexnet-c-loss}
+ }
+ \subfloat[Acurácia durante treinamento da rede AlexNet C.\label{subfig:alexnet-c-acc}]{%
+ \includegraphics[width=0.45\textwidth]{imgs/alexnet-c-acc}
  }
 \end{figure}
 
@@ -49,19 +51,18 @@ Considerando que estas redes possuem mais parâmetros treináveis, este possivel
 
 Observando as métricas de acurácia e F-Score obtidas, percebe-se que estas foram inferiores às observadas para as redes LeNet, mas ainda assim alcançando valores superiores a $90\%$. As mesmas reflexões sobre a disposição dos valores na matriz de confusão observados no cenário LeNet se mostram cabíveis, porém com menos acertos.
 
-\todo{Ajeitar a última matriz de confusão}
 \begin{figure}[H]
  \centering
  \caption{Matrizes de confusão dos melhores modelos obtidos com a arquitetura AlexNet.}
- \subfloat[Modelo com Adam\label{subfig:matriz-alexnet-adam}]{%
- \includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-adam}
+ \subfloat[AlexNet A\label{subfig:matriz-alexnet-a}]{%
+ \includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-a}
  }
- \subfloat[Modelo com SGD\label{subfig:matriz-alexnet-sgd}]{%
- \includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-sgd}
+ \subfloat[AlexNet B\label{subfig:matriz-alexnet-b}]{%
+ \includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-b}
  }
  \hfill
- \subfloat[Modelo com RMSprop\label{subfig:matriz-alexnet-rmsprop}]{%
- \includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-rmsprop}
+ \subfloat[AlexNet C\label{subfig:matriz-alexnet-c}]{%
+ \includegraphics[width=0.5\textwidth]{imgs/matriz-alexnet-c}
  }
  \label{fig:matrizes-alexnet}
 \end{figure}

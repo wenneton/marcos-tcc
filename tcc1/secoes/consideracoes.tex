@@ -1,9 +1,11 @@
+%!TEX root = ../main.tex
+
 %% Problema, tarefa, o uso de Redes Neurais Convolucionais para abordar esta tarefa e a separação dos dados promovendo uma proximidade com o cenário relatístico
+O objetivo deste trabalho de conclusão de curso consiste em endereçar o problema de autenticação de assinaturas manuscritas considerando a perspectiva de Aprendizado de Máquina utilizando Redes Neurais Convolucionais. Para isto, foi selecionado um conjunto de dados contendo assinaturas forjadas e genuínas, além de arquiteturas bem estabelecidas na literatura com vistas a encontrar um modelo que melhor satisfaça este problema.
 
-% Contabilizar quais arquiteturas já foram treinadas
-% Quantos modelos ao total
-% Melhor resultado (acurácia e F-Score)
-% Menos parâmetros dentre as arquiteturas avaliadas até o momento
+Das arquiteturas escolhidas, para a primeira parte deste trabalho, foram consideradas apenas a LeNet e a AlexNet, as quais passaram por uma busca que combinou vários valores de hiperparâmetros, revertendo-se no treinamento e teste de um total de $72$ modelos. Dentre estes, o que resultou em um melhor desempenho, é formado pela arquitetura LeNet e obteve uma acurácia de $0.9865$ e um valor de \emph{F-score} igual a $0.9755$. Esta arquitetura é a que possui menos parâmetros dentre as avalidadas até o momento, o que agrega um valor ainda maior aos resultados obtidos.
 
 
-% Considerando o bom desempenho já obtido nesta tarefa, demonstrando a adequação dos modelos para o que foi proposto, tem-se em mente na próxima etapa prosseguir primeiramente com modelos que tenham menos parâmetros, em especial, squeeze e mobile, visando avaliar se estas podem resultar melhores resultados com menos esforço computacional. Após estes resultados, será considerada também a avaliação de redes mais profundas, possivelmente utilizando técnicas de data augmentation para contornar as limitações relativas ao tamanho do conjunto de dados disponível
+Considerando o bom desempenho já conquistado nesta tarefa e demonstrando a adequação dos modelos para o que foi proposto, tem-se em mente, na próxima etapa deste trabalho, prosseguir primeiramente com topologias que possuam menos parâmetros, em especial, as arquiteturas SqueezeNet e MobileNet, visando avaliar se estas podem alcançar melhores resultados com um menor esforço computacional. Após isto, será considerada também a avaliação de redes mais profundas, como a VGG-16 e a Inception, possivelmente utilizando técnicas de \emph{Data Augmentation}, se necessário, para contornar as limitações relativas ao tamanho do conjunto de dados disponível.
+
+O problema em questão é significativo do ponto de vista prático pois pode permitir, por exemplo, a autenticação de documentos de maneira automática e confiável sem que haja a necessidade de um recurso humano especializado. Do ponto de vista do bacharel em Engenharia de Computação, construir uma solução para este problema foi a oportunidade de pôr em prática diversos conceitos aprendidos ao longo do curso, principalmente aqueles voltados às disciplinas de Inteligência Artificial, \emph{Machine Learning}, Redes Neurais Artificiais, Linguagem de Programação, Sinais e Sistemas e Processamento Digital de Imagens.

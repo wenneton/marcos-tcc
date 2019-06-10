@@ -1,3 +1,6 @@
+%!TEX root = ../../main.tex
+
+
 A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, gerando um total de $36$ modelos a serem treinados e testados. Para estes modelos, excluindo aqueles que se tornaram degenerados, utilizou-se a métrica \emph{F-score} como referência para um melhor desempenho
 
 Os quatro melhores modelos baseados na arquitetura LeNet para este problema encontra-se dispostos na \ref{tab:lenet}, juntamente com os hiperparâmetros utilizados pelos mesmos. Apenas para referência posterior, considerou-se uma rotulação das melhores redes identificadas.
@@ -21,48 +24,56 @@ LeNet D & RMSprop & 10 & SELU & $0.9707$ & $0.9483$ \\
 
 Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda (\emph{loss}) e acurácia para o conjunto de treinamento e validação destas redes. Nota-se que nenhuma delas chegou ao limite máximo de épocas possíveis, interrompendo o aprendizado por meio de \emph{early stopping}.
 
-\todo{Corrigir figuras e ajeitar legendas}
 \begin{figure}[h!]
 	\centering
 	\caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura LeNet.}
-	\subfloat[\emph{Loss} durante treinamento do melhor modelo com RMSprop.\label{subfig:lenet-rmsprop-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-rmsprop-loss}
+	\subfloat[\emph{Loss} durante treinamento da rede LeNet A.\label{subfig:lenet-a-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-a-loss}
 	}
-	\subfloat[Acurácia durante treinamento do melhor modelo com RMSprop.\label{subfig:lenet-rmsprop-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-rmsprop-acc}
-	}
-	\hfill
-	\subfloat[\emph{Loss} durante treinamento do melhor modelo com SGD.\label{subfig:lenet-sgd-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-sgd-loss}
-	}
-	\subfloat[Acurácia durante treinamento do melhor modelo com SGD.\label{subfig:lenet-sgd-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-sgd-acc}
+	\subfloat[Acurácia durante treinamento da rede LeNet A.\label{subfig:lenet-a-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-a-acc}
 	}
 	\hfill
-	\subfloat[\emph{Loss} durante treinamento do melhor modelo com Adam.\label{subfig:lenet-adam-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-adam-loss}
+	\subfloat[\emph{Loss} durante treinamento da rede LeNet B.\label{subfig:lenet-b-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-b-loss}
 	}
-	\subfloat[Acurácia durante treinamento do melhor modelo com Adam.\label{subfig:lenet-adam-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-adam-acc}
+	\subfloat[Acurácia durante treinamento da rede LeNet B.\label{subfig:lenet-b-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-b-acc}
+	}
+	\hfill
+	\subfloat[\emph{Loss} durante treinamento da rede LeNet C.\label{subfig:lenet-c-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-c-loss}
+	}
+	\subfloat[Acurácia durante treinamento da rede LeNet C.\label{subfig:lenet-c-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-c-acc}
+	}
+	\hfill
+	\subfloat[\emph{Loss} durante treinamento da rede LeNet D.\label{subfig:lenet-d-loss}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-d-loss}
+	}
+	\subfloat[Acurácia durante treinamento da rede LeNet D.\label{subfig:lenet-d-acc}]{%
+	\includegraphics[width=0.45\textwidth]{imgs/lenet-d-acc}
 	}
 	\label{fig:treinamento-lenet}
 \end{figure}
 
 Examinando mais atentamente o desempenho destas redes no conjunto de testes, tem-se, então, as matrizes de confusão mostradas na Figura \ref{fig:matrizes-lenet}. Nestas matrizes, a soma das linhas representam a quantidade de assinaturas previstas para cada classe pelo modelo em questão, enquanto a soma das colunas denotam a quantidade de assinaturas existentes em cada classe.
 
-\todo{Corrigir matrizes de confusão! Atenção aos detalhes}
 \begin{figure}[h]
 	\centering
 	\caption{Matrizes de confusão dos melhores modelos obtidos com a arquitetura LeNet.}\label{fig:matrizes-lenet}
-	\subfloat[Modelo com RMSprop\label{subfig:matriz-lenet-rmsprop}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-rmsprop}
+	\subfloat[LeNet A\label{subfig:matriz-lenet-a}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-a}
 	}
-	\subfloat[Modelo com SGD\label{subfig:matriz-lenet-sgd}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-sgd}
+	\subfloat[LeNet B\label{subfig:matriz-lenet-b}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-b}
 	}
 	\hfill
-	\subfloat[Modelo com Adam\label{subfig:matriz-lenet-adam}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-adam}
+	\subfloat[LeNet C\label{subfig:matriz-lenet-c}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-c}
+	}
+	\subfloat[LeNet D\label{subfig:matriz-lenet-d}]{%
+	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-d}
 	}
 \end{figure}
 

@@ -42,14 +42,37 @@ As função de ativação ReLU e as suas variações \emph{Leaky} ReLU, ELU (\em
 	\subfloat[\emph{Leaky} ReLu\label{subfig:lrelu}]{%
 	\includegraphics[width=0.5\textwidth]{imgs/lrelu}
 	}
+	\hfill
 	\subfloat[ELU\label{subfig:elu}]{%
 	\includegraphics[width=0.5\textwidth]{imgs/elu}
 	}
-	\hfill
 	\subfloat[SELU\label{subfig:selu}]{%
 	\includegraphics[width=0.5\textwidth]{imgs/selu}
 	}
 \end{figure}
 
+% \begin{equation}
+%     lrelu(x)=
+% \begin{cases}
+%     \alpha x , & \text{se } x \leq 0\\
+%     x,              & \text{se } x > 0\text{.}
+% \end{cases}
+% \end{equation}
+%
+% \begin{equation}
+%     elu(x)=
+% \begin{cases}
+%     \alpha (\exp{(x)} - 1) , & \text{se } x \leq 0\\
+%     x,              & \text{se } x > 0\text{.}
+% \end{cases}
+% \end{equation}
+%
+% \begin{equation}
+%     selu(x)= \lambda
+% \begin{cases}
+%     \alpha (\exp{(x)} - 1) , & \text{se } x \leq 0\\
+%     x,              & \text{se } x > 0\text{.}
+% \end{cases}
+% \end{equation}
 
 Sempre que os recursos computacionais e de tempo para o treinamento viabilizarem repetições, serão consideradas todas as variações possíveis dos hiperparâmetros descritas na Tabela \ref{tab:parametros}. Nas demais situações serão consideradas escolhas de hiperparâmetros com melhor desempenho nos cenários que já tiverem sido executados.
