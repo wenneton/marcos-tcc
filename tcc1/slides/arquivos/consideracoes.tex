@@ -1,0 +1,22 @@
+%!TEX root = ../main.tex
+
+\begin{frame}{Considerações Parciais}
+  \begin{itemize}
+    \item Total de 72 redes treinadas
+    \pause
+    \bigskip
+    \item Melhor desempenho: LeNet
+    \begin{itemize}
+      \item \alert{Acurácia}: $0.9755$
+      \item \alert{\emph{F-Score}}: $0.9865$
+      \item \alert{Parâmetros e Hiperparâmetros}: Otimizador RMSprop, \emph{patience} 5 e função de ativação \emph{Leaky} ReLU.
+    \end{itemize}
+    \pause
+    \bigskip
+    \item Próximos passos:
+    \begin{itemize}
+      \item Arquiteturas com menos parâmetros (MobileNet, SqueezeNet)
+      \item Arquiteturas mais profundas (VGG-16, Inception)
+    \end{itemize}
+  \end{itemize}
+\end{frame}

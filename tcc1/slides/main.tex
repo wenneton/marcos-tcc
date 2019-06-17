@@ -1,0 +1,118 @@
+\documentclass[dvipsnames,table,mathserif,aspectratio=169]{beamer} % Definição do tipo de arquivo
+
+\usepackage[T1]{fontenc}      %---------------------------------%
+\usepackage[utf8]{inputenc} % Para língua portuguesa          %
+\usepackage[brazil]{babel}    %---------------------------------%
+\usepackage{times}
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+
+\usepackage[framesassubsections]{beamerprosper} % opções: email, institution,
+\usepackage{caption}
+\usepackage{stackengine}
+\usepackage[portuguese,ruled,lined]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{graphicx,url}
+\usepackage{enumerate}
+
+\usepackage{amsmath,amsfonts,amsthm,bbm,amssymb}
+\usepackage{epsfig}
+\usepackage{booktabs}
+\usepackage{scalefnt}
+\usepackage{commath}
+
+\usepackage{multirow}
+% \usepackage[caption=true,font=footnotesize]{subfig}
+
+% \makeatletter
+% \patchcmd{\beamer@sectionintoc}
+%   {\vfill}
+%   {\vskip\itemsep}
+%   {}
+%   {}
+% \makeatother
+
+\captionsetup{compatibility=false}
+\newtheorem{myobj}{Objetivos}
+\newtheorem{myobjgeral}{Objetivo Geral}
+\newtheorem{myobjesp}{Objetivos Específicos}
+\usetheme{Execushares}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\title[TCC I]{\LARGE{\textbf{Verificação da Autenticidade de Assinaturas Manuscritas Utilizando Redes Neurais Convolucionais}}\\ \ \ \newline \small{Defesa do Trabalho de Conclusão de Curso I}}
+\author[Araújo, Guedes]{\textbf{Marcos Wenneton V. de Araujo} \\ Orientadora: Elloá B. Guedes\\\small\email{\{mwvda.eng, ebgcosta\}@uea.edu.br} \\ }
+\institute[LSI, EST, UEA]
+{
+  Grupo de Pesquisa em Sistemas Inteligentes\\
+  Escola Superior de Tecnologia\\
+  Universidade do Estado do Amazonas\\
+  Manaus -- Amazonas -- Brasil
+}
+\date{\today}
+
+
+\setcounter{showSlideNumbers}{1}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Agenda}
+    \vskip2\baselineskip            %--------------------------------%
+        \fontsize{10}{21}\selectfont% Modificar para caber de acordo %
+        \tableofcontents[currentsection]% com a quantidade de seções  %
+    \vskip0pt plus 1filll           %--------------------------------%
+  \end{frame}
+}
+
+\begin{document}
+\nocite{*}
+\selectlanguage{brazil}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Agenda}
+  \vskip2\baselineskip            %--------------------------------%
+      \fontsize{10}{21}\selectfont% Modificar para caber de acordo %
+      \tableofcontents            % com a quantidade de seções     %
+  \vskip0pt plus 1filll           %--------------------------------%
+\end{frame}
+
+\section{Introdução}
+\input{./arquivos/introducao}
+
+\section{Objetivos}
+\input{./arquivos/objetivos}
+
+\section{Justificativa}
+\input{./arquivos/justificativa}
+
+\section{Metodologia}
+\input{./arquivos/metodologia}
+
+\section{Cronograma}
+\input{./arquivos/cronograma}
+
+\section{Fundamentação Teórica}
+\input{arquivos/fund_teorica.tex}
+
+\section{Solução Proposta}
+\input{./arquivos/solucao}
+
+\section{Resultados Parciais}
+\input{./arquivos/resultados}
+
+\section{Considerações Finais}
+\input{./arquivos/consideracoes}
+
+\section{Referências}
+\input{./arquivos/referencias}
+
+\section*{}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\end{document}
