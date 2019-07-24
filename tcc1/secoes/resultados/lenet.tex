@@ -3,7 +3,7 @@
 
 A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, gerando um total de $36$ modelos a serem treinados e testados. Para estes modelos, excluindo aqueles que se tornaram degenerados, utilizou-se a métrica \emph{F-score} como referência para um melhor desempenho
 
-Os quatro melhores modelos baseados na arquitetura LeNet para este problema encontra-se dispostos na Tabela \ref{tab:lenet}, juntamente com os hiperparâmetros utilizados pelos mesmos. Apenas para referência posterior, considerou-se uma rotulação das melhores redes identificadas.
+Os quatro melhores modelos baseados na arquitetura LeNet para este problema encontram-se dispostos na Tabela \ref{tab:lenet}, juntamente com os hiperparâmetros utilizados pelos mesmos. Apenas para referência posterior, considerou-se uma rotulação das melhores redes identificadas.
 
 \begin{table}[h]
 \centering
@@ -13,7 +13,7 @@ Os quatro melhores modelos baseados na arquitetura LeNet para este problema enco
 \toprule
 \textbf{Identificação} & \textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} \\
 \midrule
-LeNet A & RMSprop & 5 & \emph{Leaky} ReLU & $0.9865$ & $0.9755$ \\
+LeNet A & RMSprop & 5 & ReLU & $0.9865$ & $0.9755$ \\
 LeNet B & RMSprop & 15 & ReLU & $0.9858$ & $0.9740$\\
 LeNet C & SGD & 5 & ELU & $0.9787$ & $0.9619$ \\
 LeNet D & RMSprop & 10 & SELU & $0.9707$ & $0.9483$ \\
