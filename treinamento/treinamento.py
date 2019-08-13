@@ -11,7 +11,7 @@ import itertools
 from models import AlexNet, LeNet
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 print("COMEÇOU!!!")
 
@@ -35,8 +35,8 @@ def geraGrafico(history, approach, architecture, optimizer, patience,  activatio
 
 	fig = plt.figure(figsize=(10,10))
 	plt.subplot(2,1,1)
-	plt.plot(epochs_x, loss_values, 'bo', label='Training loss')
-	plt.plot(epochs_x, val_loss_values, 'b', label='Validation loss')
+	plt.plot(epochs_x, loss_values, 'bo', label='Loss do treinamento')
+	plt.plot(epochs_x, val_loss_values, 'b', label='Loss da validação')
 	plt.title('Loss e Acurácia do modelo ' + model_name)
 	plt.xlabel('Épocas')
 	plt.ylabel('Loss')
@@ -44,8 +44,8 @@ def geraGrafico(history, approach, architecture, optimizer, patience,  activatio
 	plt.subplot(2,1,2)
 	acc_values = history_dict['acc']
 	val_acc_values = history_dict['val_acc']
-	plt.plot(epochs_x, acc_values, 'bo', label='Training acc')
-	plt.plot(epochs_x, val_acc_values, 'b', label='Validation acc')
+	plt.plot(epochs_x, acc_values, 'bo', label='Acurácia do treino')
+	plt.plot(epochs_x, val_acc_values, 'b', label='Acurácia da validação')
 	#plt.title('Training and validation accuracy ' + model_name)
 	plt.xlabel('Épocas')
 	plt.ylabel('Acurácia')
@@ -53,7 +53,7 @@ def geraGrafico(history, approach, architecture, optimizer, patience,  activatio
 	fig.savefig('figures/'+ model_name + '.png')
 
 dict_training = {
-    'approach': ['approach1','approach2','approach3'],
+    'approach': ['new_approach'],
     'architecture': ['alexnet', 'lenet'],
     'optimizer': ['sgd', 'rmsprop', 'adam'],
     'patience': [5,10,15],
@@ -61,7 +61,7 @@ dict_training = {
 }
 
 params = list(itertools.product(*dict_training.values()))
-params = params[24*N_TRAINING:(24*N_TRAINING)+24]
+params = params[12*N_TRAINING:(12*N_TRAINING)+12]
 
 for app,arch,opt,pat,act in params:
 	nome_modelo = app + '-' + arch + '-' + opt + '-' + str(pat) + '-' + act
@@ -84,7 +84,7 @@ for app,arch,opt,pat,act in params:
 		class_mode='binary',
 		color_mode='grayscale',
 		seed=42,
-		shuflle=True,
+		shuffle=True,
 		batch_size=32)
 
 	test_generator = test_datagen.flow_from_directory(test_path,
