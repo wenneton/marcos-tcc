@@ -1,0 +1,45 @@
+%!TEX root = ../novoIndex.tex
+
+\chapter{Introdução}
+
+\added{A autenticação possui importância fundamental na segurança de sistemas computacionais, pois consiste em permitir ou negar acesso à certas informações ou serviços com base na identidade associada à entidade que solicita acesso ao recurso ou em algum atributo que depende desta identidade \cite{Costa:Biometria}.}
+
+A Biometria, em particular, tem sido uma das técnicas mais difundidas para autenticação, já sendo utilizada de forma abrangente na rotina diária da população em geral. Ela é definida como a utilização de características fisiológicas ou traços comportamentais para a comprovação da identidade de um indivíduo. A autenticação por biometria ganhou muita popularidade como uma alternativa confiável para sistemas baseados em segurança por chave, devido suas propriedades únicas e a capacidade quase nula de cópia, roubo ou adivinhação \cite{kholmatov}.
+
+Dentre as técnicas de autenticação por Biometria, tem-se aquelas baseadas em características fisiológicas do indivíduo, as quais levam em conta, por exemplo, as impressões digitais, o exame de fundo de retina, a palma da mão e até a arcada dentária. Estas técnicas são muito seguras, mas ainda incorrem em problemas operacionais que dificultam o seu uso em larga escala, como o custo com \emph{hardware} e o grau de intrusão elevado aos usuários na captura destas características \cite{heinen2002}. \added{Existem também técnicas de autenticação biométrica que utilizam-se de traços comportamentais como, por exemplo, expressões faciais, gestos, assinaturas manuscritas, modo de andar, dentre outras, as quais são características dinâmicas e que podem variar fortemente ao longo do tempo.  Porém, apesar destes desafios, estas características podem ter seus padrões capturados mediante experiência \cite{Costa:Biometria}.}
+
+\added{A assinatura manuscrita, em especial, é particularmente utilizada para autenticação biométrica de identidade desde os tempos primórdios. Ela é caracterizada pela produção, de próprio punho, de uma marca referente ao nome ou rubrica do autor como uma prova de sua identidade \cite{heinen2002}. Nos sistemas biométricos de autenticação, apresenta vantagens em relação às senhas, por exemplo, por possuir reprodução não-trivial. Citam-se como suas vantagens os aspectos não-invasivos para a sua obtenção, diferentemente, por exemplo, da análise de certas características fisiológicas, e também o baixo custo de aquisição, o que colabora para sua ampla difusão \cite{heinen2004,souza2009}.}\deleted{Dentre essas técnicas, a que mais se destaca é a autenticação de identidade através de assinaturas manuscritas, devido às suas diversas vantagens em relação às outras técnicas. Uma das vantagens das assinaturas manuscritas é a segurança, pois ao contrário das senhas, mesmo que alguém conheça a assinatura de um usuário, normalmente não é possível reproduzi-la de forma trivial. Outra de suas vantagens é a familiaridade de alguns seres humanos em utilizar suas assinaturas como uma forma de autenticação em transações financeiras, e assim sentem-se mais seguros e confortáveis em relação ao seu uso \cite{heinen2004}. Além disso, este método biométrico possui ainda a característica de ser pouco invasivo e ter um baixo custo de aquisição, aumentando ainda mais a sua aceitação como método de autenticação \cite{souza2009}.}
+
+% (?) Falar sobre as assinaturas online e offline na introdução?
+
+O maior desafio das técnicas de autenticação de assinaturas é determinar se uma assinatura em questão é, de fato, escrita por quem afirma ser e se falsificações podem ser identificadas. Apesar de todas as vantagens previamente mencionadas desta informação biométrica, a criação de métodos automáticos para autenticação de assinaturas manuscritas não é uma tarefa trivial, pois, ao contrário das características biométricas fisiológicas, os padrões ali existentes podem apresentar grande variabilidade para um mesmo indivíduo \cite{heinen2002}.  Levando em conta estes desafios, a literatura já contempla diversos métodos com vistas a endereçar esta tarefa, nos quais bons resultados foram encontrados principalmente utilizando Máquinas de Vetores de Suporte, Modelos Escondidos de Markov, Análise do Componente Principal, \emph{Dynamic Time Warping}, dentre outros \cite{souza2009}.
+
+\added{Porém, com o crescente desenvolvimento de técnicas de \emph{Deep Learning} aplicadas à problemas de Visão Computacional, houve o desejo de investigar o desempenho de tais técnicas na autenticação de assinaturas, problema que está sendo considerado como escopo deste trabalho. Esta subárea do Aprendizado de Máquina, inserida no escopo da Inteligência Artificial, baseia-se na proposição de modelos que aprendem a partir da experiência, sendo muito aplicados em problemas de classificação, detecção, localização e segmentação de objetos em imagens, com muitos resultados expressivos em diversos domínios \cite{khan}. Assim, almeja-se investigar as capacidades de tais modelos, especialmente baseados no uso de Redes Neurais Convolucionais, na identificação de assinaturas autênticas e forjadas de diversos indivíduos.}
+
+\deleted{O \emph{Deep Learning} (DL), às vezes chamado de aprendizado profundo, é uma subárea da Inteligência Artificial que possui grande destaque na resolução de problemas de Visão Computacional. Com base nisso, para este trabalho, utilizou-se técnicas de DL envolvendo Redes Neurais Convolucionais para a determinação de padrões existentes em imagens de assinaturas de diversos autores diferentes, a fim de criar modelos capazes de identificar falsificações em assinaturas.}
+
+% Ultimo páragrafo para relacionar as próximas seçẽos da introdução?
+
+\section{Objetivos}
+
+O objetivo geral deste trabalho consiste em verificar a autenticidade de assinaturas manuscritas com redes neurais convolucionais. Para alcançar esta meta, alguns objetivos específicos precisam ser consolidados, a citar:
+
+\begin{enumerate}
+  \item Realizar a fundamentação teórica acerca dos conceitos das redes neurais convolucionais;
+  \item Consolidar uma base de dados representativa de assinaturas;
+  \item Descrever o problema considerado como uma tarefa de Aprendizado de Máquina;
+  \item Propor, treinar e testar redes neurais convolucionais para a tarefa considerada;
+  \item Analisar os resultados obtidos.
+\end{enumerate}
+
+\section{Justificativa}
+\input{./secoes/introducao/justificativa}
+
+\section{Metodologia}
+\input{./secoes/introducao/metodologia}
+
+\section{Cronograma}
+\input{./secoes/introducao/cronograma}
+
+\section{Organização do Documento}
+\input{./secoes/introducao/organizacao}

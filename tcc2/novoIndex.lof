@@ -1,0 +1,61 @@
+\babel@toc {brazil}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Uma vis\IeC {\~a}o geral de como o AM \IeC {\'e} utilizado para endere\IeC {\c c}ar uma tarefa. Adaptado de: \cite {flach}.\relax }}{8}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Estrutura de um neur\IeC {\^o}nio biol\IeC {\'o}gico. Adaptado de: \cite {braga}\relax }}{10}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o de um neur\IeC {\^o}nio artificial. Adaptado de: \cite {haykin}.\relax }}{11}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Exemplos de fun\IeC {\c c}\IeC {\~o}es de ativa\IeC {\c c}\IeC {\~a}o.\relax }}{12}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Identidade ou Linear}}}{12}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tangente Hiperb\IeC {\'o}lica}}}{12}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Sigm\IeC {\'o}ide ou Log\IeC {\'\i }stica}}}{12}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Unidade Linear Retificada (ReLu)}}}{12}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Arquiteturas populares de RNAs. Fonte: \cite {haykin}\relax }}{14}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Feedforward} com uma \IeC {\'u}nica camada}}}{14}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {\emph {Feedforward} com m\IeC {\'u}ltiplas camadas}}}{14}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Recorrente}}}{14}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Papel exercido pelos neur\IeC {\^o}nios em cada camada de uma rede MLP. Fonte: \cite {faceli}.\relax }}{15}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces A rela\IeC {\c c}\IeC {\~a}o entre a vis\IeC {\~a}o humana, vis\IeC {\~a}o computacional, AM, DL e CNNs. Adaptado de: \cite {khan}.\relax }}{17}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Exemplo de processo realizado pelas camadas convolucionais de uma CNN, aplicado a um problema de classifica\IeC {\c c}\IeC {\~a}o de imagens. Fonte: \cite {khan}.\relax }}{19}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Visualiza\IeC {\c c}\IeC {\~a}o da opera\IeC {\c c}\IeC {\~a}o de \emph {max pooling} considerando uma regi\IeC {\~a}o de 2 x 2 com um \emph {stride} igual a 1. Fonte: \cite {khan}.\relax }}{19}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Processo de aplica\IeC {\c c}\IeC {\~a}o da opera\IeC {\c c}\IeC {\~a}o de \emph {dropout}. Os neur\IeC {\^o}nios e liga\IeC {\c c}\IeC {\~o}es desativados est\IeC {\~a}o denotados de forma pontilhada. Fonte: \cite {dsacademy}\relax }}{21}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Arquitetura de uma rede antes da aplica\IeC {\c c}\IeC {\~a}o do \emph {dropout}.}}}{21}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Arquitetura da rede ap\IeC {\'o}s a aplica\IeC {\c c}\IeC {\~a}o do \emph {dropout}.}}}{21}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces A arquitetura LeNet-5. Fonte: \cite {khan}.\relax }}{22}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Exemplo de um m\IeC {\'o}dulo Inception da GoogLeNet. Fonte: \cite {khan}.\relax }}{23}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Estrutura de um bloco residual da ResNet. Fonte: \cite {khan}.\relax }}{24}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Uma vis\IeC {\~a}o geral da tarefa de aprendizado considerada.\relax }}{30}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Uma amostra das assinaturas \emph {offline} e \emph {online} do SigComp2009. Fonte: \cite {icdar2009}.\relax }}{32}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o gr\IeC {\'a}fica da propor\IeC {\c c}\IeC {\~a}o dos exemplos por classe e finalidade na tarefa de aprendizado considerada.\relax }}{36}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Fun\IeC {\c c}\IeC {\~o}es de ativa\IeC {\c c}\IeC {\~a}o variantes da fun\IeC {\c c}\IeC {\~a}o ReLU.\relax }}{40}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Leaky} ReLu}}}{40}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {ELU}}}{40}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {SELU}}}{40}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos melhores modelos obtidos com a arquitetura LeNet.\relax }}{43}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet A.}}}{43}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet A.}}}{43}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet B.}}}{43}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet B.}}}{43}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet C.}}}{43}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet C.}}}{43}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet D.}}}{43}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet D.}}}{43}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Matrizes de confus\IeC {\~a}o dos melhores modelos obtidos com a arquitetura LeNet.\relax }}{44}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LeNet A}}}{44}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {LeNet B}}}{44}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {LeNet C}}}{44}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {LeNet D}}}{44}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos melhores modelos obtidos com a arquitetura AlexNet.\relax }}{46}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede AlexNet A.}}}{46}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede AlexNet A.}}}{46}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da rede AlexNet B.}}}{46}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede AlexNet B.}}}{46}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {\emph {Loss} durante treinamento da rede AlexNet C.}}}{46}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede AlexNet C.}}}{46}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Matrizes de confus\IeC {\~a}o dos melhores modelos obtidos com a arquitetura AlexNet.\relax }}{47}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {AlexNet A}}}{47}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {AlexNet B}}}{47}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {AlexNet C}}}{47}
+\addvspace {10\p@ }

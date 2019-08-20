@@ -1,0 +1,16 @@
+%!TEX root = ../main.tex
+
+\chapter{Resultados e Discussão} \label{cap:resultados}
+
+Nesta seção serão apresentados os resultados parciais obtidos com o treinamento e teste de algumas arquiteturas canônicas consideradas. A Seção \ref{sec:lenet}  contempla os resultados obtidos com a arquitetura LeNet e a Seção  \ref{sec:alexnet} sintetiza os resultados da arquitetura AlexNet. O treinamento destas CNNs foi realizado utilizando os recursos computacionais de um servidor, disponível no LSI, dedicado especialmente para tarefas de DL, o qual possui um processador Intel Core i7 com 16 GB de RAM e duas placas gráficas com 11 GB de memória cada, das quais apenas uma foi utilizada.
+
+Após a etapa de treino, foram realizados os testes para aferir os modelos no tocante às métricas de desempenho para o conjunto de testes. Nesta etapa, percebeu-se que alguns modelos tornaram-se degenerados e acabaram prevendo apenas uma das classes. Duas hipóteses podem justificar a ocorrência desse problema: o ReLU \emph{dying problem}, quando a função de ativação ReLU foi utilizada; ou a tendência à permanência em mínimos locais durante o treinamento do modelo. Todas as CNNs que manifestaram este comportamento no conjunto de testes tiveram seus resultados descartados, pois as métricas obtidas não refletiam aprendizado no problema considerado.
+
+
+\section{Resultados Obtidos com a CNN LeNet}
+\label{sec:lenet}
+\input{./secoes/resultados/lenet}
+
+\section{Resultados Obtidos com a CNN AlexNet}
+\label{sec:alexnet}
+\input{./secoes/resultados/alexnet}
