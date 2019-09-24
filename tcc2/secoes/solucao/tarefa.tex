@@ -19,7 +19,7 @@ Com o intuito de checar a autenticidade de assinaturas utilizando CNNs, concebeu
 
 Para esta tarefa, diferentes CNNs serão consideradas. O treinamento e teste destes modelos serão feitos com o método \emph{holdout} de validação cruzada, em que $70\%$ dos dados serão utilizados no treino e ajuste de parâmetros, enquanto $20\%$ dos dados serão aproveitados para o processo de teste das redes, com vista a capturar o poder de generalização dos modelos considerados. Os $10\%$ de dados remanescentes, serão utilizados para a validação dos modelos durante o processo de treinamento \cite{brink}.
 
-Os modelos propostos serão avaliados perante as métricas de desempenho de \emph{Acurácia} e \emph{F-score}. A acurácia indica a proporção de predições corretas inferidas pelos modelos. O \emph{F-score}, por sua vez, será calculado pela média harmônica da precisão e da revocação considerando uma tarefa de classificação binária \cite{marsland}, da seguinte forma:
+Os modelos propostos serão avaliados perante as métricas de desempenho de \emph{Acurácia}, \emph{F-score} e EER (\emph{equal error rate}). A acurácia indica a proporção de predições corretas inferidas pelos modelos. O \emph{F-score}, por sua vez, será calculado pela média harmônica da precisão e da revocação considerando uma tarefa de classificação binária \cite{marsland}, da seguinte forma:
 
 \begin{equation*}
 \textrm{Precisão} = \frac{TP}{TP + FP}, \hspace{2cm} \textrm{Revocação} = \frac{TP}{TP + FN},
@@ -29,3 +29,12 @@ Os modelos propostos serão avaliados perante as métricas de desempenho de \emp
 \begin{eqnarray*}
 \textrm{F-Score} &=&  2\cdot \frac{\textrm{Precisão} \times \textrm{Revocação}}{\textrm{Precisão} + \textrm{Revocação}},
 \end{eqnarray*} em que $TP$ indica o número de verdadeiros positivos, $FP$ indica o número de falsos positivos e $FN$ indica o quantitativo de falsos negativos nas previsões obtidas.
+
+A métrica EER é calculada baseando-se nas taxas de falsa aceitação (FAR, do inglês \emph{false acceptance rate}) e falsa rejeição (FRR, do inglês \emph{false rejection rate}). Estas taxas referem-se à quantidade de assinaturas forjadas consideradas genuínas e assinaturas genuínas consideradas forjadas, respectivamente. Dessa maneira, o EER retrata o resultado encontrado quando os valores de FAR e FRR são iguais. A verificação desta igualdade é dada através da variação do limiar definido para a decisão da classificação dos exemplos dispostos ao modelo \cite{Wirtz}. Uma visão gráfica do cálculo desta métrica pode ser visualizado na Figura \ref{fig:eer}.
+
+\begin{figure}[h!]
+  \centering
+  \caption{As curvas típicas da FAR e FRR, plotadas uma ao lado da outra em relação ao limiar de decisão configurado para o modelo. As curvas se cruzam no ponto que equivale ao valor de EER. Adaptado de: \cite{Simao}}
+  \label{fig:eer}
+  \includegraphics[width=0.5\textwidth]{imgs/eer}
+\end{figure}
