@@ -2,7 +2,7 @@
 
 Para a AlexNet, assim como para a CNN anterior, foi realizada uma busca em \emph{grid} para ambas as abordagens, utilizando os hiperparâmetros selecionados anteriormente, gerando assim, mais $72$ modelos a serem avaliados quanto às suas métricas de desempenho.
 
-Considerando a métrica de \emph{F-Score}, foram selecionados os melhores modelos  desta arquitetura e estes encontram-se listados na Tabela \ref{tab:alexnet}. Na Figura \ref{fig:treinamento-alexnet} pode-se observar os gráficos com os comportamentos dos valores de \emph{loss} e acurácia encontrados nos conjuntos de treinamento e validação durante o estágio de treino destes modelos. Apenas para referência posterior, considerou-se uma rotulação das melhores redes identificadas.
+Considerando a métrica de \emph{F-Score}, foram selecionados os melhores modelos  desta arquitetura e estes encontram-se listados na Tabela \ref{tab:alexnet}. Na Figura \ref{fig:treinamento-alexnet} pode-se observar os gráficos com os comportamentos dos valores de \emph{loss} e acurácia encontrados nos conjuntos de treinamento e validação durante o estágio de treino destes modelos.
 
 \begin{table}[h!]
 \centering
@@ -43,7 +43,7 @@ Considerando que estas redes possuem mais parâmetros treináveis, este possivel
 
 Observando as métricas de acurácia e F-Score obtidas, percebe-se que estas foram inferiores às observadas para as redes LeNet, mas ainda assim alcançando valores superiores a $90\%$ na abordagem A e valores próximos a $80\%$ na abordagem B. 
 
-No melhor modelo da abordagem B, para esta arquitetura, a disposição dos valores na matriz de confusão mostra uma reflexão diferente da encontrada no cenário LeNet. Neste caso, houve uma quantidade maior de falsos positivos, mostrando a dificuldade na detecção das assinaturas \emph{over-the-shoulder} realizadas pelos autores forjadores.
+Examinando mais atentamente o desempenho destas redes no conjunto de testes, tem-se as matrizes de confusão mostradas na Figura \ref{fig:matrizes-alexnet}.No melhor modelo da abordagem B, para esta arquitetura, a disposição dos valores na matriz de confusão mostra uma reflexão diferente da encontrada no cenário LeNet. Neste caso, houve uma quantidade maior de falsos positivos, mostrando a dificuldade na detecção das assinaturas \emph{over-the-shoulder} realizadas pelos autores forjadores.
 
 \begin{figure}[H]
  \centering
