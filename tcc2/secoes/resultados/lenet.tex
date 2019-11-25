@@ -1,58 +1,44 @@
 %!TEX root = ../../main.tex
 
 
-A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, gerando um total de $36$ modelos a serem treinados e testados. Para estes modelos, excluindo aqueles que se tornaram degenerados, utilizou-se a métrica \emph{F-score} como referência para um melhor desempenho
+A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, e considerando as duas abordagens definidas conforme a Seção \ref{sec:preparacao}, gerando um total de $72$ modelos a serem treinados e testados. Para estes modelos, excluindo aqueles que se tornaram degenerados, utilizou-se a métrica EER como referência para um melhor desempenho.
 
-Os quatro melhores modelos baseados na arquitetura LeNet para este problema encontram-se dispostos na Tabela \ref{tab:lenet}, juntamente com os hiperparâmetros utilizados pelos mesmos. Apenas para referência posterior, considerou-se uma rotulação das melhores redes identificadas.
+O melhor dos modelos baseados na arquitetura LeNet para cada uma das abordagens consideradas encontram-se dispostos na Tabela \ref{tab:lenet}, juntamente com os hiperparâmetros utilizados pelos mesmos. Apenas para referência posterior, considerou-se uma rotulação das melhores redes identificadas.
 
 \begin{table}[h]
 \centering
-\caption{Detalhamento dos melhores resultados obtidos com a arquitetura LeNet, organizados de forma decrescente considerando o valor de acurácia.}
+\caption{Detalhamento dos melhores resultados obtidos com a arquitetura LeNet.}
 \label{tab:lenet}
-\begin{tabular}{cccccc}
+\resizebox{\textwidth}{!}{\begin{tabular}{ccccccc}
 \toprule
-\textbf{Identificação} & \textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} \\
+\textbf{Abordagem} & \textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{\emph{F-Score}} & \textbf{EER} \\
 \midrule
-LeNet A & RMSprop & 5 & ReLU & $0.9865$ & $0.9755$ \\
-LeNet B & RMSprop & 15 & ReLU & $0.9858$ & $0.9740$\\
-LeNet C & SGD & 5 & ELU & $0.9787$ & $0.9619$ \\
-LeNet D & RMSprop & 10 & SELU & $0.9707$ & $0.9483$ \\
+Abordagem A & RMSprop & 5 & ReLU & $0.9865$ & $0.9755$ & \\
+Abordagem B & Adam & 10 & ELU & $0.8361$ & $0.8159$ & $12.5245$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 
-Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda (\emph{loss}) e acurácia para o conjunto de treinamento e validação destas redes. Nota-se que nenhuma delas chegou ao limite máximo de épocas possíveis, interrompendo o aprendizado por meio de \emph{early stopping}.
+Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda (\emph{loss}) e acurácia para o conjunto de treinamento e validação destas redes. Nota-se que nenhuma delas chegou ao limite máximo de épocas possíveis, interrompendo o aprendizado por meio de \emph{early stopping}, comportamento este que também fez-se presente em todas as redes treinadas com esta arquitetura.
 
 \begin{figure}[h!]
 	\centering
 	\caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura LeNet.}
-	\subfloat[\emph{Loss} durante treinamento da rede LeNet A.\label{subfig:lenet-a-loss}]{%
+	\subfloat[\emph{Loss} durante treinamento da melhor rede LeNet com a abordagem A.\label{subfig:lenet-a-loss}]{%
 	\includegraphics[width=0.45\textwidth]{imgs/lenet-a-loss}
 	}
-	\subfloat[Acurácia durante treinamento da rede LeNet A.\label{subfig:lenet-a-acc}]{%
+	\hfill
+	\subfloat[Acurácia durante treinamento da melhor rede LeNet com a abordagem A.\label{subfig:lenet-a-acc}]{%
 	\includegraphics[width=0.45\textwidth]{imgs/lenet-a-acc}
 	}
 	\hfill
 	\subfloat[\emph{Loss} durante treinamento da rede LeNet B.\label{subfig:lenet-b-loss}]{%
 	\includegraphics[width=0.45\textwidth]{imgs/lenet-b-loss}
 	}
+	\hfill
 	\subfloat[Acurácia durante treinamento da rede LeNet B.\label{subfig:lenet-b-acc}]{%
 	\includegraphics[width=0.45\textwidth]{imgs/lenet-b-acc}
-	}
-	\hfill
-	\subfloat[\emph{Loss} durante treinamento da rede LeNet C.\label{subfig:lenet-c-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-c-loss}
-	}
-	\subfloat[Acurácia durante treinamento da rede LeNet C.\label{subfig:lenet-c-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-c-acc}
-	}
-	\hfill
-	\subfloat[\emph{Loss} durante treinamento da rede LeNet D.\label{subfig:lenet-d-loss}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-d-loss}
-	}
-	\subfloat[Acurácia durante treinamento da rede LeNet D.\label{subfig:lenet-d-acc}]{%
-	\includegraphics[width=0.45\textwidth]{imgs/lenet-d-acc}
 	}
 	\label{fig:treinamento-lenet}
 \end{figure}
@@ -62,23 +48,16 @@ Examinando mais atentamente o desempenho destas redes no conjunto de testes, tem
 \begin{figure}[h]
 	\centering
 	\caption{Matrizes de confusão dos melhores modelos obtidos com a arquitetura LeNet.}\label{fig:matrizes-lenet}
-	\subfloat[LeNet A\label{subfig:matriz-lenet-a}]{%
+	\subfloat[Melhor LeNet com a abordagem A\label{subfig:matriz-lenet-a}]{%
 	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-a}
 	}
-	\subfloat[LeNet B\label{subfig:matriz-lenet-b}]{%
+	\subfloat[Melhor LeNet com a abordagem B\label{subfig:matriz-lenet-b}]{%
 	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-b}
-	}
-	\hfill
-	\subfloat[LeNet C\label{subfig:matriz-lenet-c}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-c}
-	}
-	\subfloat[LeNet D\label{subfig:matriz-lenet-d}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-d}
 	}
 \end{figure}
 
 %%%% ARGUMENTAÇÃO
 
-Para esta arquitetura, é possível visualizar que dentre os melhores modelos houve uma prevalecência do otimizador RMSProp como sendo o mais adequado. O número de épocas para aprendizado das características foi, em geral, baixo. Isso acontece porque os exemplos não possuem informação de cor e as características de interesse para identificação do autor possivelmente são de fácil extração, o que não demanda múltiplas épocas até sua obtenção.
+Para esta arquitetura, é possível visualizar que, dentre os dois modelos tidos como melhores, não há qualquer semelhança entre os hiperparâmetros encontrados. O número de épocas para aprendizado de características foi baixo para abordagem A, enquanto que, para a abordagem B, houve a necessidade de mais épocas de treinamento. Isso aconteceu, possivelmente, pela aparição de um mesmo autor em partições de dados diferentes na abordagem A.
 
-A partir das matrizes de confusão, percebeu-se que a  maioria dos modelos tendeu a um baixo número de falsos negativo, ou seja, os exemplos autênticos fornecidos foram suficientes para identificar assinaturas originais, independentemente das variações cometidas por este autor. Porém, verifica-se uma presença proporcionalmente maior de falsos positivos, ou seja,  há assinaturas forjadas que se passam por assinaturas autênticas segundo os classificadores construídos. Isto se deve, potencialmente, à boa capacidade de certos forjadores \emph{over-the-shoulder} em fazer reproduções verossímeis não capturadas pelas CNNs propostas. Apesar disso, nota-se a diagonal principal bastante densa, sugerindo uma boa adequação dos modelos para a tarefa considerada ainda que diante de falsificações nunca antes vistas.
+A partir das matrizes de confusão, percebeu-se que o melhor modelo da abordagem A tendeu a verificar um baixo número de falsos negativos, ou seja, os exemplos autênticos foram suficientes para identificar assinaturas originais, indepentemente das variações cometidas por este autor. Por outro lado, para o modelo da abordagem B, verificou-se um número menor de falsos positivos, validando que, apesar da boa capacidade de certos forjadores \emph{over-the-shoulder} em realizar reproduções verossímeis, este modelo mostrou uma alta competência na detecção deste tipo de assinaturas. Não obstante, nota-se a diagonal principal de ambos os modelos bastante densa, sugerindo uma boa adequação para a tarefa considerada.
