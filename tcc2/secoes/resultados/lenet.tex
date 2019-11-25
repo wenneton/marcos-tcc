@@ -1,7 +1,7 @@
 %!TEX root = ../../main.tex
 
 
-A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, e considerando as duas abordagens definidas conforme a Seção \ref{sec:preparacao}, gerando um total de $72$ modelos a serem treinados e testados. Para estes modelos, excluindo aqueles que se tornaram degenerados, utilizou-se a métrica EER como referência para um melhor desempenho.
+A primeira fase do treinamento dos modelos foi conduzida utilizando a arquitetura LeNet. Nesta fase, foi realizada uma busca em \emph{grid} por todos os hiperparâmetros previamente definidos, conforme Seção \ref{sec:modelos}, e considerando as duas abordagens definidas conforme a Seção \ref{sec:preparacao}, gerando um total de $72$ modelos a serem treinados e testados. Para estes modelos, excluindo aqueles que se tornaram degenerados, utilizou-se a métrica \emph{F-Score} como referência para um melhor desempenho.
 
 O melhor dos modelos baseados na arquitetura LeNet para cada uma das abordagens consideradas encontram-se dispostos na Tabela \ref{tab:lenet}, juntamente com os hiperparâmetros utilizados pelos mesmos. Apenas para referência posterior, considerou-se uma rotulação das melhores redes identificadas.
 
@@ -20,7 +20,7 @@ Abordagem B & Adam & 10 & ELU & $0.8361$ & $0.8159$ & $12.5245$ \\
 \end{table}
 
 
-Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda (\emph{loss}) e acurácia para o conjunto de treinamento e validação destas redes. Nota-se que nenhuma delas chegou ao limite máximo de épocas possíveis, interrompendo o aprendizado por meio de \emph{early stopping}, comportamento este que também fez-se presente em todas as redes treinadas com esta arquitetura.
+Os gráficos da Figura \ref{fig:treinamento-lenet} denotam o histórico da perda (\emph{loss}) e acurácia para o conjunto de treinamento e validação destas redes. Nota-se que nenhuma delas chegou ao limite máximo de épocas possíveis, interrompendo o aprendizado por meio de \emph{early stopping}, comportamento este que também fez-se presente em todas as outras redes treinadas com esta arquitetura.
 
 \begin{figure}[h!]
 	\centering
@@ -49,10 +49,11 @@ Examinando mais atentamente o desempenho destas redes no conjunto de testes, tem
 	\centering
 	\caption{Matrizes de confusão dos melhores modelos obtidos com a arquitetura LeNet.}\label{fig:matrizes-lenet}
 	\subfloat[Melhor LeNet com a abordagem A\label{subfig:matriz-lenet-a}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-a}
+	\includegraphics[width=0.47\textwidth]{imgs/matriz-lenet-a}
 	}
+	\hfill
 	\subfloat[Melhor LeNet com a abordagem B\label{subfig:matriz-lenet-b}]{%
-	\includegraphics[width=0.5\textwidth]{imgs/matriz-lenet-b}
+	\includegraphics[width=0.47\textwidth]{imgs/matriz-lenet-b}
 	}
 \end{figure}
 

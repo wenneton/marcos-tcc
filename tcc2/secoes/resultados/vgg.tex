@@ -1,0 +1,31 @@
+\begin{table}[h!]
+\centering
+\caption{Detalhamento do modelo obtido com a arquitetura VGG-16 para a abordagem B.}
+\label{tab:shufflenet}
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} & \textbf{EER} \\
+\midrule
+RMSprop & 10 & ELU & $0.8391$ & $0.8019$ & $16.1096$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\caption{Histórico de \emph{loss} e acurácia durante o treinamento do modelo obtido com a arquitetura VGG-16.}
+\label{fig:treinamento-vgg}
+\subfloat[\emph{Loss} durante treinamento da rede VGG-16 para a abordagem B.\label{subfig:vgg-b-loss}]{%
+\includegraphics[width=0.47\textwidth]{imgs/vgg-b-loss}
+}
+\hfill
+\subfloat[Acurácia durante treinamento da rede VGG-16 para a abordagem B.\label{subfig:vgg-b-acc}]{%
+\includegraphics[width=0.47\textwidth]{imgs/vgg-b-acc}
+}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \caption{Matriz de confusão do modelo obtido com a arquitetura VGG-16.}\label{fig:matrizes-vgg}
+    \includegraphics[width=0.6\textwidth]{imgs/matriz-squeezenet-a}
+\end{figure}

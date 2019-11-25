@@ -1,0 +1,46 @@
+\begin{table}[h!]
+\centering
+\caption{Detalhamento dos modelos obtidos com a arquitetura SqueezeNet para cada uma das abordagens consideradas neste trabalho.}
+\label{tab:squeezenet}
+\resizebox{\textwidth}{!}{\begin{tabular}{ccccccc}
+\toprule
+\textbf{Abordagem} & \textbf{Otimizador} & \textbf{\emph{Patience}}  & \textbf{Função de Ativação} & \textbf{Acurácia} & \textbf{F-Score} & \textbf{EER} \\
+\midrule
+Abordagem A & RMSprop & 15 & ReLU & $0.9048$ & $0.8948$ & $11.5074$ \\
+Abordagem B & RMSprop & 15 & ReLU & $0.8210$ & $0.7709$ & $20.1673$\\
+\bottomrule
+\end{tabular}}
+\end{table}
+    
+\begin{figure}[H]
+\centering
+\caption{Histórico de \emph{loss} e acurácia durante o treinamento dos modelos obtidos com a arquitetura SqueezeNet.}
+\label{fig:treinamento-squeezenet}
+\subfloat[\emph{Loss} durante treinamento da rede SqueezeNet para a abordagem A.\label{subfig:squeezenet-a-loss}]{%
+\includegraphics[width=0.47\textwidth]{imgs/squeezenet-a-loss}
+}
+\hfill
+\subfloat[Acurácia durante treinamento da rede SqueezeNet para a abordagem A.\label{subfig:squeezenet-a-acc}]{%
+\includegraphics[width=0.47\textwidth]{imgs/squeezenet-a-acc}
+}
+\hfill
+\subfloat[\emph{Loss} durante treinamento da rede SqueezeNet para a abordagem B.\label{subfig:squeezenet-b-loss}]{%
+\includegraphics[width=0.47\textwidth]{imgs/squeezenet-b-loss}
+}
+\hfill
+\subfloat[Acurácia durante treinamento da rede SqueezeNet para a abordagem B.\label{subfig:squeezenet-b-acc}]{%
+\includegraphics[width=0.47\textwidth]{imgs/squeezenet-b-acc}
+}
+\end{figure}
+    
+\begin{figure}[h]
+    \centering
+    \caption{Matrizes de confusão dos modelos obtidos com a arquitetura SqueezeNet.}\label{fig:matrizes-squeezenet}
+    \subfloat[SqueezeNet com a abordagem A\label{subfig:matriz-squeezenet-a}]{%
+    \includegraphics[width=0.47\textwidth]{imgs/matriz-squeezenet-a}
+    }
+    \hfill
+    \subfloat[SqueezeNet com a abordagem B\label{subfig:matriz-squeezenet-b}]{%
+    \includegraphics[width=0.47\textwidth]{imgs/matriz-squeezenet-b}
+    }
+\end{figure}
