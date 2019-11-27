@@ -4,10 +4,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Quantitativo de indiv\IeC {\'\i }duos e assinaturas \emph {offline} por conjunto de dados.\relax }}{32}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Quantitativo de exemplos por finalidade na tarefa de aprendizado considerada e classe.\relax }}{35}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Valores dos hiperpar\IeC {\^a}metros selecionados para a elabora\IeC {\c c}\IeC {\~a}o dos modelos.\relax }}{38}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Quantitativo de indiv\IeC {\'\i }duos e assinaturas \emph {offline} por conjunto de dados.\relax }}{33}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Quantitativo de exemplos por finalidade na tarefa de aprendizado considerada e classe para cada abordagem.\relax }}{36}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Valores dos hiperpar\IeC {\^a}metros selecionados para a elabora\IeC {\c c}\IeC {\~a}o dos modelos.\relax }}{39}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Detalhamento dos melhores resultados obtidos com a arquitetura LeNet, organizados de forma decrescente considerando o valor de acur\IeC {\'a}cia.\relax }}{42}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Detalhamento dos melhores modelos obtidos com a arquitetura AlexNet, organizados de forma decrescente considerando o valor de Acur\IeC {\'a}cia.\relax }}{45}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Detalhamento dos melhores resultados obtidos com a arquitetura LeNet.\relax }}{43}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Detalhamento dos melhores modelos obtidos com a arquitetura AlexNet para cada uma das abordagens consideradas neste trabalho.\relax }}{45}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Detalhamento dos melhores modelos obtidos com a arquitetura MobileNet para cada uma das abordagens consideradas neste trabalho.\relax }}{48}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Detalhamento dos modelos obtidos com a arquitetura ShuffleNet para cada uma das abordagens consideradas neste trabalho.\relax }}{49}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Detalhamento dos modelos obtidos com a arquitetura SqueezeNet para cada uma das abordagens consideradas neste trabalho.\relax }}{51}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Detalhamento do modelo obtido com a arquitetura VGG-16 para a abordagem B.\relax }}{54}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Detalhamento do modelo obtido com a arquitetura Inception-V3 para a abordagem B.\relax }}{55}
 \addvspace {10\p@ }

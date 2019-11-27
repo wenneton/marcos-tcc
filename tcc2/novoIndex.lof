@@ -26,36 +26,65 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Uma vis\IeC {\~a}o geral da tarefa de aprendizado considerada.\relax }}{30}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Uma amostra das assinaturas \emph {offline} e \emph {online} do SigComp2009. Fonte: \cite {icdar2009}.\relax }}{32}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o gr\IeC {\'a}fica da propor\IeC {\c c}\IeC {\~a}o dos exemplos por classe e finalidade na tarefa de aprendizado considerada.\relax }}{36}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Fun\IeC {\c c}\IeC {\~o}es de ativa\IeC {\c c}\IeC {\~a}o variantes da fun\IeC {\c c}\IeC {\~a}o ReLU.\relax }}{40}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Leaky} ReLu}}}{40}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {ELU}}}{40}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {SELU}}}{40}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces As curvas t\IeC {\'\i }picas da FAR e FRR, plotadas uma ao lado da outra em rela\IeC {\c c}\IeC {\~a}o ao limiar de decis\IeC {\~a}o configurado para o modelo. As curvas se cruzam no ponto que equivale ao valor de EER. Adaptado de: \cite {Simao}\relax }}{31}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Uma amostra das assinaturas \emph {offline} e \emph {online} da SigComp2009. Fonte: \cite {icdar2009}.\relax }}{32}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o gr\IeC {\'a}fica da propor\IeC {\c c}\IeC {\~a}o dos exemplos por classe e finalidade para as abordagens na tarefa de aprendizado considerada.\relax }}{37}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Abordagem A.}}}{37}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Abordagem B.}}}{37}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Fun\IeC {\c c}\IeC {\~o}es de ativa\IeC {\c c}\IeC {\~a}o variantes da fun\IeC {\c c}\IeC {\~a}o ReLU.\relax }}{41}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Leaky} ReLu}}}{41}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {ELU}}}{41}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {SELU}}}{41}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos melhores modelos obtidos com a arquitetura LeNet.\relax }}{43}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet A.}}}{43}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet A.}}}{43}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet B.}}}{43}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet B.}}}{43}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet C.}}}{43}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet C.}}}{43}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet D.}}}{43}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet D.}}}{43}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos melhores modelos obtidos com a arquitetura LeNet.\relax }}{44}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da melhor rede LeNet com a abordagem A.}}}{44}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da melhor rede LeNet com a abordagem A.}}}{44}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da rede LeNet B.}}}{44}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede LeNet B.}}}{44}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Matrizes de confus\IeC {\~a}o dos melhores modelos obtidos com a arquitetura LeNet.\relax }}{44}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LeNet A}}}{44}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {LeNet B}}}{44}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {LeNet C}}}{44}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {LeNet D}}}{44}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Melhor LeNet com a abordagem A}}}{44}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Melhor LeNet com a abordagem B}}}{44}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos melhores modelos obtidos com a arquitetura AlexNet.\relax }}{46}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede AlexNet A.}}}{46}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede AlexNet A.}}}{46}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da rede AlexNet B.}}}{46}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede AlexNet B.}}}{46}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {\emph {Loss} durante treinamento da rede AlexNet C.}}}{46}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede AlexNet C.}}}{46}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da melhor rede AlexNet para a abordagem A.}}}{46}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da melhor rede AlexNet para a abordagem A.}}}{46}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da melhor rede AlexNet para a abordagem B.}}}{46}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da melhor rede AlexNet para a abordagem B.}}}{46}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Matrizes de confus\IeC {\~a}o dos melhores modelos obtidos com a arquitetura AlexNet.\relax }}{47}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {AlexNet A}}}{47}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {AlexNet B}}}{47}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {AlexNet C}}}{47}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Melhor AlexNet para a abordagem A}}}{47}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Melhor AlexNet para abordagem B}}}{47}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos melhores modelos obtidos com a arquitetura MobileNet.\relax }}{48}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da melhor rede MobileNet para a abordagem A.}}}{48}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da melhor rede MobileNet para a abordagem A.}}}{48}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da melhor rede MobileNet para a abordagem B.}}}{48}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da melhor rede MobileNet para a abordagem B.}}}{48}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Matrizes de confus\IeC {\~a}o dos melhores modelos obtidos com a arquitetura MobileNet.\relax }}{49}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Melhor MobileNet com a abordagem A}}}{49}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Melhor MobileNet com a abordagem B}}}{49}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos modelos obtidos com a arquitetura ShuffleNet.\relax }}{50}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede ShuffleNet para a abordagem A.}}}{50}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede ShuffleNet para a abordagem A.}}}{50}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da rede ShuffleNet para a abordagem B.}}}{50}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede ShuffleNet para a abordagem B.}}}{50}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Matrizes de confus\IeC {\~a}o dos modelos obtidos com a arquitetura ShuffleNet.\relax }}{51}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {ShuffleNet com a abordagem A}}}{51}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {ShuffleNet com a abordagem B}}}{51}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos modelos obtidos com a arquitetura SqueezeNet.\relax }}{52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede SqueezeNet para a abordagem A.}}}{52}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede SqueezeNet para a abordagem A.}}}{52}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da rede SqueezeNet para a abordagem B.}}}{52}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede SqueezeNet para a abordagem B.}}}{52}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Matrizes de confus\IeC {\~a}o dos modelos obtidos com a arquitetura SqueezeNet.\relax }}{53}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {SqueezeNet com a abordagem A}}}{53}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {SqueezeNet com a abordagem B}}}{53}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento de um modelo degenerado obtido com a arquitetura VGG-16.\relax }}{53}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede VGG-16 degenerada.}}}{53}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede VGG-16 degenerada.}}}{53}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento do modelo obtido com a arquitetura VGG-16.\relax }}{54}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede VGG-16 para a abordagem B.}}}{54}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede VGG-16 para a abordagem B.}}}{54}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Matriz de confus\IeC {\~a}o do modelo obtido com a arquitetura VGG-16.\relax }}{55}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento do modelo obtido com a arquitetura Inception-V3.\relax }}{56}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da rede Inception-V3 para a abordagem B.}}}{56}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da rede Inception-V3 para a abordagem B.}}}{56}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Matriz de confus\IeC {\~a}o do modelo obtido com a arquitetura Inception-V3.\relax }}{56}
 \addvspace {10\p@ }

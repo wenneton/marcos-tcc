@@ -1,3 +1,5 @@
+Seguindo então para a última das arquiteturas com poucos parâmetros designadas para este trabalho, tem-se os resultados da SqueezeNet dispostos na Tabela \ref{tab:squeezenet}. Mais uma vez a busca em \emph{grid} foi descartada para esta CNN, pelos mesmos motivos considerados para a arquitetura anterior, realizando as mesmas escolhas de hiperparâmetros.
+
 \begin{table}[h!]
 \centering
 \caption{Detalhamento dos modelos obtidos com a arquitetura SqueezeNet para cada uma das abordagens consideradas neste trabalho.}
@@ -11,6 +13,8 @@ Abordagem B & RMSprop & 15 & ReLU & $0.8210$ & $0.7709$ & $20.1673$\\
 \bottomrule
 \end{tabular}}
 \end{table}
+
+O histórico de \emph{loss} e acurácia durante o estágio de treinamento destes modelos, disponível na Figura \ref{fig:treinamento-squeezenet}, mostra que, para a abordagem A, a quantidade de épocas atingidas pelo modelo, antes de ocorrer o \emph{early stopping} definido, foi a maior entre todos os modelos aqui representados. Não obstante, é possível notar, também para o modelo da abordagem A, que a sua convergência ocorreu de uma forma mais padronizada, sem muitos altos e baixos na acurácida do conjunto de validação durante o treinamento.
     
 \begin{figure}[H]
 \centering
@@ -32,6 +36,8 @@ Abordagem B & RMSprop & 15 & ReLU & $0.8210$ & $0.7709$ & $20.1673$\\
 \includegraphics[width=0.47\textwidth]{imgs/squeezenet-b-acc}
 }
 \end{figure}
+
+Para uma análise mais intensa destes modelos, foram geradas suas matrizes de confusão, demonstradas na Figura \ref{fig:matrizes-squeezenet}. No modelo da abordagem A, é possível utilizar as mesmas reflexões quanto às matrizes obtidas pelas arquiteturas MobileNet e ShuffleNet. Quanto a abordagem B, pode-se verificar a existência de valores parecidos na diagonal secundária da matriz, indicando a presença quase similar de falsos positivos e falsos negativos.
     
 \begin{figure}[h]
     \centering
@@ -44,3 +50,5 @@ Abordagem B & RMSprop & 15 & ReLU & $0.8210$ & $0.7709$ & $20.1673$\\
     \includegraphics[width=0.47\textwidth]{imgs/matriz-squeezenet-b}
     }
 \end{figure}
+
+De maneira geral, apesar do desempenho dos modelos aqui demonstrados terem sido insatisfatórios, é possível perceber que existe ainda a possibilidade de uma busca em \emph{grid} de hiperparâmetros, buscando um modelo com um desempenho similar ou superior aos encontrados até então.
