@@ -88,6 +88,35 @@
 
 }
 
+% Agradecimentos ------------------------------
+
+\newcommand{\agradece}[1]{
+ \chapter*{Agradecimentos}
+
+ \vskip 4em
+ \input{#1}
+
+ \newpage
+
+ }
+
+
+ \newcommand{\Epigrafe}[2]{
+ \chapter*{ } % Nao apagar
+ \pagestyle{empty}
+ \ \
+ \vspace{13cm}
+ \begin{flushright}
+ % \textbf{Epígrafe}\\
+ \end{flushright}
+ \begin{flushright}
+ \emph{#1.}\\
+ #2
+ \end{flushright}
+
+ \newpage
+ }
+
 % Sumário -----------
 \newcommand{\sumario}{
 \renewcommand{\contentsname}{Sum\'{a}rio}
@@ -98,8 +127,8 @@
 \newpage
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
-\addcontentsline{toc}{chapter}{\listofcodename}
-\listof{codigo}{\listofcodename}  % Lista de Códigos
+%\addcontentsline{toc}{chapter}{\listofcodename}
+%\listof{codigo}{\listofcodename}  % Lista de Códigos
 
 \clearpage
 }
