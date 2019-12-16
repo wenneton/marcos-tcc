@@ -26,8 +26,10 @@
 \folhaRosto{\titulo}{\nome}{\orientador}{\mes}{\ano}
 
 % Edite os seguintes arquivos para alterar as informações necessárias
-\input{./source/fichaCatalografica}
-\input{./source/folhaAprovacao}
+%\input{./source/fichaCatalografica}
+\includepdf[pages=-,pagecommand={},width=\paperwidth]{./secoes/fichacatalografica.pdf}
+% \input{./source/folhaAprovacao}
+\includepdf[pages=-,pagecommand={},width=\paperwidth]{./secoes/marcos-assinaturas.pdf}
 
 
 % Indique onde esta o arquivo do resumo
@@ -37,7 +39,7 @@
 
 \agradece{./secoes/agradecimentos.tex}
 
-\Epigrafe{Erga-se como o sol e batalhe até o trabalho estar pronto}{Brandon Flowers, Daniel Lanois}
+\Epigrafe{Erga-se como o sol e batalhe até o trabalho estar pronto}{Brandon Flowers \& Daniel Lanois}
 
 
 \sumario
