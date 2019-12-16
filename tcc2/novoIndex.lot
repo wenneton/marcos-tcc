@@ -1,4 +1,4 @@
-\babel@toc {brazil}{}
+\select@language {brazil}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {1.1}{\ignorespaces Cronograma de atividades levando em considera\IeC {\c c}\IeC {\~a}o os dez meses (de $02/2019$ a $12/2019$) para a realiza\IeC {\c c}\IeC {\~a}o do TCC.\relax }}{5}
 \addvspace {10\p@ }
@@ -10,7 +10,7 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces Detalhamento dos melhores resultados obtidos com a arquitetura LeNet.\relax }}{43}
 \contentsline {table}{\numberline {5.2}{\ignorespaces Detalhamento dos melhores modelos obtidos com a arquitetura AlexNet para cada uma das abordagens consideradas neste trabalho.\relax }}{45}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Detalhamento dos melhores modelos obtidos com a arquitetura MobileNet para cada uma das abordagens consideradas neste trabalho.\relax }}{48}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Detalhamento dos melhores modelos obtidos com a arquitetura MobileNet para cada uma das abordagens consideradas neste trabalho.\relax }}{47}
 \contentsline {table}{\numberline {5.4}{\ignorespaces Detalhamento dos modelos obtidos com a arquitetura ShuffleNet para cada uma das abordagens consideradas neste trabalho.\relax }}{49}
 \contentsline {table}{\numberline {5.5}{\ignorespaces Detalhamento dos modelos obtidos com a arquitetura SqueezeNet para cada uma das abordagens consideradas neste trabalho.\relax }}{51}
 \contentsline {table}{\numberline {5.6}{\ignorespaces Detalhamento do modelo obtido com a arquitetura VGG-16 para a abordagem B.\relax }}{54}

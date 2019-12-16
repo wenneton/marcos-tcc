@@ -17,9 +17,9 @@ Abordagem B & RMSprop & 5 & ELU & $0.8593$ & $0.7993$ & $13.8265$\\
 \bottomrule
 \end{tabular}}
 \end{table}
-\todo{Calcular EER para LeNet}
 
-\begin{figure}[H]
+
+\begin{figure}[h!]
  \centering
  \caption{Histórico de \emph{loss} e acurácia durante o treinamento dos melhores modelos obtidos com a arquitetura AlexNet.}
  \label{fig:treinamento-alexnet}
@@ -42,7 +42,7 @@ Abordagem B & RMSprop & 5 & ELU & $0.8593$ & $0.7993$ & $13.8265$\\
 
 Considerando que estas redes possuem mais parâmetros treináveis, este possivelmente foi um fator responsável pelo maior números de épocas no treinamento na abordagem A. Nota-se ainda que houve oscilações nos treinamentos, resultando em parada precoce. Para esta arquitetura, as redes treinadas com a função de ativação ELU mostraram métricas melhores na etapa de avaliação.
 
-Observando as métricas de acurácia e \emph{F-Score} obtidas, percebe-se que estas foram inferiores às observadas para as redes LeNet, mas ainda assim alcançando valores superiores a $90\%$ na abordagem A e valores próximos a $80\%$ na abordagem B. 
+Observando as métricas de acurácia e \emph{F-Score} obtidas, percebe-se que estas foram inferiores às observadas para as redes LeNet, mas ainda assim alcançando valores superiores a $90\%$ na abordagem A e valores próximos a $80\%$ na abordagem B.
 
 Examinando mais atentamente o desempenho destas redes no conjunto de testes, tem-se as matrizes de confusão mostradas na Figura \ref{fig:matrizes-alexnet}.No melhor modelo da abordagem B, para esta arquitetura, a disposição dos valores na matriz de confusão mostra uma reflexão diferente da encontrada no cenário LeNet. Neste caso, houve uma quantidade maior de falsos positivos, mostrando a dificuldade na detecção das assinaturas \emph{over-the-shoulder} realizadas pelos autores forjadores.
 

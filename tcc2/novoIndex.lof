@@ -1,4 +1,4 @@
-\babel@toc {brazil}{}
+\select@language {brazil}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Uma vis\IeC {\~a}o geral de como o AM \IeC {\'e} utilizado para endere\IeC {\c c}ar uma tarefa. Adaptado de: \cite {flach}.\relax }}{8}
@@ -49,9 +49,9 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da melhor rede AlexNet para a abordagem A.}}}{46}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {\emph {Loss} durante treinamento da melhor rede AlexNet para a abordagem B.}}}{46}
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da melhor rede AlexNet para a abordagem B.}}}{46}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Matrizes de confus\IeC {\~a}o dos melhores modelos obtidos com a arquitetura AlexNet.\relax }}{47}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Melhor AlexNet para a abordagem A}}}{47}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Melhor AlexNet para abordagem B}}}{47}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Matrizes de confus\IeC {\~a}o dos melhores modelos obtidos com a arquitetura AlexNet.\relax }}{46}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Melhor AlexNet para a abordagem A}}}{46}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Melhor AlexNet para abordagem B}}}{46}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Hist\IeC {\'o}rico de \emph {loss} e acur\IeC {\'a}cia durante o treinamento dos melhores modelos obtidos com a arquitetura MobileNet.\relax }}{48}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {\emph {Loss} durante treinamento da melhor rede MobileNet para a abordagem A.}}}{48}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Acur\IeC {\'a}cia durante treinamento da melhor rede MobileNet para a abordagem A.}}}{48}
