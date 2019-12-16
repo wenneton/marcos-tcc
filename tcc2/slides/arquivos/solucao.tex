@@ -1,0 +1,157 @@
+%!TEX root = ../main.tex
+
+\begin{frame}{Tarefa de Aprendizado}
+  \vskip2\baselineskip
+	\begin{itemize}
+	\item Problema abordado como uma \alert{tarefa de classificação binária}
+	\item \alert{Entrada:}
+	\begin{itemize}
+		\item Imagem em escala de cinza com dimensões de $256 \times 256$ \emph{pixels} contendo duas assinaturas manuscritas (uma de referência e outra para a inferência)
+	\end{itemize}
+	\item \alert{Saída:}
+	\begin{itemize}
+		\item Classificação da assinatura quanto à sua autenticidade (autêntica ou forjada)
+	\end{itemize}
+	\end{itemize}
+
+	\begin{figure}
+		\caption{Visão geral da tarefa de aprendizado considerada}
+		\label{fig:esquema-solucao}
+		\includegraphics[width=0.5\textwidth]{img/esquema-solucao}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Tarefa de Aprendizado}
+
+\begin{itemize}
+  \item Partição dos exemplos utilizando o método \emph{holdout}
+    \begin{itemize}
+      \item $70\%$ para treinamento;
+      \item $10\%$ para validação;
+      \item $20\%$ para teste.
+    \end{itemize}
+  \bigskip
+  \item Utilização das métricas Acurácia, \emph{F-score} e EER (\emph{equal error rate}) para análise de desempenho dos modelos
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Coleta do conjunto de Dados}
+  \vskip2\baselineskip
+  \begin{itemize}
+    \item \emph{Signature Verification Competition} 2009 (SigComp2009)
+    \item Dois conjuntos de dados foram utilizados na competição:
+    \begin{itemize}
+      \item \emph{Norwegian Information Security Donders Centre for Cognition} (NISDCC)
+      \item \emph{Netherlands Forensic Institute} (NFI)
+    \end{itemize}
+    \item Informações \emph{online} e \emph{offline} das assinaturas
+  \end{itemize}
+
+  \begin{table}[h!]
+\centering
+\caption{Quantitativo de indivíduos e assinaturas \emph{offline} por conjunto de dados.}
+\label{tab:demonstracao-dataset}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{c C{2cm} C{2cm} C{3.25cm} C{2.5cm} C{2.5cm} C{2.25cm}}
+  \toprule
+   \textbf{Conjunto}& \textbf{Autores originais} & \textbf{Autores forjadores} & \textbf{Autores originais com assinaturas forjadas} & \textbf{Assinaturas genuínas}  & \textbf{Assinaturas forjadas} & \textbf{Total de assinaturas} \\
+  \midrule
+  NISDCC & 12 & 31 & 12 & 60 & 1.838 & 1.898 \\
+  NFI & 79 & 33 & 19 & 940 & 624 & 1.564 \\
+  \bottomrule
+\end{tabular}}
+\end{table}
+\end{frame}
+
+\begin{frame}{Preparação dos Dados}
+  \vskip2\baselineskip
+  \begin{itemize}
+    \item Combinação e redimensionamento das imagens
+    \bigskip
+    \item Abordagem A
+    \begin{itemize}
+      \item Separação dos exemplos \alert{autênticos} conforme o método \emph{holdout}
+      \item Exemplos \alert{forjados} necessitaram de um diferente tipo de separação
+      \item Boa para a identificação da falsificação de assinaturas de autores já visto pelos modelos
+    \end{itemize}
+    \bigskip
+    \item Abordagem B
+    \begin{itemize}
+      \item Separação do \alert{quantitativo de autores} para cada etapa conforme método \emph{holdout}
+      \item Boa para a identificação de autores inéditos para o modelo
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Preparação dos Dados}
+  \begin{table}[h!]
+    \centering
+    \caption{Quantitativo de exemplos por finalidade na tarefa de aprendizado considerada e classe para cada abordagem.}
+    \label{tab:divisao-dados}
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{c c c c c c}
+      \toprule
+      \multirow{2}{*}{\textbf{Conjunto}} & \multirow{2}{*}{\textbf{Tipo de Exemplo}} & \multicolumn{2}{c}{\textbf{Abordagem A}}  & \multicolumn{2}{c}{\textbf{Abordagem B}}\\ 
+       &  & \textbf{Nº de Exemplos} & \textbf{Proporção} & \textbf{Nº de Exemplos} & \textbf{Proporção}\\
+      \midrule
+      \multirow{2}{*}{Treinamento} & Autêntico & 9.374 & $54\%$ & 8.072 & $43\%$\\
+      & Forjado & 8.131 & $46\%$ & 10.887 & $57\%$\\
+       \midrule
+       \multirow{2}{*}{Validação} & Autêntico & 947 & $46\%$ & 1.179 & $37\%$ \\
+       & Forjado & 1.134 & $54\%$ & 1.976 & $63\%$\\
+       \midrule
+       \multirow{2}{*}{Teste} & Autêntico & 2.257 & $27\%$ & 2.271 & $39\%$\\
+       & Forjado & 6.119 & $73\%$ & 3.577 & $61\%$\\
+      \bottomrule
+    \end{tabular}}
+  \end{table}
+\end{frame}
+
+
+\begin{frame}{Preparação dos Dados}
+
+  \begin{figure}[ht!]
+    \caption{Representação gráfica da proporção dos exemplos por classe e finalidade para as
+    abordagens na tarefa de aprendizado considerada.}\label{fig:lenet-treinamento}
+    \begin{subfigure}[hb]{0.4\linewidth}
+      \caption{Abordagem A}
+      \includegraphics[width=\linewidth]{img/new_approach}
+    \end{subfigure}
+    \hspace{2cm}
+    \begin{subfigure}[hb]{0.4\linewidth}
+      \caption{Abordagem B}
+      \includegraphics[width=\linewidth]{img/approach_icdar}%
+    \end{subfigure}
+\end{figure}
+
+  \begin{itemize}
+    \item Normalização dos \emph{pixels} das imagens ao serem fornecidas às CNNs
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\Large{Modelos, Parâmetros e Hiperparâmetros Utilizados}}
+\begin{itemize}
+  \item Arquiteturas de CNNs escolhidas: LeNet, AlexNet, MobileNet, ShuffleNet, SqueezeNet, VGG-16 e InceptionV3
+\end{itemize}
+
+\begin{table}[h!]
+	\centering
+	\caption{Valores dos hiperparâmetros selecionados para a elaboração dos modelos.}
+	\label{tab:parametros}
+  \resizebox{!}{0.8cm}{
+	\begin{tabular}{c c C{3cm} C{3cm}}
+		\toprule
+		 \textbf{Épocas} & \textbf{\emph{Patience}} & \textbf{Otimizador} & \textbf{Função de ativação}  \\
+		\midrule
+		200 & 5, 10 e 15 & SGD, Adam e RMSprop & ReLU, ELU, SELU e Leaky ReLU \\
+		\bottomrule
+	\end{tabular}}
+\end{table}
+
+\begin{itemize}
+  \item Busca em \emph{grid} nos hiperparâmetros quando possível
+  \item Demais casos, hiperparâmetros típicos
+\end{itemize}
+
+\end{frame}

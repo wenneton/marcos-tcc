@@ -1,0 +1,35 @@
+%!TEX root = ../main.tex
+
+\begin{frame}{Considerações Finais}
+  \vskip1\baselineskip
+  \begin{itemize}
+    \item $222$ redes foram treinadas e testadas com um total de $27.962$ exemplos
+    \pause
+    \bigskip
+    \item Melhor desempenho Abordagem A: LeNet
+    \begin{itemize}
+      \item \alert{Parâmetros e Hiperparâmetros}: Otimizador RMSprop, \emph{patience} 5 e função de ativação \emph{Leaky} ReLU.
+      \item \alert{Acurácia}: $0.9865$
+      \item \alert{\emph{F-Score}}: $0.9755$
+      \item \alert{EER}: $1.17\%$
+    \end{itemize}
+    \pause
+    \item Melhor desempenho Abordagem B: MobileNet
+    \begin{itemize}
+      \item \alert{Parâmetros e Hiperparâmetros}: Otimizador Adam, \emph{patience} 15 e função de ativação ReLU.
+      \item \alert{Acurácia}: $0.8856$
+      \item \alert{\emph{F-Score}}: $0.8658$
+      \item \alert{EER}: $9.94\%$
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Considerações Finais}
+  \begin{itemize}
+    \item Trabalhos futuros:
+    \begin{itemize}
+      \item Encontrar modelos mais compactos
+      \item Remoção de mapas de calor afim de ajudar na checagem de assinaturas por revisores humanos
+    \end{itemize}
+  \end{itemize}
+\end{frame}
