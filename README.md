@@ -9,6 +9,6 @@ Este repositório contem:
 
 Algumas observações:
 
-- Este trabalho foi realizado durante o ano de 2019 e foi orientado pela [Prof. Dra. Elloá Barreto Guedes](github.com/elloa);
+- Este trabalho foi realizado durante o ano de 2019 e foi orientado pela [Prof. Dra. Elloá Barreto Guedes](https://github.com/elloa);
 
 - Trabalho desenvolvido em LaTeX.
